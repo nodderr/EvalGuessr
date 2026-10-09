@@ -6,7 +6,7 @@ import { Button } from "../components/Button";
 import { EvalBoard } from "../components/EvalBoard";
 import { GuessReadout } from "../components/GuessReadout";
 import { TONE_CLASS, resultMark } from "../components/resultMark";
-import { Screen, TopBar } from "./Layout";
+import { BOARD_COLUMN, Screen, TopBar } from "./Layout";
 
 /**
  * The tutorial's sample position is fixed and its eval is public on purpose:
@@ -34,7 +34,7 @@ export function Tutorial({ onBack, onStart }: { onBack: () => void; onStart: () 
         }
       />
 
-      <div className="grid gap-3">
+      <div className={BOARD_COLUMN}>
         <ToMove side="white" />
         <EvalBoard
           fen={SAMPLE.fen}

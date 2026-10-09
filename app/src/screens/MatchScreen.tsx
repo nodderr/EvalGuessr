@@ -9,7 +9,7 @@ import { GuessReadout } from "../components/GuessReadout";
 import { RoundReveal } from "../components/RoundReveal";
 import type { MatchClient } from "../game/MatchClient";
 import { useCountdown } from "../game/useMatch";
-import { Screen, TopBar } from "./Layout";
+import { BOARD_COLUMN, Screen, TopBar } from "./Layout";
 
 type Props = {
   view: MatchView;
@@ -93,8 +93,7 @@ export function MatchScreen({ view, client, onQuit }: Props) {
         }
       />
 
-      {/* On short phones, shrink the board so the guess controls stay on screen. */}
-      <div className="mx-auto grid w-full max-w-[max(260px,calc(100dvh-340px))] gap-3 lg:max-w-none">
+      <div className={BOARD_COLUMN}>
         <ToMove side={position.side_to_move} />
         <EvalBoard
           fen={position.fen}
@@ -114,7 +113,7 @@ export function MatchScreen({ view, client, onQuit }: Props) {
       </div>
 
       <div className="grid gap-5">
-        {opponents.length > 0 && <OpponentStatus view={view} />}
+        {opponents.length > 0 && <PlayerStatus view={view} />}
         {revealed && result ? (
           <>
             <RoundReveal result={result} players={view.players} you={view.you} />
@@ -151,35 +150,38 @@ export function MatchScreen({ view, client, onQuit }: Props) {
   );
 }
 
-/** One line per opponent: name, score, and what they're doing right now. */
-function OpponentStatus({ view }: { view: MatchView }) {
+/** One line per player (you first): name, score, and what they're doing right now. */
+function PlayerStatus({ view }: { view: MatchView }) {
+  const ordered = [...view.players].sort((a, b) => Number(b.id === view.you) - Number(a.id === view.you));
   return (
     <ul className="grid gap-1.5">
-      {view.players
-        .filter((p) => p.id !== view.you)
-        .map((p) => {
-          const [label, tone] = !p.connected
-            ? ["Reconnecting…", "text-bad"]
-            : view.phase === "guessing"
-              ? p.hasGuessed
-                ? ["Locked in", "text-good"]
-                : ["Thinking…", "text-ink-muted"]
-              : p.readyForNext
-                ? ["Ready", "text-good"]
-                : ["Reviewing", "text-ink-muted"];
-          return (
-            <li key={p.id} className="flex items-center justify-between rounded-xl border border-line px-4 py-2.5">
-              <span className="flex items-center gap-2 font-medium">
-                <span aria-hidden className="h-1 w-4 rounded-full bg-warn" />
+      {ordered.map((p) => {
+        const isYou = p.id === view.you;
+        const [label, tone] = !p.connected
+          ? ["Reconnecting…", "text-bad"]
+          : view.phase === "guessing"
+            ? p.hasGuessed
+              ? ["Locked in", "text-good"]
+              : ["Thinking…", "text-ink-muted"]
+            : p.readyForNext
+              ? ["Ready", "text-good"]
+              : ["Reviewing", "text-ink-muted"];
+        return (
+          <li key={p.id} className="flex items-center justify-between gap-3 rounded-xl border border-line px-4 py-2.5">
+            <span className="flex min-w-0 items-center gap-2 font-medium">
+              <span aria-hidden className={`h-1 w-4 shrink-0 rounded-full ${isYou ? "bg-you" : "bg-opponent"}`} />
+              <span className="truncate">
                 {p.name}
-                <span className="font-mono text-ink-muted tabular-nums">{p.score}</span>
+                {isYou && <span className="font-normal text-ink-muted"> (you)</span>}
               </span>
-              <span className={`text-sm font-semibold ${tone}`} aria-live="polite">
-                {label}
-              </span>
-            </li>
-          );
-        })}
+              <span className="font-mono text-ink-muted tabular-nums">{p.score}</span>
+            </span>
+            <span className={`shrink-0 text-sm font-semibold ${tone}`} aria-live="polite">
+              {label}
+            </span>
+          </li>
+        );
+      })}
     </ul>
   );
 }

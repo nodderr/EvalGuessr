@@ -11,7 +11,7 @@ export type BarMarker = {
   key: string;
   /** A player's guess in pawns. */
   value: number;
-  /** True for the viewing player (accent colour); others get the opponent colour. */
+  /** True for the viewing player (green); opponents are red. */
   self: boolean;
 };
 
@@ -123,7 +123,7 @@ export function EvalBar({ value, onChange, disabled, orientation, reveal }: Prop
         <div
           key={m.key}
           aria-hidden
-          className={`absolute -inset-x-2 h-1.5 rounded-full shadow-[0_0_0_1.5px_var(--surface)] ${m.self ? "bg-accent" : "bg-warn"}`}
+          className={`absolute -inset-x-2 h-1.5 rounded-full shadow-[0_0_0_1.5px_var(--surface)] ${m.self ? "bg-you" : "bg-opponent"}`}
           style={{ [whiteEdge]: along(evalToBarFraction(m.value)), transform: `translateY(${whiteEdge === "bottom" ? "50%" : "-50%"})` }}
         />
       ))}

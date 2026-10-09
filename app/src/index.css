@@ -15,6 +15,9 @@
   --good: #3f7d34;
   --warn: #9a6a12;
   --bad: #b23a2e;
+  /* Player colours in multiplayer: you are always green, opponents always red. */
+  --you: #4f7a3a;
+  --opponent: #c7362b;
   --board-light: #ebecd0;
   --board-dark: #779556;
 }
@@ -31,6 +34,8 @@
     --good: #8fc760;
     --warn: #e2b04a;
     --bad: #ec7a6c;
+    --you: #81b64c;
+    --opponent: #ef5a4b;
   }
 }
 
@@ -47,6 +52,8 @@
   --color-good: var(--good);
   --color-warn: var(--warn);
   --color-bad: var(--bad);
+  --color-you: var(--you);
+  --color-opponent: var(--opponent);
 }
 
 html {

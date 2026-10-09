@@ -31,7 +31,7 @@ export function RoundReveal({ result, players, you }: Props) {
             <li key={p.id} className="grid grid-cols-[1fr_auto] gap-x-3 rounded-xl bg-surface-raised px-4 py-3">
               <span className="flex items-center gap-2 font-medium">
                 {/* Matches this player's marker on the eval bar. */}
-                <span aria-hidden className={`h-1 w-4 rounded-full ${p.id === you ? "bg-accent" : "bg-warn"}`} />
+                <span aria-hidden className={`h-1 w-4 rounded-full ${p.id === you ? "bg-you" : "bg-opponent"}`} />
                 {p.id === you ? "You" : p.name}
               </span>
               <span className="font-mono text-lg font-semibold tabular-nums">{r.points > 0 ? `+${r.points}` : "0"}</span>
