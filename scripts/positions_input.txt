@@ -1,0 +1,47 @@
+# Input FENs for generate_positions.py: one FEN per line.
+# Blank lines and lines starting with "#" are ignored.
+#
+# The script walks this list in order and keeps the first --count positions
+# that are valid and not a forced mate. Extra lines at the bottom act as
+# reserves that replace any position that gets skipped.
+#
+# To scale up, replace this file with 1,000-2,000 FENs
+# (e.g. sampled from the Lichess open database). No code changes needed.
+
+# --- Opening ---
+# Italian Game, quiet main line (near equal)
+r1bq1rk1/ppp2ppp/2np1n2/2b1p3/2B1P3/2PP1N2/PP3PPP/RNBQ1RK1 w - - 2 7
+# Englund Gambit trap: White has just played 6.Bc3?, ...Bb4 follows (Black clearly better)
+r1b1kbnr/pppp1ppp/2n5/4P3/8/2B2N2/PqP1PPPP/RN1QKB1R b KQkq - 1 6
+# Petrov trap: 4...Nf6?? allows Nc6+ winning the queen (White clearly better)
+rnbqkb1r/pppp1ppp/5n2/4N3/8/8/PPPPQPPP/RNB1KB1R w KQkq - 2 5
+# Caro-Kann with 5...Ngf6?? (Nd6 is mate): deliberately included to exercise the forced-mate skip
+r1bqkb1r/pp1npppp/2p2n2/8/3PN3/8/PPP1QPPP/R1B1KBNR w KQkq - 3 6
+
+# --- Middlegame ---
+# King's Indian, Mar del Plata pawn race (roughly balanced, sharp)
+r1bq1rk1/ppp1n1bp/3p1np1/3Pp3/2P1Pp2/2NN1P2/PP1BB1PP/R2Q1RK1 w - - 0 13
+# Caro-Kann 7...h6?, Nxf7 sacrifice is crushing (White clearly better)
+r1bqkb1r/pp1n1pp1/2p1pn1p/6N1/2BP4/8/PPP1QPPP/R1B1K1NR w KQkq - 0 8
+# Noah's Ark trap: ...c4 traps the bishop on b3 (Black clearly better)
+r2qkbnr/3b1ppp/p2p4/1ppQ4/4P3/1B6/PPP2PPP/RNB1K2R b KQkq - 5 11
+
+# --- Endgame ---
+# Symmetrical rook endgame (dead equal)
+8/5pk1/6p1/7p/7P/6P1/r4PK1/4R3 w - - 0 40
+# Rook endgame, symmetrical-looking pawns but White's structure is better
+2r3k1/pp3ppp/4p3/3p4/3P4/2P1P3/PP3PPP/2R3K1 b - - 0 25
+# Rook vs bishop, equal pawns (Black clearly better; with Black to move ...Rd1+ is mate, so White to move)
+3r2k1/p4ppp/8/8/8/4B3/P4PPP/6K1 w - - 0 30
+# Knight up, pawns on one side (White clearly better)
+8/5pk1/6p1/7p/1N5P/6P1/5PK1/8 b - - 0 50
+
+# --- Reserves (used only if positions above are skipped) ---
+# Sicilian Najdorf, 5...a6 (near equal)
+rnbqkb1r/1p2pppp/p2p1n2/8/3NP3/2N5/PPP2PPP/R1BQKB1R w KQkq - 0 6
+# Queen's Gambit Declined, Capablanca freeing manoeuvre (near equal)
+r1bq1rk1/pp1nbppp/2p1p3/3n2B1/2BP4/2N1PN2/PP3PPP/2RQK2R w K - 1 10
+# Fried Liver Attack, Black king on e6 (White somewhat better)
+r1bq1b1r/ppp3pp/2n1k3/3np3/2B5/2N2Q2/PPPP1PPP/R1B1K2R b KQ - 3 8
+# Elephant trap: Black has won a piece (Black clearly better)
+r1bk3r/pppn1ppp/8/3n4/3P4/8/PP1KPPPP/R4BNR w - - 0 10

@@ -1,0 +1,82 @@
+[
+  {
+    "id": 1,
+    "fen": "r1bq1rk1/ppp2ppp/2np1n2/2b1p3/2B1P3/2PP1N2/PP3PPP/RNBQ1RK1 w - - 2 7",
+    "side_to_move": "white",
+    "eval_cp": 14,
+    "depth_reached": 21,
+    "best_move": "h3"
+  },
+  {
+    "id": 2,
+    "fen": "r1b1kbnr/pppp1ppp/2n5/4P3/8/2B2N2/PqP1PPPP/RN1QKB1R b KQkq - 1 6",
+    "side_to_move": "black",
+    "eval_cp": -668,
+    "depth_reached": 16,
+    "best_move": "Bb4"
+  },
+  {
+    "id": 3,
+    "fen": "rnbqkb1r/pppp1ppp/5n2/4N3/8/8/PPPPQPPP/RNB1KB1R w KQkq - 2 5",
+    "side_to_move": "white",
+    "eval_cp": 830,
+    "depth_reached": 23,
+    "best_move": "Nc6+"
+  },
+  {
+    "id": 4,
+    "fen": "r1bq1rk1/ppp1n1bp/3p1np1/3Pp3/2P1Pp2/2NN1P2/PP1BB1PP/R2Q1RK1 w - - 0 13",
+    "side_to_move": "white",
+    "eval_cp": 72,
+    "depth_reached": 22,
+    "best_move": "a4"
+  },
+  {
+    "id": 5,
+    "fen": "r1bqkb1r/pp1n1pp1/2p1pn1p/6N1/2BP4/8/PPP1QPPP/R1B1K1NR w KQkq - 0 8",
+    "side_to_move": "white",
+    "eval_cp": 923,
+    "depth_reached": 14,
+    "best_move": "Nxf7"
+  },
+  {
+    "id": 6,
+    "fen": "r2qkbnr/3b1ppp/p2p4/1ppQ4/4P3/1B6/PPP2PPP/RNB1K2R b KQkq - 5 11",
+    "side_to_move": "black",
+    "eval_cp": -469,
+    "depth_reached": 16,
+    "best_move": "c4"
+  },
+  {
+    "id": 7,
+    "fen": "8/5pk1/6p1/7p/7P/6P1/r4PK1/4R3 w - - 0 40",
+    "side_to_move": "white",
+    "eval_cp": 0,
+    "depth_reached": 46,
+    "best_move": "Rc1"
+  },
+  {
+    "id": 8,
+    "fen": "2r3k1/pp3ppp/4p3/3p4/3P4/2P1P3/PP3PPP/2R3K1 b - - 0 25",
+    "side_to_move": "black",
+    "eval_cp": 132,
+    "depth_reached": 21,
+    "best_move": "b5"
+  },
+  {
+    "id": 9,
+    "fen": "3r2k1/p4ppp/8/8/8/4B3/P4PPP/6K1 w - - 0 30",
+    "side_to_move": "white",
+    "eval_cp": -618,
+    "depth_reached": 27,
+    "best_move": "g3"
+  },
+  {
+    "id": 10,
+    "fen": "8/5pk1/6p1/7p/1N5P/6P1/5PK1/8 b - - 0 50",
+    "side_to_move": "black",
+    "eval_cp": 729,
+    "depth_reached": 32,
+    "best_move": "Kf6"
+  }
+]
