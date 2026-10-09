@@ -38,7 +38,7 @@ export function RoundReveal({ result, players, you }: Props) {
               <span className="text-sm text-ink-muted">
                 {r.guess === null
                   ? "No guess"
-                  : `Guessed ${formatEval(r.guess)}, off by ${r.gap!.toFixed(1)}`}
+                  : `${formatEval(r.guess)}, off by ${r.gap!.toFixed(1)}`}
               </span>
               <span className={`text-sm font-semibold ${TONE_CLASS[mark.tone]}`}>{mark.label}</span>
             </li>

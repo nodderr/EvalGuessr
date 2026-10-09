@@ -17,7 +17,8 @@ import { cpToPawns, normalizeGuess } from "./evalFormat";
 import { scoreGuess } from "./scoring";
 import { toPublicPosition, type PositionRecord, type PublicPosition } from "./types";
 
-export type MatchMode = "practice" | "online";
+/** practice: 5 timed positions, solo. endless: solo, no clock, no limit. online: 1v1. */
+export type MatchMode = "practice" | "endless" | "online";
 export type MatchPhase = "lobby" | "guessing" | "revealed" | "finished";
 
 export type Player = {
@@ -45,7 +46,8 @@ export type RoundResult = {
 export type MatchState = {
   id: string;
   mode: MatchMode;
-  timeControl: TimeControl;
+  /** Null for endless mode: no clock. */
+  timeControl: TimeControl | null;
   maxPlayers: number;
   positions: PositionRecord[];
   players: Player[];
@@ -71,7 +73,8 @@ export type MatchErrorCode =
   | "UNKNOWN_PLAYER"
   | "ALREADY_GUESSED"
   | "TOO_LATE"
-  | "NOT_FINISHED";
+  | "NOT_FINISHED"
+  | "NOT_ENDLESS";
 
 export class MatchError extends Error {
   constructor(public readonly code: MatchErrorCode, message?: string) {
@@ -87,14 +90,15 @@ export class MatchError extends Error {
 export function createMatch(opts: {
   id: string;
   mode: MatchMode;
-  timeControl: TimeControl;
+  timeControl: TimeControl | null;
+  /** For endless mode, pass the whole (shuffled) pool; it is reshuffled when used up. */
   positions: PositionRecord[];
 }): MatchState {
   return {
     id: opts.id,
     mode: opts.mode,
-    timeControl: opts.timeControl,
-    maxPlayers: opts.mode === "practice" ? 1 : MATCH.maxPlayers,
+    timeControl: opts.mode === "endless" ? null : opts.timeControl,
+    maxPlayers: opts.mode === "online" ? MATCH.maxPlayers : 1,
     positions: opts.positions,
     players: [],
     phase: "lobby",
@@ -154,8 +158,9 @@ export function startMatch(state: MatchState, now: number): MatchState {
 // Rounds
 // ---------------------------------------------------------------------------
 
-export function secondsPerPosition(state: MatchState): number {
-  return TIME_CONTROLS[state.timeControl];
+/** Null when there is no clock (endless mode). */
+export function secondsPerPosition(state: MatchState): number | null {
+  return state.timeControl ? TIME_CONTROLS[state.timeControl] : null;
 }
 
 function beginRound(state: MatchState, roundIndex: number, now: number): MatchState {
@@ -163,7 +168,7 @@ function beginRound(state: MatchState, roundIndex: number, now: number): MatchSt
     ...state,
     phase: "guessing",
     roundIndex,
-    roundDeadline: now + secondsPerPosition(state) * 1000,
+    roundDeadline: secondsPerPosition(state) === null ? null : now + secondsPerPosition(state)! * 1000,
     guesses: {},
     readyForNext: [],
   };
@@ -235,10 +240,34 @@ export function markReady(state: MatchState, playerId: string, now: number): Mat
 export function advance(state: MatchState, now: number): MatchState {
   if (state.phase !== "revealed") throw new MatchError("NOT_REVEALED");
   const nextIndex = state.roundIndex + 1;
+  if (state.mode === "endless") {
+    // Never runs out: when the queue is used up, append a reshuffle of the same positions.
+    const positions = nextIndex < state.positions.length ? state.positions : refill(state.positions);
+    return beginRound({ ...state, positions }, nextIndex, now);
+  }
   if (nextIndex >= state.positions.length) {
     return { ...state, phase: "finished", readyForNext: [] };
   }
   return beginRound(state, nextIndex, now);
+}
+
+/** Append one more shuffled pass over the distinct positions, never repeating the last one immediately. */
+function refill(queue: PositionRecord[]): PositionRecord[] {
+  const distinct = [...new Map(queue.map((p) => [p.id, p])).values()];
+  const next = pickPositions(distinct, distinct.length);
+  const last = queue[queue.length - 1];
+  if (next.length > 1 && last && next[0]!.id === last.id) [next[0], next[1]] = [next[1]!, next[0]!];
+  return [...queue, ...next];
+}
+
+/**
+ * Endless mode: stop and go to the summary. An unanswered current round is
+ * dropped, so the summary only counts positions the player actually played.
+ */
+export function finishEndless(state: MatchState): MatchState {
+  if (state.mode !== "endless") throw new MatchError("NOT_ENDLESS");
+  if (state.phase === "finished") return state;
+  return { ...state, phase: "finished", roundDeadline: null, guesses: {}, readyForNext: [] };
 }
 
 /** A player asked for a rematch. The server starts a new match once every connected player has. */
@@ -278,15 +307,17 @@ export function totals(state: MatchState): Record<string, number> {
 export type MatchView = {
   id: string;
   mode: MatchMode;
-  timeControl: TimeControl;
-  secondsPerPosition: number;
+  timeControl: TimeControl | null;
+  /** Null in endless mode (no clock). */
+  secondsPerPosition: number | null;
   phase: MatchPhase;
   /** The viewing player's id. */
   you: string;
   maxPlayers: number;
   players: (Player & { score: number; hasGuessed: boolean; readyForNext: boolean; wantsRematch: boolean })[];
   roundIndex: number;
-  totalRounds: number;
+  /** Null in endless mode (no limit). */
+  totalRounds: number | null;
   /** Current position without its eval. Null in the lobby and once finished. */
   position: PublicPosition | null;
   /** Epoch ms (server clock). Pair with serverNow to correct for clock skew. */
@@ -318,7 +349,7 @@ export function viewFor(state: MatchState, playerId: string, now: number): Match
       wantsRematch: state.rematchVotes.includes(p.id),
     })),
     roundIndex: state.roundIndex,
-    totalRounds: state.positions.length,
+    totalRounds: state.mode === "endless" ? null : state.positions.length,
     position: showPosition && record ? toPublicPosition(record) : null,
     roundDeadline: state.roundDeadline,
     serverNow: now,

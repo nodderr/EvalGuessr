@@ -1,11 +1,13 @@
-import { ArrowLeft, Fire, HourglassMedium, Lightning, type Icon } from "@phosphor-icons/react";
+import { ArrowLeft, Fire, HourglassMedium, Infinity as InfinityIcon, Lightning, type Icon } from "@phosphor-icons/react";
 import { MATCH, TIME_CONTROLS, type TimeControl } from "@eval-guess/shared";
 import { Screen, TopBar } from "./Layout";
 
-const OPTIONS: { id: TimeControl; label: string; icon: Icon }[] = [
-  { id: "bullet", label: "Bullet", icon: Lightning },
-  { id: "blitz", label: "Blitz", icon: Fire },
-  { id: "rapid", label: "Rapid", icon: HourglassMedium },
+/** null = endless: no clock, no position limit. */
+const OPTIONS: { id: TimeControl | null; label: string; detail: string; icon: Icon }[] = [
+  { id: "bullet", label: "Bullet", detail: `${TIME_CONTROLS.bullet}s`, icon: Lightning },
+  { id: "blitz", label: "Blitz", detail: `${TIME_CONTROLS.blitz}s`, icon: Fire },
+  { id: "rapid", label: "Rapid", detail: `${TIME_CONTROLS.rapid}s`, icon: HourglassMedium },
+  { id: null, label: "Endless", detail: "No clock", icon: InfinityIcon },
 ];
 
 export function TimeControlSelect({
@@ -15,7 +17,7 @@ export function TimeControlSelect({
   error = null,
 }: {
   onBack: () => void;
-  onPick: (tc: TimeControl) => void;
+  onPick: (tc: TimeControl | null) => void;
   busy?: boolean;
   error?: string | null;
 }) {
@@ -30,14 +32,14 @@ export function TimeControlSelect({
         }
       />
       <div className="mx-auto grid max-w-md gap-6 pt-2 md:pt-10">
-        <div className="grid gap-2">
-          <h1 className="text-2xl font-semibold tracking-tight">Pick a time control</h1>
-          <p className="text-ink-muted">{MATCH.positionsPerMatch} positions. The clock is per position.</p>
+        <div className="grid gap-1">
+          <h1 className="text-2xl font-semibold tracking-tight">Practice</h1>
+          <p className="text-ink-muted">{MATCH.positionsPerMatch} positions, or endless.</p>
         </div>
         <div className="grid gap-3">
-          {OPTIONS.map(({ id, label, icon: IconCmp }) => (
+          {OPTIONS.map(({ id, label, detail, icon: IconCmp }) => (
             <button
-              key={id}
+              key={label}
               type="button"
               onClick={() => onPick(id)}
               disabled={busy}
@@ -45,11 +47,11 @@ export function TimeControlSelect({
             >
               <IconCmp size={26} weight="duotone" className="text-accent" aria-hidden />
               <span className="flex-1 text-lg font-semibold">{label}</span>
-              <span className="font-mono text-lg tabular-nums text-ink-muted">{TIME_CONTROLS[id]}s</span>
+              <span className="font-mono text-lg tabular-nums text-ink-muted">{detail}</span>
             </button>
           ))}
         </div>
-        {busy && <p className="text-ink-muted">Starting your match…</p>}
+        {busy && <p className="text-ink-muted">Starting…</p>}
         {error && (
           <p role="alert" className="text-sm text-bad">
             {error}

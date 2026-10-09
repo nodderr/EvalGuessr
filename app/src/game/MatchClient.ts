@@ -7,7 +7,8 @@ import type { MatchMode, MatchView, TimeControl } from "@eval-guess/shared";
 
 export type CreateMatchOptions = {
   mode: MatchMode;
-  timeControl: TimeControl;
+  /** Null for endless mode (no clock). */
+  timeControl: TimeControl | null;
   name: string;
 };
 
@@ -38,5 +39,7 @@ export interface MatchClient {
   ready(): Promise<void>;
   /** Ask for a rematch after an online match. */
   rematch(): Promise<void>;
+  /** Endless mode: stop and show the summary. */
+  finish(): Promise<void>;
   leave(): void;
 }

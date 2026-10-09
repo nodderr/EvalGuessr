@@ -18,14 +18,14 @@ const ACTION_TIMEOUT_MS = 10_000;
 
 /** Readable messages for the server's error codes. */
 const MESSAGES: Record<string, string> = {
-  MATCH_NOT_FOUND: "No match with that code. Check it and try again.",
-  MATCH_FULL: "That match is already full.",
-  NOT_IN_LOBBY: "That match has already started.",
-  TOO_LATE: "Time was up before your guess arrived.",
-  ALREADY_GUESSED: "Your guess is already locked in.",
-  SERVER_BUSY: "The server is busy. Try again in a minute.",
-  INVALID_REQUEST: "Something was wrong with that request.",
-  TIMEOUT: "The server didn't answer. Check your connection and try again.",
+  MATCH_NOT_FOUND: "No match with that code.",
+  MATCH_FULL: "Match is full.",
+  NOT_IN_LOBBY: "Match already started.",
+  TOO_LATE: "Too late.",
+  ALREADY_GUESSED: "Already locked in.",
+  SERVER_BUSY: "Server busy. Try again later.",
+  INVALID_REQUEST: "Invalid request.",
+  TIMEOUT: "No response from the server.",
 };
 
 export class ServerError extends Error {
@@ -112,6 +112,10 @@ export class SocketMatchClient implements MatchClient {
 
   async rematch(): Promise<void> {
     await this.call(this.socket.timeout(ACTION_TIMEOUT_MS).emitWithAck("match:rematch"));
+  }
+
+  async finish(): Promise<void> {
+    await this.call(this.socket.timeout(ACTION_TIMEOUT_MS).emitWithAck("match:finish"));
   }
 
   leave(): void {

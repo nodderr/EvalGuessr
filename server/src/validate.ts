@@ -32,9 +32,11 @@ export function matchCode(v: unknown): string {
   return code;
 }
 
-export function createRequest(v: unknown): { mode: MatchMode; timeControl: TimeControl; name: string } {
+export function createRequest(v: unknown): { mode: MatchMode; timeControl: TimeControl | null; name: string } {
   const o = obj(v);
-  if (o.mode !== "practice" && o.mode !== "online") throw new InvalidRequest("Bad mode");
+  if (o.mode !== "practice" && o.mode !== "endless" && o.mode !== "online") throw new InvalidRequest("Bad mode");
+  // Endless has no clock; every other mode needs a valid time control.
+  if (o.mode === "endless") return { mode: o.mode, timeControl: null, name: name(o.name) };
   if (typeof o.timeControl !== "string" || !(o.timeControl in TIME_CONTROLS)) {
     throw new InvalidRequest("Bad time control");
   }

@@ -4,9 +4,10 @@ import { SCORING, TIME_CONTROLS, formatEval, normalizeGuess, scoreGuess } from "
 import { ToMove } from "../components/Board";
 import { Button } from "../components/Button";
 import { EvalBoard } from "../components/EvalBoard";
+import { useGuessKeys } from "../components/useGuessKeys";
 import { GuessReadout } from "../components/GuessReadout";
 import { TONE_CLASS, resultMark } from "../components/resultMark";
-import { BOARD_COLUMN, Screen, TopBar } from "./Layout";
+import { BOARD_COLUMN, SIDE_COLUMN, Screen, TopBar } from "./Layout";
 
 /**
  * The tutorial's sample position is fixed and its eval is public on purpose:
@@ -22,20 +23,12 @@ export function Tutorial({ onBack, onStart }: { onBack: () => void; onStart: () 
   const [locked, setLocked] = useState(false);
   const result = scoreGuess(normalizeGuess(guess), SAMPLE.evalPawns);
   const mark = resultMark({ ...result, guess });
+  useGuessKeys({ enabled: !locked, value: guess, orientation: "white", onChange: setGuess, onSubmit: () => setLocked(true) });
 
   return (
     <Screen split>
-      <TopBar
-        left={
-          <button type="button" onClick={onBack} className="flex min-h-11 items-center gap-2 font-medium">
-            <ArrowLeft size={20} weight="bold" aria-hidden />
-            Back
-          </button>
-        }
-      />
-
       <div className={BOARD_COLUMN}>
-        <ToMove side="white" />
+        <ToMove side="white" className="lg:hidden" />
         <EvalBoard
           fen={SAMPLE.fen}
           orientation="white"
@@ -46,62 +39,51 @@ export function Tutorial({ onBack, onStart }: { onBack: () => void; onStart: () 
         />
       </div>
 
-      <div className="grid gap-6">
-        <section className="grid gap-2">
-          <h1 className="text-2xl font-semibold tracking-tight">How to play</h1>
-          <p className="leading-relaxed text-ink-muted">
-            Each match is five positions. Guess how Stockfish rates each one, in pawns.
-          </p>
-        </section>
+      <div className={SIDE_COLUMN}>
+        <TopBar
+          className="order-first lg:order-none"
+          left={
+            <button type="button" onClick={onBack} className="flex min-h-11 items-center gap-2 font-medium">
+              <ArrowLeft size={20} weight="bold" aria-hidden />
+              Back
+            </button>
+          }
+        />
+        <div className="grid gap-6">
+          <section className="grid gap-4">
+            <h1 className="text-2xl font-semibold tracking-tight">How to play</h1>
+            <ul className="grid gap-3 leading-relaxed">
+              <li>Guess Stockfish's eval by dragging the bar. Plus is good for White, minus for Black.</li>
+              <li>
+                Bullet {TIME_CONTROLS.bullet}s, blitz {TIME_CONTROLS.blitz}s, rapid {TIME_CONTROLS.rapid}s per position.
+                When time runs out, your current guess counts. Endless has no clock.
+              </li>
+              <li>
+                Within {SCORING.perfectWindow.toFixed(1)} pawn: 100 points. {SCORING.zeroAt.toFixed(1)} or more off: 0.
+              </li>
+            </ul>
+          </section>
 
-        <ul className="grid gap-4 leading-relaxed">
-          <li>
-            <strong className="font-semibold">Drag the eval bar beside the board.</strong>{" "}
-            <span className="text-ink-muted">
-              More white means White is better, more black means Black is. Plus is always good for White, even
-              when the board is turned around for Black to move.
-            </span>
-          </li>
-          <li>
-            <strong className="font-semibold">Beat the clock.</strong>{" "}
-            <span className="text-ink-muted">
-              Bullet gives you {TIME_CONTROLS.bullet}s per position, blitz {TIME_CONTROLS.blitz}s, rapid{" "}
-              {TIME_CONTROLS.rapid}s. If time runs out, wherever your slider sits is your guess.
-            </span>
-          </li>
-          <li>
-            <strong className="font-semibold">Within {SCORING.perfectWindow.toFixed(1)} pawns scores 100.</strong>{" "}
-            <span className="text-ink-muted">
-              Further off, points drop steadily to 0 at {SCORING.zeroAt.toFixed(1)} pawns away.
-            </span>
-          </li>
-        </ul>
-
-        <section className="grid gap-4 rounded-xl bg-surface-raised p-4">
-          <h2 className="font-semibold">Try it on the starting position</h2>
-          <GuessReadout value={guess} locked={locked} />
-          {locked ? (
-            <div className="grid gap-1" aria-live="polite">
-              <p>
-                Stockfish says <span className="font-mono font-semibold">{formatEval(SAMPLE.evalPawns)}</span>. You
-                were off by {result.gap.toFixed(1)}.
+          <section className="grid gap-4 rounded-xl bg-surface-raised p-4">
+            <h2 className="font-semibold">Try it</h2>
+            <GuessReadout value={guess} locked={locked} />
+            {locked ? (
+              <p aria-live="polite">
+                Stockfish <span className="font-mono font-semibold">{formatEval(SAMPLE.evalPawns)}</span>.{" "}
+                <span className={`font-semibold ${TONE_CLASS[mark.tone]}`}>{mark.label}</span>, {result.points} points.
               </p>
-              <p>
-                <span className={`font-semibold ${TONE_CLASS[mark.tone]}`}>{mark.label}</span>
-                <span className="text-ink-muted">, {result.points} points. White starts with a small edge.</span>
-              </p>
-            </div>
-          ) : (
-            <Button onClick={() => setLocked(true)}>Lock in</Button>
-          )}
-          {locked && (
-            <Button variant="secondary" onClick={() => setLocked(false)}>
-              Try again
-            </Button>
-          )}
-        </section>
+            ) : (
+              <Button onClick={() => setLocked(true)}>Lock in</Button>
+            )}
+            {locked && (
+              <Button variant="secondary" onClick={() => setLocked(false)}>
+                Try again
+              </Button>
+            )}
+          </section>
 
-        <Button onClick={onStart}>Start practice</Button>
+          <Button onClick={onStart}>Start practice</Button>
+        </div>
       </div>
     </Screen>
   );

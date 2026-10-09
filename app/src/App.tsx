@@ -50,7 +50,7 @@ export function App() {
 function Game({ client }: { client: MatchClient }) {
   const [joinCode] = useState(takeJoinCode);
   const [route, setRoute] = useState<Route>(joinCode ? "join" : "home");
-  const [practiceTc, setPracticeTc] = useState<TimeControl>("blitz");
+  const [practiceTc, setPracticeTc] = useState<TimeControl | null>("blitz");
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [notice, setNotice] = useState<string | null>(null);
@@ -67,7 +67,7 @@ function Game({ client }: { client: MatchClient }) {
     () =>
       client.onAbandoned((reason) => {
         setNotice(
-          reason === "opponent_left" ? "Your opponent left the match." : "Your opponent lost connection and didn't come back.",
+          reason === "opponent_left" ? "Opponent left." : "Opponent disconnected.",
         );
         setRoute("home");
       }),
@@ -94,9 +94,12 @@ function Game({ client }: { client: MatchClient }) {
     }
   };
 
-  const startPractice = (tc: TimeControl) => {
+  /** tc = null starts endless mode (no clock, no position limit). */
+  const startPractice = (tc: TimeControl | null) => {
     setPracticeTc(tc);
-    void run(() => client.create({ mode: "practice", timeControl: tc, name: loadName() || "You" }));
+    void run(() =>
+      client.create({ mode: tc ? "practice" : "endless", timeControl: tc, name: loadName() || "You" }),
+    );
   };
 
   const leaveToHome = () => {
@@ -155,7 +158,7 @@ function Game({ client }: { client: MatchClient }) {
             <Summary
               view={view}
               onPlayAgain={() =>
-                view.mode === "practice" ? startPractice(practiceTc) : void client.rematch().catch(() => {})
+                view.mode === "online" ? void client.rematch().catch(() => {}) : startPractice(practiceTc)
               }
               onHome={leaveToHome}
             />

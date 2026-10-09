@@ -11,13 +11,24 @@ type Props = {
 };
 
 export function Summary({ view, onPlayAgain, onHome }: Props) {
-  const maxTotal = view.totalRounds * SCORING.maxPoints;
+  const endless = view.mode === "endless";
+  const played = view.results.length;
+  // Endless sessions are scored out of the positions actually played.
+  const maxTotal = (view.totalRounds ?? played) * SCORING.maxPoints;
   const ranked = [...view.players].sort((a, b) => b.score - a.score);
   const me = view.players.find((p) => p.id === view.you)!;
   const multiplayer = view.players.length > 1;
   const top = ranked[0]!;
   const tie = multiplayer && ranked.filter((p) => p.score === top.score).length > 1;
-  const headline = !multiplayer ? "Match complete" : tie ? "It's a draw" : top.id === view.you ? "You win" : `${top.name} wins`;
+  const headline = endless
+    ? `${played} position${played === 1 ? "" : "s"}`
+    : !multiplayer
+      ? "Match complete"
+      : tie
+        ? "Draw"
+        : top.id === view.you
+          ? "You win"
+          : `${top.name} wins`;
   const others = view.players.filter((p) => p.id !== view.you);
   const opponentGone = others.some((p) => !p.connected);
   const askedBy = others.filter((p) => p.wantsRematch);
@@ -38,6 +49,9 @@ export function Summary({ view, onPlayAgain, onHome }: Props) {
                 .map((p) => `${p.name}: ${p.score}`)
                 .join(", ")}
             </p>
+          )}
+          {endless && played > 0 && (
+            <p className="text-ink-muted">Average {Math.round(me.score / played)} per position</p>
           )}
         </div>
 
@@ -80,7 +94,7 @@ export function Summary({ view, onPlayAgain, onHome }: Props) {
         <div className="grid gap-3">
           <div className="grid gap-3 sm:grid-cols-2">
             <Button onClick={onPlayAgain} disabled={multiplayer && (me.wantsRematch || opponentGone)}>
-              {!multiplayer ? "Play again" : me.wantsRematch ? "Rematch requested" : "Rematch"}
+              {!multiplayer ? "Play again" : me.wantsRematch ? "Requested" : "Rematch"}
             </Button>
             <Button variant="secondary" onClick={onHome}>
               Home
@@ -89,9 +103,9 @@ export function Summary({ view, onPlayAgain, onHome }: Props) {
           {multiplayer && (
             <p className="text-center text-sm text-ink-muted" aria-live="polite">
               {opponentGone
-                ? "Your opponent has disconnected."
+                ? "Opponent disconnected."
                 : me.wantsRematch
-                  ? `Waiting for ${others.filter((p) => !p.wantsRematch).map((p) => p.name).join(", ")} to accept.`
+                  ? `Waiting for ${others.filter((p) => !p.wantsRematch).map((p) => p.name).join(", ")}.`
                   : askedBy.length > 0
                     ? `${askedBy.map((p) => p.name).join(", ")} wants a rematch.`
                     : null}

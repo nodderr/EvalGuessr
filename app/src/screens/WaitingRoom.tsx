@@ -9,6 +9,7 @@ export function WaitingRoom({ view, onCancel }: { view: MatchView; onCancel: () 
   const [copied, setCopied] = useState(false);
   const link = `${window.location.origin}/?join=${view.id}`;
   const canShare = typeof navigator.share === "function";
+  const tc = view.timeControl;
 
   const copy = async () => {
     try {
@@ -27,16 +28,15 @@ export function WaitingRoom({ view, onCancel }: { view: MatchView; onCancel: () 
   return (
     <Screen>
       <div className="mx-auto grid max-w-md gap-8 pt-6 md:pt-14">
-        <div className="grid gap-2">
-          <h1 className="text-2xl font-semibold tracking-tight">Waiting for your opponent</h1>
+        <div className="grid gap-1">
+          <h1 className="text-2xl font-semibold tracking-tight">Waiting for opponent</h1>
           <p className="text-ink-muted">
-            Send them this code or link. The match starts as soon as they join. {view.timeControl[0]!.toUpperCase()}
-            {view.timeControl.slice(1)}, {TIME_CONTROLS[view.timeControl]}s per position.
+            Share the code or link.
+            {tc && ` ${tc[0]!.toUpperCase()}${tc.slice(1)}, ${TIME_CONTROLS[tc]}s.`}
           </p>
         </div>
 
-        <div className="grid gap-3 rounded-xl bg-surface-raised p-5 text-center">
-          <span className="text-sm text-ink-muted">Match code</span>
+        <div className="grid gap-2 rounded-xl bg-surface-raised p-5 text-center">
           <span className="font-mono text-5xl font-semibold tracking-[0.25em] select-all">{view.id}</span>
           <span className="truncate font-mono text-sm text-ink-muted select-all">{link}</span>
         </div>
@@ -59,7 +59,7 @@ export function WaitingRoom({ view, onCancel }: { view: MatchView; onCancel: () 
         </div>
         {canShare && (
           <button type="button" onClick={onCancel} className="justify-self-center text-ink-muted underline-offset-4 hover:underline">
-            Cancel match
+            Cancel
           </button>
         )}
       </div>

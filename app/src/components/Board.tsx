@@ -34,9 +34,9 @@ export function Board({ fen, orientation }: Props) {
 }
 
 /** "White to move" / "Black to move" with a swatch of that colour. */
-export function ToMove({ side }: { side: "white" | "black" }) {
+export function ToMove({ side, className = "" }: { side: "white" | "black"; className?: string }) {
   return (
-    <p className="flex items-center gap-2 text-sm font-medium">
+    <p className={`flex items-center gap-2 text-sm font-medium ${className}`}>
       <span
         aria-hidden
         className={`size-3.5 rounded-full border border-ink/40 ${side === "white" ? "bg-[#f7f7f2]" : "bg-[#262522]"}`}

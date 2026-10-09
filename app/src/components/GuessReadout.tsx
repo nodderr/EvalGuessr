@@ -11,9 +11,7 @@ export function GuessReadout({ value, locked }: { value: number; locked: boolean
         </span>
       </div>
       {!locked && (
-        <p className="text-sm text-ink-muted">
-          Drag the bar beside the board. Arrow keys nudge by 0.1, Shift+arrow by 1.
-        </p>
+        <p className="text-sm text-ink-muted">Drag the bar, scroll, or use the arrow keys or W/S.</p>
       )}
     </div>
   );

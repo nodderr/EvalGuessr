@@ -228,3 +228,34 @@ describe("rematch", () => {
     expect(rooms.size).toBe(1);
   });
 });
+
+describe("endless mode", () => {
+  it("runs with no clock past the end of the pool, then finishes on request", () => {
+    const s = rooms.create("conn-e", { mode: "endless", timeControl: null, name: "Solo" });
+    let view = lastView("conn-e");
+    expect(view.phase).toBe("guessing");
+    expect(view.roundDeadline).toBeNull();
+    expect(view.totalRounds).toBeNull();
+
+    vi.advanceTimersByTime(60 * 60 * 1000); // an hour of thinking: still guessing
+    expect(lastView("conn-e").phase).toBe("guessing");
+
+    for (let r = 0; r < POOL.length + 3; r++) {
+      rooms.submitGuess(s, 0);
+      rooms.ready(s);
+    }
+    view = lastView("conn-e");
+    expect(view.phase).toBe("guessing");
+    expect(view.results).toHaveLength(POOL.length + 3);
+
+    rooms.finish(s);
+    view = lastView("conn-e");
+    expect(view.phase).toBe("finished");
+    expect(view.results).toHaveLength(POOL.length + 3);
+  });
+
+  it("refuses finish outside endless mode", () => {
+    const { a } = startOnline();
+    expect(codeOf(() => rooms.finish(a))).toBe("NOT_ENDLESS");
+  });
+});

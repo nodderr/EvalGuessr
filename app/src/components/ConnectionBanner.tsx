@@ -2,9 +2,9 @@ import { WifiSlash, SpinnerGap } from "@phosphor-icons/react";
 import type { ConnectionStatus } from "../game/MatchClient";
 
 const COPY: Record<Exclude<ConnectionStatus, "connected">, string> = {
-  connecting: "Connecting to the server…",
-  waking: "Waking up the server. The first visit after a quiet spell can take up to a minute.",
-  reconnecting: "Connection lost. Reconnecting…",
+  connecting: "Connecting…",
+  waking: "Starting the server. This can take a minute.",
+  reconnecting: "Reconnecting…",
 };
 
 /** Thin status strip shown at the top of the page whenever we are not connected. */

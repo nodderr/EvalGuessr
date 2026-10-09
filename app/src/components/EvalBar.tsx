@@ -6,6 +6,7 @@ import {
   formatEval,
   normalizeGuess,
 } from "@eval-guess/shared";
+import { nudge } from "./useGuessKeys";
 
 export type BarMarker = {
   key: string;
@@ -28,8 +29,6 @@ type Props = {
 
 const HANDLE_H = 34; // px
 const HALF = HANDLE_H / 2;
-const FINE_STEP = 0.1;
-const COARSE_STEP = 1;
 
 /**
  * Distance of a bar fraction from White's end. The usable travel is inset by
@@ -71,22 +70,10 @@ export function EvalBar({ value, onChange, disabled, orientation, reveal }: Prop
 
   const onKeyDown = (e: KeyboardEvent<HTMLDivElement>) => {
     if (!interactive || !onChange) return;
-    const step = e.shiftKey ? COARSE_STEP : FINE_STEP;
-    // Up/Down follow the handle on screen; Right/Left always mean +/-.
-    const up = orientation === "white" ? 1 : -1;
-    const next: Record<string, number> = {
-      ArrowUp: value + up * step,
-      ArrowDown: value - up * step,
-      ArrowRight: value + step,
-      ArrowLeft: value - step,
-      PageUp: value + up * COARSE_STEP,
-      PageDown: value - up * COARSE_STEP,
-      Home: EVAL_RANGE.min,
-      End: EVAL_RANGE.max,
-    };
-    if (e.key in next) {
+    const next = nudge(e.key, e.shiftKey, value, orientation);
+    if (next !== null) {
       e.preventDefault();
-      onChange(normalizeGuess(next[e.key]!));
+      onChange(next);
     }
   };
 
@@ -132,7 +119,7 @@ export function EvalBar({ value, onChange, disabled, orientation, reveal }: Prop
       {!reveal && (
         <div
           aria-hidden
-          className={`absolute left-1/2 grid w-[60px] place-items-center rounded-lg font-mono text-[15px] font-bold tabular-nums shadow-[0_2px_8px_rgb(0_0_0/0.35)] ${
+          className={`absolute left-1/2 grid w-[54px] place-items-center rounded-lg font-mono text-[14px] sm:w-[60px] sm:text-[15px] font-bold tabular-nums shadow-[0_2px_8px_rgb(0_0_0/0.35)] ${
             disabled ? "bg-ink-muted text-surface" : "bg-accent text-accent-ink"
           }`}
           style={{

@@ -30,9 +30,12 @@ export type Ack<T> =
 export type Seat = { matchId: string; playerId: string; token: string };
 
 export interface ClientToServerEvents {
-  /** Create a match. Practice matches start immediately; online matches wait for an opponent. */
+  /**
+   * Create a match. Practice and endless matches start immediately; online
+   * matches wait for an opponent. timeControl is null for endless (no clock).
+   */
   "match:create": (
-    req: { mode: MatchMode; timeControl: TimeControl; name: string },
+    req: { mode: MatchMode; timeControl: TimeControl | null; name: string },
     ack: (res: Ack<Seat>) => void,
   ) => void;
   /** Join an online match by its code. The match starts as soon as it is full. */
@@ -45,6 +48,8 @@ export interface ClientToServerEvents {
   "round:ready": (ack: (res: Ack<null>) => void) => void;
   /** Ask for a rematch after the match finishes. Starts when every connected player has asked. */
   "match:rematch": (ack: (res: Ack<null>) => void) => void;
+  /** Endless mode: stop and show the summary. */
+  "match:finish": (ack: (res: Ack<null>) => void) => void;
   /** Leave the current match. */
   "match:leave": () => void;
 }

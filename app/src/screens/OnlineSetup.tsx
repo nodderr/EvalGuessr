@@ -1,6 +1,6 @@
 import { useState, type FormEvent } from "react";
 import { ArrowLeft, Fire, HourglassMedium, Lightning, type Icon } from "@phosphor-icons/react";
-import { MATCH, TIME_CONTROLS, type TimeControl } from "@eval-guess/shared";
+import { TIME_CONTROLS, type TimeControl } from "@eval-guess/shared";
 import { Button } from "../components/Button";
 import { Screen, TopBar } from "./Layout";
 
@@ -40,7 +40,6 @@ function NameField({ value, onChange }: { value: string; onChange: (v: string) =
         onChange={(e) => onChange(e.target.value)}
         maxLength={20}
         autoComplete="nickname"
-        placeholder="Shown to your opponent"
       />
     </div>
   );
@@ -75,15 +74,10 @@ export function CreateMatch({
     <Screen>
       <BackBar onBack={onBack} />
       <div className="mx-auto grid max-w-md gap-6 pt-2 md:pt-8">
-        <div className="grid gap-2">
-          <h1 className="text-2xl font-semibold tracking-tight">Play a friend</h1>
-          <p className="text-ink-muted">
-            {MATCH.positionsPerMatch} positions, same for both of you. You'll get a code to send them.
-          </p>
-        </div>
+        <h1 className="text-2xl font-semibold tracking-tight">Play a friend</h1>
         <NameField value={name} onChange={setName} />
         <div className="grid gap-3">
-          <span className="font-medium">Time per position</span>
+          <span className="font-medium">Time control</span>
           {TIME_OPTIONS.map(({ id, label, icon: IconCmp }) => (
             <button
               key={id}
@@ -99,7 +93,7 @@ export function CreateMatch({
           ))}
           {!name.trim() && <p className="text-sm text-ink-muted">Enter your name first.</p>}
         </div>
-        {busy && <p className="text-ink-muted">Creating your match…</p>}
+        {busy && <p className="text-ink-muted">Creating…</p>}
         <ErrorText error={error} />
       </div>
     </Screen>
@@ -135,14 +129,11 @@ export function JoinMatch({
     <Screen>
       <BackBar onBack={onBack} />
       <form onSubmit={submit} className="mx-auto grid max-w-md gap-6 pt-2 md:pt-8">
-        <div className="grid gap-2">
-          <h1 className="text-2xl font-semibold tracking-tight">Join a friend</h1>
-          <p className="text-ink-muted">Enter the code they sent you.</p>
-        </div>
+        <h1 className="text-2xl font-semibold tracking-tight">Join a friend</h1>
         <NameField value={name} onChange={setName} />
         <div className="grid gap-2">
           <label htmlFor="match-code" className="font-medium">
-            Match code
+            Code
           </label>
           <input
             id="match-code"
@@ -157,7 +148,7 @@ export function JoinMatch({
           />
         </div>
         <Button type="submit" disabled={!ready}>
-          {busy ? "Joining…" : "Join match"}
+          {busy ? "Joining…" : "Join"}
         </Button>
         <ErrorText error={error} />
       </form>

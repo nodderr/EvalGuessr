@@ -106,6 +106,13 @@ export function createGameServer(opts: {
       }),
     );
 
+    socket.on("match:finish", (ack) =>
+      handle(ack, () => {
+        rooms.finish(requireSeat());
+        return null;
+      }),
+    );
+
     socket.on("match:leave", () => {
       if (socket.data.seat) rooms.leave(socket.data.seat);
       socket.data.seat = undefined;

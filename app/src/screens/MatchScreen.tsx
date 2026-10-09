@@ -6,10 +6,11 @@ import { Button } from "../components/Button";
 import { Countdown } from "../components/Countdown";
 import { EvalBoard } from "../components/EvalBoard";
 import { GuessReadout } from "../components/GuessReadout";
+import { useGuessKeys } from "../components/useGuessKeys";
 import { RoundReveal } from "../components/RoundReveal";
 import type { MatchClient } from "../game/MatchClient";
 import { useCountdown } from "../game/useMatch";
-import { BOARD_COLUMN, Screen, TopBar } from "./Layout";
+import { BOARD_COLUMN, SIDE_COLUMN, Screen, TopBar } from "./Layout";
 
 type Props = {
   view: MatchView;
@@ -23,7 +24,8 @@ export function MatchScreen({ view, client, onQuit }: Props) {
   const me = view.players.find((p) => p.id === view.you)!;
   const revealed = view.phase === "revealed";
   const result = revealed ? view.results[view.results.length - 1] : undefined;
-  const isLastRound = view.roundIndex + 1 >= view.totalRounds;
+  const endless = view.mode === "endless";
+  const isLastRound = view.totalRounds !== null && view.roundIndex + 1 >= view.totalRounds;
   const waitingOn = view.players.filter((p) => p.id !== view.you && !p.readyForNext && p.connected);
   const opponents = view.players.filter((p) => p.id !== view.you);
   const online = view.mode === "online";
@@ -46,7 +48,7 @@ export function MatchScreen({ view, client, onQuit }: Props) {
     try {
       await client.submitGuess(value);
     } catch (e) {
-      setError(e instanceof Error ? e.message : "Could not submit your guess.");
+      setError(e instanceof Error ? e.message : "Couldn't submit.");
     }
   };
 
@@ -55,6 +57,15 @@ export function MatchScreen({ view, client, onQuit }: Props) {
   const guessRef = useRef(guess);
   guessRef.current = guess;
   const autoSubmitted = useRef(false);
+
+  // Arrow keys work without clicking the bar first; Enter locks in.
+  useGuessKeys({
+    enabled: view.phase === "guessing" && !locked,
+    value: guess,
+    orientation: position.side_to_move,
+    onChange: setGuess,
+    onSubmit: () => void lockIn(guessRef.current),
+  });
   useEffect(() => {
     if (secondsLeft === 0 && !locked && !autoSubmitted.current && view.phase === "guessing") {
       autoSubmitted.current = true;
@@ -64,43 +75,15 @@ export function MatchScreen({ view, client, onQuit }: Props) {
 
   return (
     <Screen split>
-      <TopBar
-        left={
-          <>
-            <button
-              type="button"
-              onClick={onQuit}
-              aria-label="Quit match"
-              className="-ml-2 grid size-11 place-items-center rounded-xl hover:bg-surface-raised"
-            >
-              <X size={22} weight="bold" />
-            </button>
-            <span className="font-medium">
-              Position {view.roundIndex + 1} of {view.totalRounds}
-            </span>
-          </>
-        }
-        right={
-          <>
-            <span className="font-mono text-lg tabular-nums">
-              <span className="sr-only">Score </span>
-              {me.score}
-            </span>
-            {!revealed && secondsLeft !== null && (
-              <Countdown seconds={secondsLeft} total={view.secondsPerPosition} />
-            )}
-          </>
-        }
-      />
-
       <div className={BOARD_COLUMN}>
-        <ToMove side={position.side_to_move} />
+        <ToMove side={position.side_to_move} className="lg:hidden" />
         <EvalBoard
           fen={position.fen}
           orientation={position.side_to_move}
           guess={view.yourGuess ?? guess}
           onGuess={setGuess}
           disabled={locked}
+          wheelAnywhere
           reveal={
             result && {
               evalPawns: result.evalPawns,
@@ -112,39 +95,80 @@ export function MatchScreen({ view, client, onQuit }: Props) {
         />
       </div>
 
-      <div className="grid gap-5">
-        {opponents.length > 0 && <PlayerStatus view={view} />}
-        {revealed && result ? (
-          <>
-            <RoundReveal result={result} players={view.players} you={view.you} />
-            <Button onClick={() => void client.ready().catch(() => {})} disabled={me.readyForNext}>
-              {isLastRound ? "See results" : "Next position"}
+      <div className={SIDE_COLUMN}>
+        <TopBar
+          className="order-first lg:order-none"
+          left={
+            <>
+              <button
+                type="button"
+                onClick={onQuit}
+                aria-label="Quit match"
+                className="-ml-2 grid size-11 place-items-center rounded-xl hover:bg-surface-raised"
+              >
+                <X size={22} weight="bold" />
+              </button>
+              <span className="font-medium">
+                Position {view.roundIndex + 1}
+                {view.totalRounds !== null ? ` of ${view.totalRounds}` : ""}
+                {endless && <span className="font-normal text-ink-muted"> · Endless</span>}
+              </span>
+            </>
+          }
+          right={
+            <>
+              <span className="font-mono text-lg tabular-nums">
+                <span className="sr-only">Score </span>
+                {me.score}
+              </span>
+              {!revealed && secondsLeft !== null && (
+                <Countdown seconds={secondsLeft} total={view.secondsPerPosition ?? 0} />
+              )}
+            </>
+          }
+        />
+        <div className="hidden lg:block">
+          <ToMove side={position.side_to_move} />
+        </div>
+        <div className="grid gap-5">
+          {opponents.length > 0 && <PlayerStatus view={view} />}
+          {revealed && result ? (
+            <>
+              <RoundReveal result={result} players={view.players} you={view.you} />
+              <Button onClick={() => void client.ready().catch(() => {})} disabled={me.readyForNext}>
+                {isLastRound ? "See results" : "Next position"}
+              </Button>
+              {(me.readyForNext && waitingOn.length > 0) || advanceIn !== null ? (
+                <p className="text-center text-sm text-ink-muted" aria-live="polite">
+                  {me.readyForNext && waitingOn.length > 0 ? `Waiting for ${waitingOn.map((p) => p.name).join(", ")}. ` : ""}
+                  {advanceIn !== null && `Next in ${Math.ceil(advanceIn)}s`}
+                </p>
+              ) : null}
+            </>
+          ) : (
+            <>
+              <GuessReadout value={view.yourGuess ?? guess} locked={locked} />
+              <Button onClick={() => void lockIn(guess)} disabled={locked}>
+                {locked ? "Locked in" : "Lock in"}
+              </Button>
+              {locked && opponents.some((p) => !p.hasGuessed) && (
+                <p className="text-center text-sm text-ink-muted" aria-live="polite">
+                  Waiting for {opponents.filter((p) => !p.hasGuessed).map((p) => p.name).join(", ")}
+                </p>
+              )}
+            </>
+          )}
+          {error && (
+            <p role="alert" className="text-sm text-bad">
+              {error}
+            </p>
+          )}
+          {endless && (
+            <Button variant="secondary" onClick={() => void client.finish().catch(() => {})}>
+              End session
             </Button>
-            {(me.readyForNext && waitingOn.length > 0) || advanceIn !== null ? (
-              <p className="text-center text-sm text-ink-muted" aria-live="polite">
-                {me.readyForNext && waitingOn.length > 0 ? `Waiting for ${waitingOn.map((p) => p.name).join(", ")}. ` : ""}
-                {advanceIn !== null && `Moving on in ${Math.ceil(advanceIn)}s`}
-              </p>
-            ) : null}
-          </>
-        ) : (
-          <>
-            <GuessReadout value={view.yourGuess ?? guess} locked={locked} />
-            <Button onClick={() => void lockIn(guess)} disabled={locked}>
-              {locked ? "Locked in" : "Lock in"}
-            </Button>
-            {locked && opponents.some((p) => !p.hasGuessed) && (
-              <p className="text-center text-sm text-ink-muted" aria-live="polite">
-                Locked in. Waiting for {opponents.filter((p) => !p.hasGuessed).map((p) => p.name).join(", ")}
-              </p>
-            )}
-          </>
-        )}
-        {error && (
-          <p role="alert" className="text-sm text-bad">
-            {error}
-          </p>
-        )}
+          )}
+        </div>
       </div>
     </Screen>
   );
@@ -162,7 +186,7 @@ function PlayerStatus({ view }: { view: MatchView }) {
           : view.phase === "guessing"
             ? p.hasGuessed
               ? ["Locked in", "text-good"]
-              : ["Thinking…", "text-ink-muted"]
+              : ["Guessing", "text-ink-muted"]
             : p.readyForNext
               ? ["Ready", "text-good"]
               : ["Reviewing", "text-ink-muted"];

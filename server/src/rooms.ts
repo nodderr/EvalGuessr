@@ -15,6 +15,7 @@ import {
   advance,
   createMatch,
   everyoneWantsRematch,
+  finishEndless,
   isFull,
   markReady,
   pickPositions,
@@ -86,11 +87,17 @@ export class RoomManager {
   // Seats
   // -------------------------------------------------------------------------
 
-  create(connectionId: string, req: { mode: MatchMode; timeControl: TimeControl; name: string }): Seat {
+  create(connectionId: string, req: { mode: MatchMode; timeControl: TimeControl | null; name: string }): Seat {
     if (this.rooms.size >= ROOM_LIMITS.maxRooms) throw new RoomError("SERVER_BUSY");
     const id = newMatchCode((code) => this.rooms.has(code));
     const room: Room = {
-      state: createMatch({ id, mode: req.mode, timeControl: req.timeControl, positions: pickPositions(this.pool) }),
+      state: createMatch({
+        id,
+        mode: req.mode,
+        timeControl: req.timeControl,
+        // Endless works through the whole pool (reshuffled as it goes); other modes take 5.
+        positions: req.mode === "endless" ? pickPositions(this.pool, this.pool.length) : pickPositions(this.pool),
+      }),
       tokens: new Map(),
       connections: new Map(),
       phaseTimer: null,
@@ -156,6 +163,12 @@ export class RoomManager {
     let state = requestRematch(room.state, seat.playerId);
     if (everyoneWantsRematch(state)) state = rematch(state, pickPositions(this.pool), Date.now());
     this.update(room, state);
+  }
+
+  /** Endless mode: stop and show the summary. */
+  finish(seat: Pick<Seat, "matchId" | "playerId">): void {
+    const room = this.room(seat.matchId);
+    this.update(room, finishEndless(room.state));
   }
 
   /** Explicit leave: the match ends for everyone. */

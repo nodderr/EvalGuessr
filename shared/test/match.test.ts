@@ -9,6 +9,7 @@ import {
   rematch,
   requestRematch,
   everyoneWantsRematch,
+  finishEndless,
   setConnected,
   revealRound,
   shouldReveal,
@@ -185,5 +186,57 @@ describe("rematch", () => {
     expect(m.rematchVotes).toHaveLength(0);
     expect(m.players.map((p) => p.id)).toEqual(["alice", "bob"]);
     expect(totals(m)).toEqual({ alice: 0, bob: 0 });
+  });
+});
+
+describe("endless mode", () => {
+  function endless(): MatchState {
+    let m = createMatch({ id: "E", mode: "endless", timeControl: "blitz", positions: POOL.slice(0, 3) });
+    m = addPlayer(m, { id: "solo", name: "Solo" });
+    return startMatch(m, T0);
+  }
+
+  function playRound(m: MatchState, now = T0): MatchState {
+    m = revealRound(submitGuess(m, "solo", 0, now));
+    return markReady(m, "solo", now);
+  }
+
+  it("has one seat, no clock and no round limit", () => {
+    const m = endless();
+    expect(m.timeControl).toBeNull();
+    expect(m.roundDeadline).toBeNull();
+    expect(m.maxPlayers).toBe(1);
+    const view = viewFor(m, "solo", T0);
+    expect(view.totalRounds).toBeNull();
+    expect(view.secondsPerPosition).toBeNull();
+  });
+
+  it("never times out", () => {
+    const m = endless();
+    const muchLater = T0 + 24 * 3600 * 1000;
+    expect(shouldReveal(m, muchLater)).toBe(false);
+    expect(submitGuess(m, "solo", 1, muchLater).guesses.solo).toBe(1);
+  });
+
+  it("keeps going past the pool, reshuffling without back-to-back repeats", () => {
+    let m = endless();
+    const seen: number[] = [m.positions[m.roundIndex]!.id];
+    for (let i = 0; i < 20; i++) {
+      m = playRound(m);
+      expect(m.phase).toBe("guessing");
+      seen.push(m.positions[m.roundIndex]!.id);
+    }
+    expect(m.results).toHaveLength(20);
+    for (let i = 1; i < seen.length; i++) expect(seen[i]).not.toBe(seen[i - 1]);
+    // Every pass covers each position once.
+    expect(new Set(seen.slice(0, 3)).size).toBe(3);
+  });
+
+  it("finishes on request and drops an unanswered round", () => {
+    let m = playRound(playRound(endless()));
+    m = finishEndless(m);
+    expect(m.phase).toBe("finished");
+    expect(m.results).toHaveLength(2);
+    expect(errorCode(() => finishEndless(onlineMatch()))).toBe("NOT_ENDLESS");
   });
 });

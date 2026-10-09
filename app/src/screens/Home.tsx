@@ -10,7 +10,7 @@ type Props = {
   onPlayFriend: () => void;
   onJoinFriend: () => void;
   onTutorial: () => void;
-  /** One-off message, e.g. "Your opponent left the match." */
+  /** One-off message, e.g. "Opponent left." */
   notice: string | null;
 };
 
@@ -21,7 +21,7 @@ export function Home({ onPractice, onPlayFriend, onJoinFriend, onTutorial, notic
         <div className="grid gap-6">
           <h1 className="text-4xl leading-tight font-semibold tracking-tight md:text-5xl">Guess the eval</h1>
           <p className="max-w-[45ch] text-lg leading-relaxed text-ink-muted">
-            See a position, guess what Stockfish thinks, and score by how close you get.
+            Guess Stockfish's evaluation.
           </p>
           {notice && (
             <p role="status" className="rounded-xl border border-line bg-surface-raised px-4 py-3">
