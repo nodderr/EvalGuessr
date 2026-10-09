@@ -1,15 +1,17 @@
 import { useMemo } from "react";
 import { Chess } from "chess.js";
-import { Chessboard } from "react-chessboard";
+import { Chessboard, type Arrow } from "react-chessboard";
 
 type Props = {
   fen: string;
   /** Board is drawn from this side's point of view (the side to move). */
   orientation: "white" | "black";
+  /** Arrows to draw, e.g. the engine's best move after a reveal. */
+  arrows?: Arrow[];
 };
 
 /** Read-only board. Sizes itself to its container's width. */
-export function Board({ fen, orientation }: Props) {
+export function Board({ fen, orientation, arrows = [] }: Props) {
   // Validate through chess.js so a bad FEN fails loudly instead of drawing a broken board.
   const position = useMemo(() => new Chess(fen).fen(), [fen]);
 
@@ -22,6 +24,8 @@ export function Board({ fen, orientation }: Props) {
           boardOrientation: orientation,
           allowDragging: false,
           allowDrawingArrows: false,
+          arrows,
+          clearArrowsOnPositionChange: false,
           showAnimations: false,
           lightSquareStyle: { backgroundColor: "var(--board-light)" },
           darkSquareStyle: { backgroundColor: "var(--board-dark)" },

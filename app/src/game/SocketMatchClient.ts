@@ -6,9 +6,9 @@
  * a dropped connection or a page reload.
  */
 import { io, type Socket } from "socket.io-client";
-import type { Ack, ClientToServerEvents, MatchView, Seat, ServerToClientEvents } from "@eval-guess/shared";
+import type { Ack, ClientToServerEvents, MatchMode, MatchView, Seat, ServerToClientEvents } from "@eval-guess/shared";
 import type { AbandonReason, ConnectionStatus, CreateMatchOptions, MatchClient } from "./MatchClient";
-import { loadSeat, saveSeat } from "./storage";
+import { clearDeviceSeat, clearSeat, loadTabSeat, saveSeat } from "./storage";
 
 /** After this long without a first connection, tell the player the server is waking up. */
 const WAKING_AFTER_MS = 3000;
@@ -38,7 +38,7 @@ export class SocketMatchClient implements MatchClient {
   private socket: Socket<ServerToClientEvents, ClientToServerEvents>;
   private view: MatchView | null = null;
   private status: ConnectionStatus = "connecting";
-  private seat: Seat | null = loadSeat();
+  private seat: Seat | null = loadTabSeat();
   private viewListeners = new Set<(view: MatchView | null) => void>();
   private statusListeners = new Set<(status: ConnectionStatus) => void>();
   private abandonListeners = new Set<(reason: AbandonReason) => void>();
@@ -81,20 +81,25 @@ export class SocketMatchClient implements MatchClient {
 
   async create(opts: CreateMatchOptions): Promise<void> {
     this.setView(null);
-    this.rememberSeat(await this.call(this.socket.timeout(SETUP_TIMEOUT_MS).emitWithAck("match:create", opts)));
+    this.rememberSeat(
+      await this.call(this.socket.timeout(SETUP_TIMEOUT_MS).emitWithAck("match:create", opts)),
+      opts.mode,
+    );
   }
 
   async join(matchId: string, name: string): Promise<void> {
     this.setView(null);
     this.rememberSeat(
       await this.call(this.socket.timeout(SETUP_TIMEOUT_MS).emitWithAck("match:join", { matchId, name })),
+      "online",
     );
   }
 
-  async resume(): Promise<boolean> {
-    if (!this.seat) return false;
+  async resume(seat: Seat | null = this.seat): Promise<boolean> {
+    if (!seat) return false;
     try {
-      await this.call(this.socket.timeout(SETUP_TIMEOUT_MS).emitWithAck("match:rejoin", this.seat));
+      await this.call(this.socket.timeout(SETUP_TIMEOUT_MS).emitWithAck("match:rejoin", seat));
+      this.seat = seat; // the views that follow re-save it with the right mode
       return true;
     } catch {
       this.forgetSeat(); // the match is gone (finished and cleaned up, or called off)
@@ -139,18 +144,24 @@ export class SocketMatchClient implements MatchClient {
     return res.data;
   }
 
-  private rememberSeat(seat: Seat): void {
+  private rememberSeat(seat: Seat, mode: MatchMode): void {
     this.seat = seat;
-    saveSeat(seat);
+    saveSeat(seat, mode);
   }
 
   private forgetSeat(): void {
     this.seat = null;
-    saveSeat(null);
+    clearSeat();
   }
 
   private setView(view: MatchView | null): void {
     this.view = view;
+    if (view && this.seat) {
+      // Refresh the saved seat's timestamp so "resume" windows count from when we left.
+      // A finished match isn't worth resuming in another tab, but a reload still shows the summary.
+      if (view.phase === "finished") clearDeviceSeat();
+      else saveSeat(this.seat, view.mode);
+    }
     this.viewListeners.forEach((l) => l(view));
   }
 

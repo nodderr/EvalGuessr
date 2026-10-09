@@ -192,7 +192,7 @@ export class RoomManager {
       setTimeout(() => {
         this.notifyOthers(room, seat.playerId, "opponent_timeout");
         this.close(room);
-      }, MATCH.reconnectGraceMs),
+      }, room.state.mode === "online" ? MATCH.reconnectGraceMs : MATCH.soloReconnectGraceMs),
     );
   }
 

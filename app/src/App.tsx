@@ -5,7 +5,7 @@ import { ConnectionBanner } from "./components/ConnectionBanner";
 import { API_BASE_URL } from "./config/env";
 import type { MatchClient } from "./game/MatchClient";
 import { SocketMatchClient } from "./game/SocketMatchClient";
-import { loadName, saveName } from "./game/storage";
+import { clearSeat, loadName, loadResumableSeat, loadTabSeat, saveName, type SavedSeat } from "./game/storage";
 import { useConnectionStatus, useMatchView } from "./game/useMatch";
 import { Home } from "./screens/Home";
 import { Screen } from "./screens/Layout";
@@ -54,12 +54,15 @@ function Game({ client }: { client: MatchClient }) {
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [notice, setNotice] = useState<string | null>(null);
+  // A match this device was in before the tab was closed (offered on Home, not auto-joined,
+  // so a second tab used as a second player doesn't take over the first tab's seat).
+  const [resumable, setResumable] = useState<SavedSeat | null>(() => (loadTabSeat() ? null : loadResumableSeat()));
   const view = useMatchView(client);
   const status = useConnectionStatus(client);
 
   // After a reload, go straight back into a match this tab was playing.
   useEffect(() => {
-    void client.resume().then((resumed) => resumed && setRoute("match"));
+    if (loadTabSeat()) void client.resume().then((resumed) => resumed && setRoute("match"));
   }, [client]);
 
   // The opponent left or never came back.
@@ -117,6 +120,16 @@ function Game({ client }: { client: MatchClient }) {
             onJoinFriend={() => go("join")}
             onTutorial={() => go("tutorial")}
             notice={notice}
+            resumable={resumable}
+            onResume={() => {
+              const saved = resumable;
+              setResumable(null);
+              void client.resume(saved?.seat).then((ok) => (ok ? setRoute("match") : setNotice("That match has ended.")));
+            }}
+            onDismiss={() => {
+              clearSeat();
+              setResumable(null);
+            }}
           />
         );
       case "tutorial":

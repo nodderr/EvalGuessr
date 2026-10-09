@@ -1,17 +1,24 @@
 import { formatEval, type MatchView, type RoundResult } from "@eval-guess/shared";
+import type { LineStep } from "./line";
+import { SourceBox } from "./SourceBox";
 import { TONE_CLASS, resultMark } from "./resultMark";
 
 type Props = {
   result: RoundResult;
   players: MatchView["players"];
   you: string;
+  /** Stockfish's line, playable on the board. */
+  line: LineStep[];
+  /** Index of the move shown on the board (arrow drawn for it). */
+  step: number;
+  onStep: (index: number) => void;
 };
 
 /**
  * Stockfish's eval plus one row per player. Written for any number of players:
  * practice shows one row, 1v1 shows two.
  */
-export function RoundReveal({ result, players, you }: Props) {
+export function RoundReveal({ result, players, you, line, step, onStep }: Props) {
   // Put the viewer first.
   const ordered = [...players].sort((a, b) => Number(b.id === you) - Number(a.id === you));
 
@@ -46,9 +53,39 @@ export function RoundReveal({ result, players, you }: Props) {
         })}
       </ul>
 
-      <p className="text-sm text-ink-muted">
-        Best move: <span className="font-mono font-medium text-ink">{result.bestMove}</span>
-      </p>
+      {line.length > 0 ? <BestLine line={line} step={step} onStep={onStep} /> : (
+        <p className="text-sm text-ink-muted">
+          Best move <span className="font-mono font-medium text-ink">{result.bestMove}</span>
+        </p>
+      )}
+
+      {result.source && <SourceBox source={result.source} sideToMove={result.position.side_to_move} />}
+    </div>
+  );
+}
+
+/** "Best line 7. Nf3 d5 8. c4": click a move to see it on the board. */
+function BestLine({ line, step, onStep }: { line: LineStep[]; step: number; onStep: (i: number) => void }) {
+  return (
+    <div className="grid gap-1.5">
+      <span className="text-sm text-ink-muted">Best line</span>
+      <ol className="flex flex-wrap items-center gap-x-1 gap-y-1 font-mono">
+        {line.map((m, i) => (
+          <li key={i} className="flex items-center">
+            {m.number && <span className="mr-0.5 text-sm text-ink-muted">{m.number}</span>}
+            <button
+              type="button"
+              onClick={() => onStep(i)}
+              aria-current={i === step ? "step" : undefined}
+              className={`rounded-md px-1.5 py-0.5 font-semibold transition ${
+                i === step ? "bg-accent text-accent-ink" : "hover:bg-surface-raised"
+              }`}
+            >
+              {m.san}
+            </button>
+          </li>
+        ))}
+      </ol>
     </div>
   );
 }

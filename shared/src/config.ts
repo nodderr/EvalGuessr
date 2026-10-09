@@ -41,6 +41,11 @@ export const MATCH = {
   deadlineGraceMs: 1500,
   /** Online only: after a reveal, move to the next position this long after it, even if someone hasn't clicked Next. */
   revealAutoAdvanceMs: 10_000,
-  /** How long a disconnected player's seat is held before the match is called off. */
-  reconnectGraceMs: 30_000,
+  /**
+   * How long a disconnected player's seat is held (e.g. after closing the tab)
+   * before the match is called off. Online is shorter because the opponent is waiting.
+   */
+  reconnectGraceMs: 60_000,
+  /** Same, for practice and endless, where nobody is waiting. */
+  soloReconnectGraceMs: 10 * 60_000,
 } as const;

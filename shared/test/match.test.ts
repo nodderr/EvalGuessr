@@ -28,6 +28,11 @@ const POOL: PositionRecord[] = [100, -250, 0, 640, -30, 75].map((eval_cp, i) => 
   eval_cp,
   depth_reached: 20,
   best_move: "e4",
+  line: ["e4", "e5", "Nf3"],
+  source: {
+    site: "lichess" as const, game_id: `G${i}`, ply: 20, move_number: 11, white_elo: 1800, black_elo: 1750,
+    speed: "Blitz", time_control: "180+2", month: "2026-09", opening: "Sicilian Defense", result: "1-0",
+  },
 }));
 
 const T0 = 1_000_000;
@@ -133,6 +138,7 @@ describe("viewFor (what a client is allowed to see)", () => {
     const json = JSON.stringify(bobsView);
 
     expect(json).not.toContain("eval_cp");
+    expect(json).not.toContain("game_id"); // the source game is revealed with the eval, not before
     expect(json).not.toContain("2.3");
     expect(bobsView.results).toHaveLength(0);
     expect(bobsView.players.find((p) => p.id === "alice")!.hasGuessed).toBe(true);
@@ -147,6 +153,8 @@ describe("viewFor (what a client is allowed to see)", () => {
     expect(reveal.evalPawns).toBe(1);
     expect(reveal.byPlayer.alice!.guess).toBe(2.3);
     expect(reveal.byPlayer.bob!.guess).toBe(-1);
+    expect(reveal.line).toEqual(["e4", "e5", "Nf3"]);
+    expect(reveal.source?.white_elo).toBe(1800);
   });
 });
 

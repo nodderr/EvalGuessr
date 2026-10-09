@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { X } from "@phosphor-icons/react";
 import { MATCH, type MatchView } from "@eval-guess/shared";
 import { ToMove } from "../components/Board";
@@ -6,6 +6,7 @@ import { Button } from "../components/Button";
 import { Countdown } from "../components/Countdown";
 import { EvalBoard } from "../components/EvalBoard";
 import { GuessReadout } from "../components/GuessReadout";
+import { LINE_ARROW_COLOR, lineSteps } from "../components/line";
 import { useGuessKeys } from "../components/useGuessKeys";
 import { RoundReveal } from "../components/RoundReveal";
 import type { MatchClient } from "../game/MatchClient";
@@ -39,6 +40,23 @@ export function MatchScreen({ view, client, onQuit }: Props) {
   );
 
   const [guess, setGuess] = useState(0);
+
+  // After the reveal: Stockfish's line, stepped through on the board with an arrow per move.
+  const line = useMemo(() => (result ? lineSteps(position.fen, result.line) : []), [result, position.fen]);
+  const [step, setStep] = useState(0);
+  const shown = revealed ? line[step] : undefined;
+  useEffect(() => {
+    if (!revealed || line.length === 0) return;
+    const onKey = (e: KeyboardEvent) => {
+      if ((e.target as HTMLElement | null)?.closest("input, textarea")) return;
+      if (e.key === "ArrowRight") setStep((s) => Math.min(line.length - 1, s + 1));
+      else if (e.key === "ArrowLeft") setStep((s) => Math.max(0, s - 1));
+      else return;
+      e.preventDefault();
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [revealed, line.length]);
   const [error, setError] = useState<string | null>(null);
   const secondsLeft = useCountdown(view.roundDeadline, view.serverNow);
   const locked = me.hasGuessed || view.yourGuess !== null;
@@ -78,7 +96,8 @@ export function MatchScreen({ view, client, onQuit }: Props) {
       <div className={BOARD_COLUMN}>
         <ToMove side={position.side_to_move} className="lg:hidden" />
         <EvalBoard
-          fen={position.fen}
+          fen={shown ? shown.fenBefore : position.fen}
+          arrows={shown ? [{ startSquare: shown.from, endSquare: shown.to, color: LINE_ARROW_COLOR }] : undefined}
           orientation={position.side_to_move}
           guess={view.yourGuess ?? guess}
           onGuess={setGuess}
@@ -134,7 +153,7 @@ export function MatchScreen({ view, client, onQuit }: Props) {
           {opponents.length > 0 && <PlayerStatus view={view} />}
           {revealed && result ? (
             <>
-              <RoundReveal result={result} players={view.players} you={view.you} />
+              <RoundReveal result={result} players={view.players} you={view.you} line={line} step={step} onStep={setStep} />
               <Button onClick={() => void client.ready().catch(() => {})} disabled={me.readyForNext}>
                 {isLastRound ? "See results" : "Next position"}
               </Button>

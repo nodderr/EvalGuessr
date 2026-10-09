@@ -3,7 +3,7 @@
  * render only the MatchView it emits, never raw match state. The server owns
  * the real state; this is a thin, typed remote control for it.
  */
-import type { MatchMode, MatchView, TimeControl } from "@eval-guess/shared";
+import type { MatchMode, MatchView, Seat, TimeControl } from "@eval-guess/shared";
 
 export type CreateMatchOptions = {
   mode: MatchMode;
@@ -31,8 +31,11 @@ export interface MatchClient {
   create(opts: CreateMatchOptions): Promise<void>;
   /** Join an online match by its code. */
   join(matchId: string, name: string): Promise<void>;
-  /** Re-attach to the seat saved in this tab, if any. Resolves false if there is nothing to resume. */
-  resume(): Promise<boolean>;
+  /**
+   * Re-attach to a seat: the given one (e.g. saved on this device before the
+   * tab was closed) or this tab's own. Resolves false if the match is gone.
+   */
+  resume(seat?: Seat | null): Promise<boolean>;
   /** Lock in a guess in pawns (White's perspective). Rejects if it is too late or already locked. */
   submitGuess(guess: number): Promise<void>;
   /** "Next position" after a reveal. */

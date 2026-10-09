@@ -1,4 +1,5 @@
 import { useRef } from "react";
+import type { Arrow } from "react-chessboard";
 import { Board } from "./Board";
 import { useWheelNudge } from "./useGuessKeys";
 import { EvalBar, type BarMarker } from "./EvalBar";
@@ -12,10 +13,11 @@ type Props = {
   reveal?: { evalPawns: number; markers: BarMarker[] };
   /** Scroll anywhere on the page adjusts the guess (match screen); otherwise only over the board. */
   wheelAnywhere?: boolean;
+  arrows?: Arrow[];
 };
 
 /** The board with the eval bar running alongside it on the right, the same height. */
-export function EvalBoard({ fen, orientation, guess, onGuess, disabled, reveal, wheelAnywhere = false }: Props) {
+export function EvalBoard({ fen, orientation, guess, onGuess, disabled, reveal, wheelAnywhere = false, arrows }: Props) {
   // Scroll to adjust the guess: over the board, or anywhere on the page.
   const ref = useRef<HTMLDivElement>(null);
   useWheelNudge(wheelAnywhere ? null : ref, { enabled: !disabled && !reveal, value: guess, orientation, onChange: onGuess });
@@ -24,7 +26,7 @@ export function EvalBoard({ fen, orientation, guess, onGuess, disabled, reveal, 
     // The handle is wider than the bar, so it overhangs into the gap and the page gutter.
     // Phones: 30px bar + 12px gap; sm and up: 40px bar + 16px gap (BOARD_COLUMN relies on 56px).
     <div ref={ref} className="grid grid-cols-[minmax(0,1fr)_30px] gap-3 sm:grid-cols-[minmax(0,1fr)_40px] sm:gap-4">
-      <Board fen={fen} orientation={orientation} />
+      <Board fen={fen} orientation={orientation} arrows={arrows} />
       <EvalBar
         value={guess}
         onChange={onGuess}

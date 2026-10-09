@@ -259,3 +259,18 @@ describe("endless mode", () => {
     expect(codeOf(() => rooms.finish(a))).toBe("NOT_ENDLESS");
   });
 });
+
+describe("reconnect windows", () => {
+  it("holds a practice seat for much longer than an online seat", () => {
+    const p = rooms.create("conn-p", { mode: "practice", timeControl: "rapid", name: "Solo" });
+    rooms.disconnected(p, "conn-p");
+    vi.advanceTimersByTime(MATCH.reconnectGraceMs + 1);
+    expect(rooms.size).toBe(1); // still there: solo seats wait longer
+    rooms.rejoin("conn-p2", p);
+    expect(lastView("conn-p2").you).toBe(p.playerId);
+
+    rooms.disconnected(p, "conn-p2");
+    vi.advanceTimersByTime(MATCH.soloReconnectGraceMs + 1);
+    expect(rooms.size).toBe(0);
+  });
+});

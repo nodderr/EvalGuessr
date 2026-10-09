@@ -8,7 +8,7 @@ A chess eval-guessing game. Players see a position, guess Stockfish's eval on an
 
 npm workspaces monorepo:
 
-- `scripts/`: offline Python pipeline (python-chess + a local Stockfish binary, never committed or deployed). It reads `scripts/positions_input.txt` and writes `server/data/positions.json`.
+- `scripts/`: offline Python pipeline (python-chess + a local Stockfish binary, never committed or deployed). `fetch_lichess_positions.py` samples positions with their game metadata from the Lichess open database; `generate_positions.py` analyses them (eval, main line), balances the eval spread, and writes `server/data/positions.json`. Each position's `source` (game, ratings, result) is revealed only with the eval.
 - `shared/`: pure TypeScript used by both app and server: tunable config (`config.ts`), scoring (`scoring.ts`), the match state machine (`match.ts`), and the Socket.IO event types (`protocol.ts`). It has no UI, browser, or Node dependencies, and packages import its TS source directly.
 - `server/`: Node + Socket.IO game server, deployed on Render. Holds match state in memory; no database yet.
 - `app/`: Vite + React frontend, deployed on Vercel as a static site.
@@ -33,7 +33,10 @@ npm test -w shared -- test/match.test.ts       # a single test file
 npm test -w shared -- -t "guesses are final"   # a single test by name
 
 pip install -r scripts/requirements.txt
-python scripts/generate_positions.py --stockfish <path-to-stockfish>   # or set STOCKFISH_PATH; 5s/position default
+python scripts/build_pool.py --stockfish <path> --count 200     # fetch Lichess candidates + analyse (balanced, 4 parallel workers)
+python scripts/build_pool.py --skip-fetch --max-eval 6 ...      # re-analyse existing candidates; see --help for all options
+python scripts/generate_positions.py --input scripts/positions_input.txt --count 10   # plain FEN list instead
+# The server reads server/data/positions.json at startup: restart it after regenerating.
 ```
 
 The repo also contains project-scoped Claude Code skills (frontend and visual-design guidance), described below.

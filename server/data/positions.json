@@ -1,82 +1,5599 @@
 [
   {
     "id": 1,
-    "fen": "r1bq1rk1/ppp2ppp/2np1n2/2b1p3/2B1P3/2PP1N2/PP3PPP/RNBQ1RK1 w - - 2 7",
-    "side_to_move": "white",
-    "eval_cp": 14,
-    "depth_reached": 21,
-    "best_move": "h3"
+    "fen": "r1bqk1nr/ppp2ppp/1bnp4/8/4P3/1NN5/PPP1QPPP/R1B1KB1R b KQkq - 1 7",
+    "side_to_move": "black",
+    "eval_cp": 10,
+    "depth_reached": 29,
+    "best_move": "a5",
+    "line": [
+      "a5",
+      "Be3",
+      "a4",
+      "Bxb6",
+      "axb3"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "FhsVSGKF",
+      "ply": 13,
+      "move_number": 7,
+      "white_elo": 1811,
+      "black_elo": 1786,
+      "speed": "Bullet",
+      "time_control": "120+1",
+      "month": "2026-09",
+      "opening": "Scotch Game: Potter Variation",
+      "result": "1-0"
+    }
   },
   {
     "id": 2,
-    "fen": "r1b1kbnr/pppp1ppp/2n5/4P3/8/2B2N2/PqP1PPPP/RN1QKB1R b KQkq - 1 6",
-    "side_to_move": "black",
-    "eval_cp": -668,
-    "depth_reached": 16,
-    "best_move": "Bb4"
+    "fen": "rnbq1r2/pp3pbk/3p1npp/2pP4/2P1Pp1B/3B4/PP2N1PP/RN1Q1RK1 w - - 0 11",
+    "side_to_move": "white",
+    "eval_cp": -11,
+    "depth_reached": 26,
+    "best_move": "Nxf4",
+    "line": [
+      "Nxf4",
+      "Kg8",
+      "Bg3",
+      "Nbd7",
+      "Nd2"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "feGehxJX",
+      "ply": 20,
+      "move_number": 11,
+      "white_elo": 1967,
+      "black_elo": 2019,
+      "speed": "Bullet",
+      "time_control": "120+1",
+      "month": "2026-09",
+      "opening": "Pirc Defense",
+      "result": "1-0"
+    }
   },
   {
     "id": 3,
-    "fen": "rnbqkb1r/pppp1ppp/5n2/4N3/8/8/PPPPQPPP/RNB1KB1R w KQkq - 2 5",
+    "fen": "3r4/8/p2P4/8/P5k1/6p1/6K1/5R2 w - - 1 38",
     "side_to_move": "white",
-    "eval_cp": 830,
-    "depth_reached": 23,
-    "best_move": "Nc6+"
+    "eval_cp": 0,
+    "depth_reached": 74,
+    "best_move": "Rd1",
+    "line": [
+      "Rd1",
+      "Rd7",
+      "Rd4+",
+      "Kf5",
+      "Kxg3"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "IMOSvErG",
+      "ply": 74,
+      "move_number": 38,
+      "white_elo": 1735,
+      "black_elo": 1664,
+      "speed": "Blitz",
+      "time_control": "180+2",
+      "month": "2026-09",
+      "opening": "Queen's Gambit Declined: Albin Countergambit",
+      "result": "1/2-1/2"
+    }
   },
   {
     "id": 4,
-    "fen": "r1bq1rk1/ppp1n1bp/3p1np1/3Pp3/2P1Pp2/2NN1P2/PP1BB1PP/R2Q1RK1 w - - 0 13",
+    "fen": "4r1k1/pp1b1pbp/6pQ/3PN3/2P2P2/3B4/PB4PP/R5K1 w - - 1 22",
     "side_to_move": "white",
-    "eval_cp": 72,
-    "depth_reached": 22,
-    "best_move": "a4"
+    "eval_cp": 2018,
+    "depth_reached": 30,
+    "best_move": "Qxg7+",
+    "line": [
+      "Qxg7+",
+      "Kxg7",
+      "Nxd7+",
+      "f6",
+      "Nxf6"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "OIWh9Jel",
+      "ply": 42,
+      "move_number": 22,
+      "white_elo": 2433,
+      "black_elo": 2084,
+      "speed": "Bullet",
+      "time_control": "30+0",
+      "month": "2026-09",
+      "opening": "Zukertort Opening: Queen's Gambit Invitation",
+      "result": "1-0"
+    }
   },
   {
     "id": 5,
-    "fen": "r1bqkb1r/pp1n1pp1/2p1pn1p/6N1/2BP4/8/PPP1QPPP/R1B1K1NR w KQkq - 0 8",
-    "side_to_move": "white",
-    "eval_cp": 923,
-    "depth_reached": 14,
-    "best_move": "Nxf7"
+    "fen": "r2qk2r/1p3ppp/p1n2n2/2bp4/8/1QN1PN2/PP3PPP/R1B2RK1 b kq - 1 12",
+    "side_to_move": "black",
+    "eval_cp": 45,
+    "depth_reached": 24,
+    "best_move": "O-O",
+    "line": [
+      "O-O",
+      "Rd1",
+      "Na5",
+      "Qc2",
+      "Bb4"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "cNaIhK7V",
+      "ply": 23,
+      "move_number": 12,
+      "white_elo": 2060,
+      "black_elo": 2297,
+      "speed": "Blitz",
+      "time_control": "180+1",
+      "month": "2026-09",
+      "opening": "Queen's Pawn Game: Colle System",
+      "result": "1/2-1/2"
+    }
   },
   {
     "id": 6,
-    "fen": "r2qkbnr/3b1ppp/p2p4/1ppQ4/4P3/1B6/PPP2PPP/RNB1K2R b KQkq - 5 11",
-    "side_to_move": "black",
-    "eval_cp": -469,
-    "depth_reached": 16,
-    "best_move": "c4"
+    "fen": "r1b2rk1/5p1p/2nppqp1/p1p4n/4P3/1P1P1NPP/1RPNBPK1/2Q2R2 w - - 5 20",
+    "side_to_move": "white",
+    "eval_cp": 10,
+    "depth_reached": 24,
+    "best_move": "Nc4",
+    "line": [
+      "Nc4",
+      "Qd8",
+      "c3",
+      "Bb7",
+      "Qh6"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "0VHBvPh9",
+      "ply": 38,
+      "move_number": 20,
+      "white_elo": 1823,
+      "black_elo": 1758,
+      "speed": "Rapid",
+      "time_control": "600+0",
+      "month": "2026-09",
+      "opening": "Pirc Defense",
+      "result": "1-0"
+    }
   },
   {
     "id": 7,
-    "fen": "8/5pk1/6p1/7p/7P/6P1/r4PK1/4R3 w - - 0 40",
-    "side_to_move": "white",
-    "eval_cp": 0,
-    "depth_reached": 46,
-    "best_move": "Rc1"
+    "fen": "r4rk1/p3bppp/1q1pbn2/2p1p3/4P3/1NN1BP2/PPP2RPP/3RQ2K b - - 3 15",
+    "side_to_move": "black",
+    "eval_cp": -46,
+    "depth_reached": 24,
+    "best_move": "h6",
+    "line": [
+      "h6",
+      "g4",
+      "Nh7",
+      "Rg2",
+      "a5"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "M2E0ZEC4",
+      "ply": 29,
+      "move_number": 15,
+      "white_elo": 1914,
+      "black_elo": 1894,
+      "speed": "Rapid",
+      "time_control": "600+0",
+      "month": "2026-09",
+      "opening": "Sicilian Defense: Moscow Variation",
+      "result": "1-0"
+    }
   },
   {
     "id": 8,
-    "fen": "2r3k1/pp3ppp/4p3/3p4/3P4/2P1P3/PP3PPP/2R3K1 b - - 0 25",
+    "fen": "rnbq1rk1/1p4bp/p1p2np1/3pNp2/3P1B2/1B2P2P/PP1N1PP1/2RQK2R b K - 1 12",
     "side_to_move": "black",
-    "eval_cp": 132,
-    "depth_reached": 21,
-    "best_move": "b5"
+    "eval_cp": 42,
+    "depth_reached": 28,
+    "best_move": "Be6",
+    "line": [
+      "Be6",
+      "O-O",
+      "Nbd7",
+      "Ndf3",
+      "Ne4"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "pH2XKgV1",
+      "ply": 23,
+      "move_number": 12,
+      "white_elo": 2127,
+      "black_elo": 2140,
+      "speed": "Bullet",
+      "time_control": "60+0",
+      "month": "2026-09",
+      "opening": "Queen's Pawn Game: Modern Defense",
+      "result": "1-0"
+    }
   },
   {
     "id": 9,
-    "fen": "3r2k1/p4ppp/8/8/8/4B3/P4PPP/6K1 w - - 0 30",
-    "side_to_move": "white",
-    "eval_cp": -618,
-    "depth_reached": 27,
-    "best_move": "g3"
+    "fen": "r2q1rk1/pp4pp/2p5/5N2/4PR2/3P2KP/PPP1R1P1/8 b - - 0 21",
+    "side_to_move": "black",
+    "eval_cp": -828,
+    "depth_reached": 23,
+    "best_move": "g6",
+    "line": [
+      "g6",
+      "Nh6+",
+      "Kg7",
+      "Rg4",
+      "Kxh6"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "xlKwOXCJ",
+      "ply": 41,
+      "move_number": 21,
+      "white_elo": 1532,
+      "black_elo": 1523,
+      "speed": "Bullet",
+      "time_control": "60+0",
+      "month": "2026-09",
+      "opening": "King's Gambit",
+      "result": "0-1"
+    }
   },
   {
     "id": 10,
-    "fen": "8/5pk1/6p1/7p/1N5P/6P1/5PK1/8 b - - 0 50",
+    "fen": "3r2k1/5pb1/N6p/1p4p1/3P4/5P2/1P3BPP/4n1K1 w - - 0 30",
+    "side_to_move": "white",
+    "eval_cp": -669,
+    "depth_reached": 31,
+    "best_move": "Bxe1",
+    "line": [
+      "Bxe1",
+      "Bxd4+",
+      "Kf1",
+      "Bxb2",
+      "Nc7"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "fLG6uBRz",
+      "ply": 58,
+      "move_number": 30,
+      "white_elo": 2590,
+      "black_elo": 2676,
+      "speed": "Bullet",
+      "time_control": "60+0",
+      "month": "2026-09",
+      "opening": "Caro-Kann Defense: Panov Attack, Fianchetto Defense, Fianchetto Gambit",
+      "result": "0-1"
+    }
+  },
+  {
+    "id": 11,
+    "fen": "3rr1k1/ppp3pp/5p2/4p3/1B1nP3/P6Q/1q3PPP/2R2R1K w - - 0 21",
+    "side_to_move": "white",
+    "eval_cp": -383,
+    "depth_reached": 18,
+    "best_move": "Rxc7",
+    "line": [
+      "Rxc7",
+      "Ne6",
+      "Rcc1",
+      "b6",
+      "Qe3"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "bs18a5LO",
+      "ply": 40,
+      "move_number": 21,
+      "white_elo": 1991,
+      "black_elo": 2045,
+      "speed": "Blitz",
+      "time_control": "180+0",
+      "month": "2026-09",
+      "opening": "Petrov's Defense: Three Knights Game",
+      "result": "1-0"
+    }
+  },
+  {
+    "id": 12,
+    "fen": "r1bqkb1r/pppnpppp/8/6B1/3Pp3/4P3/PPP2PPP/R2QKBNR w KQkq - 0 6",
+    "side_to_move": "white",
+    "eval_cp": 62,
+    "depth_reached": 23,
+    "best_move": "f3",
+    "line": [
+      "f3",
+      "Nf6",
+      "Bxf6",
+      "exf6",
+      "fxe4"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "boYJkME9",
+      "ply": 10,
+      "move_number": 6,
+      "white_elo": 1760,
+      "black_elo": 1968,
+      "speed": "Bullet",
+      "time_control": "60+1",
+      "month": "2026-09",
+      "opening": "Richter-Veresov Attack",
+      "result": "0-1"
+    }
+  },
+  {
+    "id": 13,
+    "fen": "r2qkb1r/pp1bpppp/2np4/3n4/4QB2/2P5/PP2PPPP/RN2KBNR b KQkq - 7 8",
     "side_to_move": "black",
-    "eval_cp": 729,
+    "eval_cp": -245,
+    "depth_reached": 23,
+    "best_move": "Qb6",
+    "line": [
+      "Qb6",
+      "Bc1",
+      "Nf6",
+      "Qc2",
+      "d5"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "o8DzWKw4",
+      "ply": 15,
+      "move_number": 8,
+      "white_elo": 1631,
+      "black_elo": 1707,
+      "speed": "Blitz",
+      "time_control": "300+0",
+      "month": "2026-09",
+      "opening": "Benoni Defense: Old Benoni",
+      "result": "0-1"
+    }
+  },
+  {
+    "id": 14,
+    "fen": "rn1qk2r/pp3ppp/3Bpn2/1b6/3P4/5N2/PPP2PPP/R2Q1RK1 w kq - 0 13",
+    "side_to_move": "white",
+    "eval_cp": -611,
+    "depth_reached": 19,
+    "best_move": "Bc5",
+    "line": [
+      "Bc5",
+      "Bxf1",
+      "Qxf1",
+      "Qc7",
+      "a4"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "44BK5qh1",
+      "ply": 24,
+      "move_number": 13,
+      "white_elo": 1775,
+      "black_elo": 1841,
+      "speed": "Blitz",
+      "time_control": "300+0",
+      "month": "2026-09",
+      "opening": "Scandinavian Defense: Mieses-Kotroc Variation",
+      "result": "0-1"
+    }
+  },
+  {
+    "id": 15,
+    "fen": "r1bq1rk1/ppp2pp1/3p1n1p/nP2p3/3bP3/P1N2N2/B1PP1PPP/1RBQ1RK1 b - - 2 10",
+    "side_to_move": "black",
+    "eval_cp": -322,
+    "depth_reached": 19,
+    "best_move": "Bxc3",
+    "line": [
+      "Bxc3",
+      "dxc3",
+      "Nxe4",
+      "Qe1",
+      "Nc5"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "XLD86gfD",
+      "ply": 19,
+      "move_number": 10,
+      "white_elo": 1768,
+      "black_elo": 1746,
+      "speed": "Blitz",
+      "time_control": "300+0",
+      "month": "2026-09",
+      "opening": "Four Knights Game: Italian Variation",
+      "result": "1-0"
+    }
+  },
+  {
+    "id": 16,
+    "fen": "r3kbnr/pppq3p/2npp1p1/1Q6/4P3/2N5/PPP2PPP/R1B1KB1R w KQkq - 2 9",
+    "side_to_move": "white",
+    "eval_cp": 198,
+    "depth_reached": 22,
+    "best_move": "Qxb7",
+    "line": [
+      "Qxb7",
+      "Rb8",
+      "Qa6",
+      "Rb6",
+      "Qd3"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "0OhhKqJ8",
+      "ply": 16,
+      "move_number": 9,
+      "white_elo": 1822,
+      "black_elo": 1853,
+      "speed": "Blitz",
+      "time_control": "300+0",
+      "month": "2026-09",
+      "opening": "Philidor Defense: Exchange Variation",
+      "result": "1/2-1/2"
+    }
+  },
+  {
+    "id": 17,
+    "fen": "r1bq1rk1/pp2npbp/2np2pB/2p1p3/4P3/2NP2P1/PPPQNPBP/R3K2R b KQ - 8 9",
+    "side_to_move": "black",
+    "eval_cp": -25,
+    "depth_reached": 26,
+    "best_move": "Bxh6",
+    "line": [
+      "Bxh6",
+      "Qxh6",
+      "Nd4",
+      "h4",
+      "f6"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "YXYiz29z",
+      "ply": 17,
+      "move_number": 9,
+      "white_elo": 2224,
+      "black_elo": 2217,
+      "speed": "Blitz",
+      "time_control": "180+0",
+      "month": "2026-09",
+      "opening": "Sicilian Defense: Closed",
+      "result": "0-1"
+    }
+  },
+  {
+    "id": 18,
+    "fen": "rnbqk2r/ppp2pbp/4pnp1/3p4/3P1B2/2N1PN2/PPP2PPP/R2QKB1R w KQkq - 1 6",
+    "side_to_move": "white",
+    "eval_cp": 84,
+    "depth_reached": 23,
+    "best_move": "Nb5",
+    "line": [
+      "Nb5",
+      "Na6",
+      "h4",
+      "Qe7",
+      "a3"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "MiOBvA19",
+      "ply": 10,
+      "move_number": 6,
+      "white_elo": 2308,
+      "black_elo": 2313,
+      "speed": "Bullet",
+      "time_control": "60+0",
+      "month": "2026-09",
+      "opening": "Queen's Pawn Game: Chigorin Variation, Fianchetto Defense",
+      "result": "0-1"
+    }
+  },
+  {
+    "id": 19,
+    "fen": "8/p7/2pk4/2Np1ppp/3P4/2P2PP1/PP5K/8 w - - 0 37",
+    "side_to_move": "white",
+    "eval_cp": 890,
     "depth_reached": 32,
-    "best_move": "Kf6"
+    "best_move": "Kh3",
+    "line": [
+      "Kh3",
+      "Ke7",
+      "f4",
+      "Kf6",
+      "Nd3"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "qpHtZsi6",
+      "ply": 72,
+      "move_number": 37,
+      "white_elo": 2024,
+      "black_elo": 2018,
+      "speed": "Bullet",
+      "time_control": "60+0",
+      "month": "2026-09",
+      "opening": "French Defense: Exchange Variation",
+      "result": "1-0"
+    }
+  },
+  {
+    "id": 20,
+    "fen": "5rk1/2p5/2p3np/1pP3p1/1P1pP1P1/3P1r1P/1N1R2K1/R7 w - - 0 26",
+    "side_to_move": "white",
+    "eval_cp": -633,
+    "depth_reached": 18,
+    "best_move": "Nd1",
+    "line": [
+      "Nd1",
+      "Nh4+",
+      "Kh2",
+      "Rf1",
+      "Rda2"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "Q0P4ec9w",
+      "ply": 50,
+      "move_number": 26,
+      "white_elo": 1769,
+      "black_elo": 1740,
+      "speed": "Rapid",
+      "time_control": "900+10",
+      "month": "2026-09",
+      "opening": "Ruy Lopez: Exchange Variation, Normal Variation",
+      "result": "1/2-1/2"
+    }
+  },
+  {
+    "id": 21,
+    "fen": "r3rbk1/2q2p1p/1np2np1/3p4/P2Pp3/1Q2P1PP/3N1PB1/R1B2RK1 w - - 3 19",
+    "side_to_move": "white",
+    "eval_cp": 0,
+    "depth_reached": 22,
+    "best_move": "a5",
+    "line": [
+      "a5",
+      "Nbd7",
+      "Qa2",
+      "h5",
+      "Nb3"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "csF6NaZb",
+      "ply": 36,
+      "move_number": 19,
+      "white_elo": 1858,
+      "black_elo": 1988,
+      "speed": "Rapid",
+      "time_control": "900+10",
+      "month": "2026-09",
+      "opening": "King's Indian Attack: Symmetrical Defense",
+      "result": "0-1"
+    }
+  },
+  {
+    "id": 22,
+    "fen": "r1b1qrk1/pp2b1pp/2p1pnn1/5p1N/3P1P2/2PBB2N/PP1Q2PP/R4RK1 b - - 6 18",
+    "side_to_move": "black",
+    "eval_cp": -687,
+    "depth_reached": 16,
+    "best_move": "Nxh5",
+    "line": [
+      "Nxh5",
+      "Qe2",
+      "Nf6",
+      "Ng5",
+      "Nd5"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "kg4SRDvY",
+      "ply": 35,
+      "move_number": 18,
+      "white_elo": 1872,
+      "black_elo": 1849,
+      "speed": "Bullet",
+      "time_control": "60+0",
+      "month": "2026-09",
+      "opening": "French Defense: Franco-Hiva Gambit",
+      "result": "0-1"
+    }
+  },
+  {
+    "id": 23,
+    "fen": "r4rk1/1bpp1ppp/1pn1pn2/1P6/p1P1P3/3P1P2/3NB1PP/2Q2RK1 w - - 5 14",
+    "side_to_move": "white",
+    "eval_cp": 597,
+    "depth_reached": 17,
+    "best_move": "bxc6",
+    "line": [
+      "bxc6",
+      "dxc6",
+      "Qa3",
+      "c5",
+      "Nb1"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "14t6iBoC",
+      "ply": 26,
+      "move_number": 14,
+      "white_elo": 2033,
+      "black_elo": 1959,
+      "speed": "Bullet",
+      "time_control": "0+1",
+      "month": "2026-09",
+      "opening": "Polish Opening",
+      "result": "1-0"
+    }
+  },
+  {
+    "id": 24,
+    "fen": "rn2k3/pp2qp2/2p1p1rp/3pPp2/3P1P1b/2N1BQ1P/PPP1R1P1/R5K1 w q - 8 17",
+    "side_to_move": "white",
+    "eval_cp": 93,
+    "depth_reached": 19,
+    "best_move": "Kh1",
+    "line": [
+      "Kh1",
+      "Nd7",
+      "Rg1",
+      "Rg3",
+      "Qh5"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "yrvwM4Mt",
+      "ply": 32,
+      "move_number": 17,
+      "white_elo": 1687,
+      "black_elo": 1771,
+      "speed": "Blitz",
+      "time_control": "300+0",
+      "month": "2026-09",
+      "opening": "Caro-Kann Defense: Advance Variation, Van der Wiel Attack",
+      "result": "1-0"
+    }
+  },
+  {
+    "id": 25,
+    "fen": "r2q1rk1/ppp1bppp/1n6/3n3b/3P4/1BN2P2/PP2N1PP/R1BQK2R w KQ - 0 12",
+    "side_to_move": "white",
+    "eval_cp": -7,
+    "depth_reached": 22,
+    "best_move": "O-O",
+    "line": [
+      "O-O",
+      "Bg6",
+      "Nf4",
+      "c6",
+      "Re1"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "HyMyVDhF",
+      "ply": 22,
+      "move_number": 12,
+      "white_elo": 2407,
+      "black_elo": 2447,
+      "speed": "Bullet",
+      "time_control": "60+0",
+      "month": "2026-09",
+      "opening": "Scandinavian Defense: Modern Variation",
+      "result": "0-1"
+    }
+  },
+  {
+    "id": 26,
+    "fen": "r1b2rk1/pp2pp1p/2n3p1/5P2/4P3/q1PPB2P/6P1/3Q1RK1 w - - 5 22",
+    "side_to_move": "white",
+    "eval_cp": -769,
+    "depth_reached": 19,
+    "best_move": "Qe1",
+    "line": [
+      "Qe1",
+      "f6",
+      "d4",
+      "Rf7",
+      "Bh6"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "hEkvE7yo",
+      "ply": 42,
+      "move_number": 22,
+      "white_elo": 2478,
+      "black_elo": 2420,
+      "speed": "Bullet",
+      "time_control": "60+0",
+      "month": "2026-09",
+      "opening": "Pirc Defense: Classical Variation",
+      "result": "0-1"
+    }
+  },
+  {
+    "id": 27,
+    "fen": "r1b1kbn1/ppp5/2n5/2Pp1p2/3PpPp1/1P2P1N1/PB1N1QBq/R3K3 w Qq - 0 16",
+    "side_to_move": "white",
+    "eval_cp": -147,
+    "depth_reached": 20,
+    "best_move": "a3",
+    "line": [
+      "a3",
+      "Qh6",
+      "O-O-O",
+      "Qe6",
+      "Rh1"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "cZthgdP0",
+      "ply": 30,
+      "move_number": 16,
+      "white_elo": 1787,
+      "black_elo": 1800,
+      "speed": "Bullet",
+      "time_control": "60+0",
+      "month": "2026-09",
+      "opening": "Queen's Pawn Game",
+      "result": "0-1"
+    }
+  },
+  {
+    "id": 28,
+    "fen": "r2qkb1r/ppp2p1p/2npbp2/4p3/4P3/2NP1N2/PPP2PPP/R2QKB1R w KQkq - 0 7",
+    "side_to_move": "white",
+    "eval_cp": 33,
+    "depth_reached": 22,
+    "best_move": "d4",
+    "line": [
+      "d4",
+      "exd4",
+      "Nxd4",
+      "Nxd4",
+      "Qxd4"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "yieOaDdJ",
+      "ply": 12,
+      "move_number": 7,
+      "white_elo": 1542,
+      "black_elo": 1511,
+      "speed": "Bullet",
+      "time_control": "60+0",
+      "month": "2026-09",
+      "opening": "Vienna Game: Max Lange Defense",
+      "result": "0-1"
+    }
+  },
+  {
+    "id": 29,
+    "fen": "2rr3k/6bp/5pp1/8/1Q2P3/P1N4P/1P2BPP1/R5K1 b - - 2 27",
+    "side_to_move": "black",
+    "eval_cp": 938,
+    "depth_reached": 16,
+    "best_move": "Rb8",
+    "line": [
+      "Rb8",
+      "Nb5",
+      "Re8",
+      "Qc4",
+      "f5"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "YLZyGQoC",
+      "ply": 53,
+      "move_number": 27,
+      "white_elo": 1730,
+      "black_elo": 1702,
+      "speed": "Bullet",
+      "time_control": "60+0",
+      "month": "2026-09",
+      "opening": "Modern Defense",
+      "result": "1-0"
+    }
+  },
+  {
+    "id": 30,
+    "fen": "r1bqk2r/pp1n1pp1/2pbpn1p/3pN3/3P1P2/3BP3/PPPN2PP/R1BQ1RK1 b kq - 4 8",
+    "side_to_move": "black",
+    "eval_cp": 64,
+    "depth_reached": 20,
+    "best_move": "c5",
+    "line": [
+      "c5",
+      "c3",
+      "a5",
+      "a4",
+      "O-O"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "nWR0lJtD",
+      "ply": 15,
+      "move_number": 8,
+      "white_elo": 2165,
+      "black_elo": 2076,
+      "speed": "Bullet",
+      "time_control": "60+0",
+      "month": "2026-09",
+      "opening": "Queen's Pawn Game: Zukertort Variation",
+      "result": "0-1"
+    }
+  },
+  {
+    "id": 31,
+    "fen": "r2qk2r/pp3ppp/5nb1/1Nb5/3p4/5P2/PPPQBP1P/2KR3R w kq - 2 15",
+    "side_to_move": "white",
+    "eval_cp": -706,
+    "depth_reached": 15,
+    "best_move": "h4",
+    "line": [
+      "h4",
+      "O-O",
+      "b4",
+      "Bb6",
+      "h5"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "30e8YbrZ",
+      "ply": 28,
+      "move_number": 15,
+      "white_elo": 1851,
+      "black_elo": 1848,
+      "speed": "Rapid",
+      "time_control": "600+0",
+      "month": "2026-09",
+      "opening": "Caro-Kann Defense: Exchange Variation",
+      "result": "1-0"
+    }
+  },
+  {
+    "id": 32,
+    "fen": "r4rk1/p2Rpp1p/1p4p1/1B6/1b6/4PN2/5PPP/6K1 w - - 0 24",
+    "side_to_move": "white",
+    "eval_cp": -698,
+    "depth_reached": 19,
+    "best_move": "g3",
+    "line": [
+      "g3",
+      "a5",
+      "Bc6",
+      "Rac8",
+      "Ba4"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "KXzOFxRx",
+      "ply": 46,
+      "move_number": 24,
+      "white_elo": 1955,
+      "black_elo": 1998,
+      "speed": "Rapid",
+      "time_control": "600+0",
+      "month": "2026-09",
+      "opening": "Benoni Defense",
+      "result": "0-1"
+    }
+  },
+  {
+    "id": 33,
+    "fen": "r1b2rk1/1pq1b1pp/p1npp3/5p2/P3n3/3Q1N2/BPP1NPPP/R1B2RK1 w - - 0 13",
+    "side_to_move": "white",
+    "eval_cp": -222,
+    "depth_reached": 17,
+    "best_move": "c3",
+    "line": [
+      "c3",
+      "Kh8",
+      "Nf4",
+      "d5",
+      "Nd4"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "8E3CknVm",
+      "ply": 24,
+      "move_number": 13,
+      "white_elo": 1868,
+      "black_elo": 1884,
+      "speed": "Rapid",
+      "time_control": "600+0",
+      "month": "2026-09",
+      "opening": "Sicilian Defense: Sozin Attack",
+      "result": "0-1"
+    }
+  },
+  {
+    "id": 34,
+    "fen": "r1b1k1nr/ppq4p/2n1p1pP/3pPp2/3P4/P1PB1N2/3B1PP1/R2QK2R w KQkq - 3 15",
+    "side_to_move": "white",
+    "eval_cp": 426,
+    "depth_reached": 18,
+    "best_move": "O-O",
+    "line": [
+      "O-O",
+      "Nge7",
+      "Bg5",
+      "O-O",
+      "Bf6"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "Jg69cFX3",
+      "ply": 28,
+      "move_number": 15,
+      "white_elo": 1822,
+      "black_elo": 1736,
+      "speed": "Rapid",
+      "time_control": "600+0",
+      "month": "2026-09",
+      "opening": "Sicilian Defense: Alapin Variation",
+      "result": "0-1"
+    }
+  },
+  {
+    "id": 35,
+    "fen": "2r5/5pkp/np3p1b/8/8/5P2/PP3KPP/2R2R2 b - - 1 26",
+    "side_to_move": "black",
+    "eval_cp": -845,
+    "depth_reached": 18,
+    "best_move": "Bxc1",
+    "line": [
+      "Bxc1",
+      "b3",
+      "Rc2+",
+      "Kg3",
+      "Bd2"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "kXbkGSNm",
+      "ply": 51,
+      "move_number": 26,
+      "white_elo": 1557,
+      "black_elo": 1611,
+      "speed": "Blitz",
+      "time_control": "180+2",
+      "month": "2026-09",
+      "opening": "Queen's Gambit Declined: Semi-Tarrasch Defense, Pillsbury Variation",
+      "result": "0-1"
+    }
+  },
+  {
+    "id": 36,
+    "fen": "r1r4k/p1RR3p/1p3p2/4p3/7P/2P5/PP3P1P/6K1 b - - 3 28",
+    "side_to_move": "black",
+    "eval_cp": 301,
+    "depth_reached": 18,
+    "best_move": "Rxc7",
+    "line": [
+      "Rxc7",
+      "Rxc7",
+      "Rg8+",
+      "Kf1",
+      "Rg7"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "Rn9AspDE",
+      "ply": 55,
+      "move_number": 28,
+      "white_elo": 1528,
+      "black_elo": 1545,
+      "speed": "Blitz",
+      "time_control": "180+2",
+      "month": "2026-09",
+      "opening": "King's Knight Opening: Konstantinopolsky",
+      "result": "1-0"
+    }
+  },
+  {
+    "id": 37,
+    "fen": "b2r1b1r/Bkp1qppp/1p1p1n2/1PnPp3/1QN1P3/2P2N2/P4PPP/R3R1K1 w - - 7 17",
+    "side_to_move": "white",
+    "eval_cp": 1,
+    "depth_reached": 17,
+    "best_move": "a4",
+    "line": [
+      "a4",
+      "Kxa7",
+      "a5",
+      "Kb8",
+      "axb6"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "a2aGubqo",
+      "ply": 32,
+      "move_number": 17,
+      "white_elo": 1732,
+      "black_elo": 1705,
+      "speed": "Blitz",
+      "time_control": "180+2",
+      "month": "2026-09",
+      "opening": "Ruy Lopez: Steinitz Defense",
+      "result": "1-0"
+    }
+  },
+  {
+    "id": 38,
+    "fen": "3r1rk1/p4pp1/1p1q1b1p/3p4/3P1Pb1/P3R1P1/1P1Q2BP/2N1R1K1 b - - 5 25",
+    "side_to_move": "black",
+    "eval_cp": -92,
+    "depth_reached": 21,
+    "best_move": "Rc8",
+    "line": [
+      "Rc8",
+      "Ne2",
+      "Bf5",
+      "Rc1",
+      "Rc4"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "P7fw4K8K",
+      "ply": 49,
+      "move_number": 25,
+      "white_elo": 2037,
+      "black_elo": 2123,
+      "speed": "Blitz",
+      "time_control": "180+2",
+      "month": "2026-09",
+      "opening": "English Opening: Symmetrical Variation, Fianchetto Variation",
+      "result": "1-0"
+    }
+  },
+  {
+    "id": 39,
+    "fen": "rnbqkb1r/pp3ppp/4pn2/3p4/3P4/1P3N2/PBP2PPP/RN1QKB1R b KQkq - 0 6",
+    "side_to_move": "black",
+    "eval_cp": 17,
+    "depth_reached": 22,
+    "best_move": "Bd6",
+    "line": [
+      "Bd6",
+      "Bd3",
+      "Nc6",
+      "Nbd2",
+      "O-O"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "nZEEnDl2",
+      "ply": 11,
+      "move_number": 6,
+      "white_elo": 1857,
+      "black_elo": 1908,
+      "speed": "Blitz",
+      "time_control": "180+2",
+      "month": "2026-09",
+      "opening": "Queen's Pawn Game: Colle System",
+      "result": "0-1"
+    }
+  },
+  {
+    "id": 40,
+    "fen": "3r1rk1/pppnqpb1/5n1p/4p1p1/1PP1P3/P1N2BBP/2Q2PP1/3R1RK1 b - - 0 17",
+    "side_to_move": "black",
+    "eval_cp": 96,
+    "depth_reached": 19,
+    "best_move": "a5",
+    "line": [
+      "a5",
+      "Rb1",
+      "axb4",
+      "axb4",
+      "Nb8"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "UTnhJmNs",
+      "ply": 33,
+      "move_number": 17,
+      "white_elo": 1937,
+      "black_elo": 1915,
+      "speed": "Blitz",
+      "time_control": "180+2",
+      "month": "2026-09",
+      "opening": "King's Indian Defense: Orthodox Variation",
+      "result": "1-0"
+    }
+  },
+  {
+    "id": 41,
+    "fen": "rBb2rk1/pp3pbp/2p3p1/3p1n2/3P3q/1BP5/PP2NPPP/RN1Q1RK1 b - - 0 11",
+    "side_to_move": "black",
+    "eval_cp": -75,
+    "depth_reached": 19,
+    "best_move": "Rxb8",
+    "line": [
+      "Rxb8",
+      "Nd2",
+      "h5",
+      "Nf3",
+      "Qf6"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "uXh5lBAu",
+      "ply": 21,
+      "move_number": 11,
+      "white_elo": 1866,
+      "black_elo": 1958,
+      "speed": "Blitz",
+      "time_control": "300+0",
+      "month": "2026-09",
+      "opening": "Modern Defense",
+      "result": "0-1"
+    }
+  },
+  {
+    "id": 42,
+    "fen": "r1b1kb1r/1p3ppp/p3pn2/4B3/1qPQ4/2N3P1/PP3PBP/R3K2R w KQkq - 3 13",
+    "side_to_move": "white",
+    "eval_cp": 468,
+    "depth_reached": 16,
+    "best_move": "a3",
+    "line": [
+      "a3",
+      "Qc5",
+      "Bxf6",
+      "gxf6",
+      "Qxf6"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "MlQS3f8Z",
+      "ply": 24,
+      "move_number": 13,
+      "white_elo": 1827,
+      "black_elo": 1835,
+      "speed": "Blitz",
+      "time_control": "300+0",
+      "month": "2026-09",
+      "opening": "Sicilian Defense: Taimanov Variation",
+      "result": "0-1"
+    }
+  },
+  {
+    "id": 43,
+    "fen": "2r1r3/4qkb1/1nn1p1p1/pBppPp2/5P2/2pP4/PP1B2P1/1R2QNKR w - - 0 33",
+    "side_to_move": "white",
+    "eval_cp": 283,
+    "depth_reached": 17,
+    "best_move": "bxc3",
+    "line": [
+      "bxc3",
+      "c4",
+      "d4",
+      "Red8",
+      "Nh2"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "GxbwItNS",
+      "ply": 64,
+      "move_number": 33,
+      "white_elo": 1999,
+      "black_elo": 1995,
+      "speed": "Blitz",
+      "time_control": "300+0",
+      "month": "2026-09",
+      "opening": "Sicilian Defense",
+      "result": "1-0"
+    }
+  },
+  {
+    "id": 44,
+    "fen": "r1bq1rk1/ppp2ppp/2np1n2/2b5/2BPP3/5N2/PP3PPP/RNBQR1K1 b - - 0 8",
+    "side_to_move": "black",
+    "eval_cp": 45,
+    "depth_reached": 21,
+    "best_move": "Bb6",
+    "line": [
+      "Bb6",
+      "h3",
+      "Nxe4",
+      "Rxe4",
+      "d5"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "yq2X8D4c",
+      "ply": 15,
+      "move_number": 8,
+      "white_elo": 1696,
+      "black_elo": 1734,
+      "speed": "Blitz",
+      "time_control": "300+0",
+      "month": "2026-09",
+      "opening": "Italian Game: Classical Variation, Albin Gambit",
+      "result": "1-0"
+    }
+  },
+  {
+    "id": 45,
+    "fen": "r4rk1/p1p2ppp/2p2q2/2P1P1b1/8/P3P2P/1B1Q1PP1/R4RK1 b - - 0 18",
+    "side_to_move": "black",
+    "eval_cp": 355,
+    "depth_reached": 16,
+    "best_move": "Qf5",
+    "line": [
+      "Qf5",
+      "Qa5",
+      "Rfb8",
+      "Bd4",
+      "Bd8"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "x8zNvXv8",
+      "ply": 35,
+      "move_number": 18,
+      "white_elo": 1539,
+      "black_elo": 1563,
+      "speed": "Blitz",
+      "time_control": "300+0",
+      "month": "2026-09",
+      "opening": "Queen's Pawn Game: Colle System",
+      "result": "1-0"
+    }
+  },
+  {
+    "id": 46,
+    "fen": "8/pp6/8/5pp1/4k2P/PPP1P2P/4K3/8 b - - 0 37",
+    "side_to_move": "black",
+    "eval_cp": 566,
+    "depth_reached": 15,
+    "best_move": "gxh4",
+    "line": [
+      "gxh4",
+      "a4",
+      "f4",
+      "exf4",
+      "Kxf4"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "q0eFrCGE",
+      "ply": 73,
+      "move_number": 37,
+      "white_elo": 1602,
+      "black_elo": 1634,
+      "speed": "Blitz",
+      "time_control": "300+0",
+      "month": "2026-09",
+      "opening": "Caro-Kann Defense: Exchange Variation",
+      "result": "1-0"
+    }
+  },
+  {
+    "id": 47,
+    "fen": "rn1qk2r/pp1b1pp1/2p1pn1p/b2p4/PP1P1P2/2PBPN2/6PP/RNBQ1RK1 b kq - 0 9",
+    "side_to_move": "black",
+    "eval_cp": 188,
+    "depth_reached": 17,
+    "best_move": "Bc7",
+    "line": [
+      "Bc7",
+      "Nbd2",
+      "O-O",
+      "Qe2",
+      "Be8"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "GcA9KuNA",
+      "ply": 17,
+      "move_number": 9,
+      "white_elo": 1666,
+      "black_elo": 1662,
+      "speed": "Blitz",
+      "time_control": "300+0",
+      "month": "2026-09",
+      "opening": "Bird Opening: Dutch Variation",
+      "result": "1-0"
+    }
+  },
+  {
+    "id": 48,
+    "fen": "1r3rk1/2p1qppp/3p1n2/1p6/p2PPP2/P2P1Q1P/BP4P1/R4RK1 b - - 2 19",
+    "side_to_move": "black",
+    "eval_cp": 199,
+    "depth_reached": 17,
+    "best_move": "b4",
+    "line": [
+      "b4",
+      "Rac1",
+      "g6",
+      "e5",
+      "Nh5"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "eaAdwXn7",
+      "ply": 37,
+      "move_number": 19,
+      "white_elo": 1539,
+      "black_elo": 1553,
+      "speed": "Blitz",
+      "time_control": "300+0",
+      "month": "2026-09",
+      "opening": "Petrov's Defense: Italian Variation",
+      "result": "1-0"
+    }
+  },
+  {
+    "id": 49,
+    "fen": "2r2rk1/3q1pbp/b2p1np1/p1nPp3/1B2P3/5N1P/2BN1PP1/2RQR1K1 w - - 0 22",
+    "side_to_move": "white",
+    "eval_cp": -48,
+    "depth_reached": 20,
+    "best_move": "Bxa5",
+    "line": [
+      "Bxa5",
+      "Bh6",
+      "Rb1",
+      "Bd3",
+      "Bxd3"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "rVok5WTK",
+      "ply": 42,
+      "move_number": 22,
+      "white_elo": 2244,
+      "black_elo": 2341,
+      "speed": "Bullet",
+      "time_control": "60+0",
+      "month": "2026-09",
+      "opening": "Sicilian Defense: Delayed Alapin Variation, with d6",
+      "result": "0-1"
+    }
+  },
+  {
+    "id": 50,
+    "fen": "1k2r2r/p1p5/npQp1p2/3P1Rpp/1P1q4/8/P5PP/2R4K w - - 1 25",
+    "side_to_move": "white",
+    "eval_cp": -822,
+    "depth_reached": 15,
+    "best_move": "a3",
+    "line": [
+      "a3",
+      "Re2",
+      "Rff1",
+      "Qe4",
+      "Rg1"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "sCeeiuMZ",
+      "ply": 48,
+      "move_number": 25,
+      "white_elo": 2195,
+      "black_elo": 2205,
+      "speed": "Bullet",
+      "time_control": "60+0",
+      "month": "2026-09",
+      "opening": "Nimzo-Indian Defense: Leningrad Variation",
+      "result": "0-1"
+    }
+  },
+  {
+    "id": 51,
+    "fen": "r2q1rk1/pp1nbpp1/2p1pnp1/3p4/5P2/1P1PP1Q1/PBPNB1PP/R4RK1 b - - 5 13",
+    "side_to_move": "black",
+    "eval_cp": 24,
+    "depth_reached": 18,
+    "best_move": "Qa5",
+    "line": [
+      "Qa5",
+      "Nf3",
+      "Ba3",
+      "Be5",
+      "Qc5"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "C4GVh8St",
+      "ply": 25,
+      "move_number": 13,
+      "white_elo": 2188,
+      "black_elo": 2147,
+      "speed": "Bullet",
+      "time_control": "60+0",
+      "month": "2026-09",
+      "opening": "Nimzo-Larsen Attack",
+      "result": "1-0"
+    }
+  },
+  {
+    "id": 52,
+    "fen": "r2qr1kb/5p1p/3p2pB/p1nPpP1P/1p2P3/5P2/PP1Q4/R3KB1R b KQ - 0 18",
+    "side_to_move": "black",
+    "eval_cp": 344,
+    "depth_reached": 18,
+    "best_move": "Bf6",
+    "line": [
+      "Bf6",
+      "hxg6",
+      "fxg6",
+      "fxg6",
+      "hxg6"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "QEWb9zCu",
+      "ply": 35,
+      "move_number": 18,
+      "white_elo": 1955,
+      "black_elo": 1949,
+      "speed": "Bullet",
+      "time_control": "60+0",
+      "month": "2026-09",
+      "opening": "King's Indian Defense: S\u00e4misch Variation, Normal Defense",
+      "result": "0-1"
+    }
+  },
+  {
+    "id": 53,
+    "fen": "rnbq3r/pp2bpk1/2p3p1/3pP1N1/3P3P/8/PPPQ2P1/R1B1K2R w KQ - 2 14",
+    "side_to_move": "white",
+    "eval_cp": -391,
+    "depth_reached": 17,
+    "best_move": "Qf2",
+    "line": [
+      "Qf2",
+      "Be6",
+      "Rf1",
+      "Qd7",
+      "Bd2"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "1dclB39E",
+      "ply": 26,
+      "move_number": 14,
+      "white_elo": 1948,
+      "black_elo": 1937,
+      "speed": "Bullet",
+      "time_control": "60+0",
+      "month": "2026-09",
+      "opening": "Blackmar-Diemer Gambit Declined: O'Kelly Defense",
+      "result": "1-0"
+    }
+  },
+  {
+    "id": 54,
+    "fen": "1rbq1rk1/p4ppp/2p1pb2/3p4/3P4/1PNQ1N2/P1P2PPP/R4RK1 b - - 0 12",
+    "side_to_move": "black",
+    "eval_cp": -229,
+    "depth_reached": 18,
+    "best_move": "c5",
+    "line": [
+      "c5",
+      "Rfd1",
+      "cxd4",
+      "Nxd4",
+      "Qc7"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "wzKfWm3b",
+      "ply": 23,
+      "move_number": 12,
+      "white_elo": 1828,
+      "black_elo": 1880,
+      "speed": "Bullet",
+      "time_control": "60+0",
+      "month": "2026-09",
+      "opening": "Caro-Kann Defense",
+      "result": "0-1"
+    }
+  },
+  {
+    "id": 55,
+    "fen": "3r1n1k/5R2/7p/1p6/p7/4R1PP/PPP1N3/7K b - - 0 36",
+    "side_to_move": "black",
+    "eval_cp": 812,
+    "depth_reached": 18,
+    "best_move": "Ng6",
+    "line": [
+      "Ng6",
+      "Rf1",
+      "Kh7",
+      "Nf4",
+      "Rf8"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "2glQ3V0J",
+      "ply": 71,
+      "move_number": 36,
+      "white_elo": 1830,
+      "black_elo": 1650,
+      "speed": "Rapid",
+      "time_control": "480+0",
+      "month": "2026-09",
+      "opening": "Four Knights Game: Spanish Variation, Classical Variation",
+      "result": "1-0"
+    }
+  },
+  {
+    "id": 56,
+    "fen": "r4rk1/pp2q1pp/2pp3b/3P3b/2PNNp2/5P2/PP2Q1PP/R4RK1 w - - 1 22",
+    "side_to_move": "white",
+    "eval_cp": 244,
+    "depth_reached": 17,
+    "best_move": "dxc6",
+    "line": [
+      "dxc6",
+      "bxc6",
+      "Nxc6",
+      "Qc7",
+      "Nd4"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "Xgnff0Td",
+      "ply": 42,
+      "move_number": 22,
+      "white_elo": 1981,
+      "black_elo": 1919,
+      "speed": "Rapid",
+      "time_control": "600+0",
+      "month": "2026-09",
+      "opening": "Nimzowitsch Defense",
+      "result": "0-1"
+    }
+  },
+  {
+    "id": 57,
+    "fen": "2r5/3pBkb1/pq1Pp2p/5pp1/Pp6/1P3P2/1P1QNP1P/5RK1 b - - 0 22",
+    "side_to_move": "black",
+    "eval_cp": 425,
+    "depth_reached": 15,
+    "best_move": "Be5",
+    "line": [
+      "Be5",
+      "h4",
+      "Qc6",
+      "Qd3",
+      "Qc2"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "1ksfNTOj",
+      "ply": 43,
+      "move_number": 22,
+      "white_elo": 1587,
+      "black_elo": 1702,
+      "speed": "Rapid",
+      "time_control": "600+0",
+      "month": "2026-09",
+      "opening": "Duras Gambit",
+      "result": "1-0"
+    }
+  },
+  {
+    "id": 58,
+    "fen": "rnbqkb1r/1p2pppp/p2p4/6B1/3NP1n1/2N5/PPP2PPP/R2QKB1R b KQkq - 3 7",
+    "side_to_move": "black",
+    "eval_cp": 34,
+    "depth_reached": 20,
+    "best_move": "h6",
+    "line": [
+      "h6",
+      "Bh4",
+      "g5",
+      "h3",
+      "Ne5"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "ao7n95N6",
+      "ply": 13,
+      "move_number": 7,
+      "white_elo": 2797,
+      "black_elo": 2842,
+      "speed": "Blitz",
+      "time_control": "180+0",
+      "month": "2026-09",
+      "opening": "Sicilian Defense: Najdorf Variation, English Attack, Anti-English",
+      "result": "0-1"
+    }
+  },
+  {
+    "id": 59,
+    "fen": "r4r2/pppq1pkp/3p2p1/2nN4/8/PP2P1P1/2PPQ1KP/1R3R2 w - - 4 20",
+    "side_to_move": "white",
+    "eval_cp": 22,
+    "depth_reached": 19,
+    "best_move": "Qc4",
+    "line": [
+      "Qc4",
+      "f6",
+      "b4",
+      "Ne6",
+      "Qc3"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "1SE7zvaE",
+      "ply": 38,
+      "move_number": 20,
+      "white_elo": 2052,
+      "black_elo": 2040,
+      "speed": "Bullet",
+      "time_control": "60+0",
+      "month": "2026-09",
+      "opening": "Van't Kruijs Opening",
+      "result": "0-1"
+    }
+  },
+  {
+    "id": 60,
+    "fen": "r3k2r/pp3ppp/2pb4/3p4/3Pq3/4P1Pb/PPP1B2P/R1BQ1RK1 w kq - 0 14",
+    "side_to_move": "white",
+    "eval_cp": -78,
+    "depth_reached": 19,
+    "best_move": "Rf2",
+    "line": [
+      "Rf2",
+      "O-O-O",
+      "Bd3",
+      "Qe6",
+      "Qh5"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "aNhtqWhE",
+      "ply": 26,
+      "move_number": 14,
+      "white_elo": 2325,
+      "black_elo": 2330,
+      "speed": "Bullet",
+      "time_control": "60+0",
+      "month": "2026-09",
+      "opening": "Queen's Pawn Game: Colle System",
+      "result": "1/2-1/2"
+    }
+  },
+  {
+    "id": 61,
+    "fen": "rnbqkb1r/ppp2ppp/4p3/8/4n3/5N2/PPPPQPPP/R1B1KB1R w KQkq - 0 6",
+    "side_to_move": "white",
+    "eval_cp": 4,
+    "depth_reached": 19,
+    "best_move": "Qxe4",
+    "line": [
+      "Qxe4",
+      "Qd5",
+      "Bd3",
+      "Bd7",
+      "Ne5"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "DCV1FfOH",
+      "ply": 10,
+      "move_number": 6,
+      "white_elo": 1787,
+      "black_elo": 1837,
+      "speed": "Bullet",
+      "time_control": "60+0",
+      "month": "2026-09",
+      "opening": "French Defense: Two Knights Variation",
+      "result": "1-0"
+    }
+  },
+  {
+    "id": 62,
+    "fen": "rn1qk2r/p1p2ppp/1p1np3/8/3P4/P1PQBB2/2P3bP/R3K1NR b KQkq - 1 12",
+    "side_to_move": "black",
+    "eval_cp": -517,
+    "depth_reached": 16,
+    "best_move": "Bxh1",
+    "line": [
+      "Bxh1",
+      "Bxh1",
+      "Nd7",
+      "O-O-O",
+      "O-O"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "aZDWtz1H",
+      "ply": 23,
+      "move_number": 12,
+      "white_elo": 2015,
+      "black_elo": 1983,
+      "speed": "Bullet",
+      "time_control": "60+0",
+      "month": "2026-09",
+      "opening": "Owen Defense",
+      "result": "0-1"
+    }
+  },
+  {
+    "id": 63,
+    "fen": "1k1r2r1/1b3pp1/3pqb1p/Q1p5/Pp1pP3/1P4NP/1P3BP1/R1R3K1 b - - 0 28",
+    "side_to_move": "black",
+    "eval_cp": -558,
+    "depth_reached": 18,
+    "best_move": "Rge8",
+    "line": [
+      "Rge8",
+      "Re1",
+      "Qd7",
+      "Nf1",
+      "Qc6"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "CWfLKP3x",
+      "ply": 55,
+      "move_number": 28,
+      "white_elo": 1864,
+      "black_elo": 1862,
+      "speed": "Rapid",
+      "time_control": "600+0",
+      "month": "2026-09",
+      "opening": "Pirc Defense",
+      "result": "0-1"
+    }
+  },
+  {
+    "id": 64,
+    "fen": "8/p2q1rpk/4p2p/1b1pPp2/1Pn4P/4P1P1/1B3PB1/1QR3K1 w - - 2 33",
+    "side_to_move": "white",
+    "eval_cp": 0,
+    "depth_reached": 23,
+    "best_move": "Bd4",
+    "line": [
+      "Bd4",
+      "Qe7",
+      "Qc2",
+      "a6",
+      "Bc5"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "LFWxDyzX",
+      "ply": 64,
+      "move_number": 33,
+      "white_elo": 1642,
+      "black_elo": 1654,
+      "speed": "Blitz",
+      "time_control": "300+3",
+      "month": "2026-09",
+      "opening": "Dutch Defense",
+      "result": "1-0"
+    }
+  },
+  {
+    "id": 65,
+    "fen": "4kr2/pp1b1pp1/4p2p/3pP2P/1P1q4/2rB4/5PP1/1R1QR1K1 w - - 0 21",
+    "side_to_move": "white",
+    "eval_cp": -409,
+    "depth_reached": 17,
+    "best_move": "Rb3",
+    "line": [
+      "Rb3",
+      "Rxb3",
+      "Qxb3",
+      "Ke7",
+      "b5"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "Wmrs0nCz",
+      "ply": 40,
+      "move_number": 21,
+      "white_elo": 2080,
+      "black_elo": 2019,
+      "speed": "Blitz",
+      "time_control": "300+3",
+      "month": "2026-09",
+      "opening": "French Defense: Advance Variation, Milner-Barry Gambit, Hector Variation",
+      "result": "0-1"
+    }
+  },
+  {
+    "id": 66,
+    "fen": "2r1k2r/1p2bpp1/p3pn1p/3pBb2/3P4/1PP4P/1P1NBPP1/R3K2R w KQk - 1 15",
+    "side_to_move": "white",
+    "eval_cp": 81,
+    "depth_reached": 21,
+    "best_move": "b4",
+    "line": [
+      "b4",
+      "Nd7",
+      "Bh2",
+      "Bd8",
+      "Nb3"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "IMn5rSrD",
+      "ply": 28,
+      "move_number": 15,
+      "white_elo": 1584,
+      "black_elo": 1631,
+      "speed": "Blitz",
+      "time_control": "300+3",
+      "month": "2026-09",
+      "opening": "Caro-Kann Defense: Exchange Variation",
+      "result": "1-0"
+    }
+  },
+  {
+    "id": 67,
+    "fen": "5r2/rq2npk1/pNp4p/2Ppb1p1/8/5Q2/PPP2PPP/R3R1K1 w - - 0 21",
+    "side_to_move": "white",
+    "eval_cp": 216,
+    "depth_reached": 17,
+    "best_move": "Rxe5",
+    "line": [
+      "Rxe5",
+      "Ng6",
+      "Re3",
+      "Qb8",
+      "g3"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "ys9Ryeuo",
+      "ply": 40,
+      "move_number": 21,
+      "white_elo": 1841,
+      "black_elo": 1850,
+      "speed": "Blitz",
+      "time_control": "300+3",
+      "month": "2026-09",
+      "opening": "Sicilian Defense: Marshall Counterattack",
+      "result": "1-0"
+    }
+  },
+  {
+    "id": 68,
+    "fen": "r1bn2k1/1p2b1r1/p3p1B1/q2p3Q/3P3P/2N1P3/PPP2RP1/2KR4 b - - 8 20",
+    "side_to_move": "black",
+    "eval_cp": 877,
+    "depth_reached": 19,
+    "best_move": "Qc7",
+    "line": [
+      "Qc7",
+      "Rdf1",
+      "Bb4",
+      "a3",
+      "Bd6"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "oZawdp85",
+      "ply": 39,
+      "move_number": 20,
+      "white_elo": 1810,
+      "black_elo": 1826,
+      "speed": "Blitz",
+      "time_control": "180+0",
+      "month": "2026-09",
+      "opening": "Horwitz Defense",
+      "result": "1/2-1/2"
+    }
+  },
+  {
+    "id": 69,
+    "fen": "r2qkb1r/pQ1n1ppp/2p5/3B4/6b1/8/PP1P1P1P/RNB1K1NR b KQkq - 0 9",
+    "side_to_move": "black",
+    "eval_cp": -585,
+    "depth_reached": 17,
+    "best_move": "Rb8",
+    "line": [
+      "Rb8",
+      "Qxc6",
+      "Rc8",
+      "Bxf7+",
+      "Kxf7"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "mZdqtvqo",
+      "ply": 17,
+      "move_number": 9,
+      "white_elo": 1735,
+      "black_elo": 1740,
+      "speed": "Blitz",
+      "time_control": "180+0",
+      "month": "2026-09",
+      "opening": "Grob Opening: Grob Gambit, Fritz Gambit",
+      "result": "1-0"
+    }
+  },
+  {
+    "id": 70,
+    "fen": "3r4/kp6/p1pq3p/6b1/3PQ3/PPP2R2/1B4P1/1K3R2 w - - 4 35",
+    "side_to_move": "white",
+    "eval_cp": 845,
+    "depth_reached": 19,
+    "best_move": "c4",
+    "line": [
+      "c4",
+      "Qe7",
+      "Qd3",
+      "c5",
+      "d5"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "hZxWI9tz",
+      "ply": 68,
+      "move_number": 35,
+      "white_elo": 1581,
+      "black_elo": 1624,
+      "speed": "Blitz",
+      "time_control": "180+0",
+      "month": "2026-09",
+      "opening": "Nimzo-Larsen Attack: Modern Variation",
+      "result": "1-0"
+    }
+  },
+  {
+    "id": 71,
+    "fen": "4r1k1/p5p1/4pp1p/1pp2n2/5P1N/7Q/P1q3PP/5R1K b - - 0 27",
+    "side_to_move": "black",
+    "eval_cp": -740,
+    "depth_reached": 21,
+    "best_move": "c4",
+    "line": [
+      "c4",
+      "Nxf5",
+      "exf5",
+      "Qf3",
+      "b4"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "QDxmk0qC",
+      "ply": 53,
+      "move_number": 27,
+      "white_elo": 1898,
+      "black_elo": 1909,
+      "speed": "Blitz",
+      "time_control": "180+0",
+      "month": "2026-09",
+      "opening": "Sicilian Defense: Closed",
+      "result": "0-1"
+    }
+  },
+  {
+    "id": 72,
+    "fen": "6k1/p5p1/7p/1pp5/7P/P4KP1/8/8 w - - 2 36",
+    "side_to_move": "white",
+    "eval_cp": -709,
+    "depth_reached": 28,
+    "best_move": "Ke4",
+    "line": [
+      "Ke4",
+      "Kf7",
+      "Kd5",
+      "c4",
+      "Kd4"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "lYDltdrp",
+      "ply": 70,
+      "move_number": 36,
+      "white_elo": 1560,
+      "black_elo": 1546,
+      "speed": "Blitz",
+      "time_control": "180+0",
+      "month": "2026-09",
+      "opening": "Hungarian Opening: Reversed Alekhine",
+      "result": "0-1"
+    }
+  },
+  {
+    "id": 73,
+    "fen": "r1bq1rk1/1p4b1/p1pp1nn1/5pN1/PP1P1Q2/2NB4/2P2PPP/1R3RK1 w - - 3 17",
+    "side_to_move": "white",
+    "eval_cp": -514,
+    "depth_reached": 19,
+    "best_move": "Qc1",
+    "line": [
+      "Qc1",
+      "d5",
+      "Nf3",
+      "Ne4",
+      "Rb3"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "kgO3kySQ",
+      "ply": 32,
+      "move_number": 17,
+      "white_elo": 1951,
+      "black_elo": 1932,
+      "speed": "Blitz",
+      "time_control": "180+0",
+      "month": "2026-09",
+      "opening": "Modern Defense",
+      "result": "0-1"
+    }
+  },
+  {
+    "id": 74,
+    "fen": "r2q1rk1/p2bbppp/1pn1p3/3pP3/3P4/2PB1N2/P1Q2PPP/1RB2RK1 w - - 2 14",
+    "side_to_move": "white",
+    "eval_cp": 493,
+    "depth_reached": 19,
+    "best_move": "Bxh7+",
+    "line": [
+      "Bxh7+",
+      "Kh8",
+      "Bd3",
+      "Qe8",
+      "Re1"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "UZ7hyW0l",
+      "ply": 26,
+      "move_number": 14,
+      "white_elo": 2059,
+      "black_elo": 2060,
+      "speed": "Blitz",
+      "time_control": "180+0",
+      "month": "2026-09",
+      "opening": "Sicilian Defense: Delayed Alapin Variation, with d6",
+      "result": "1-0"
+    }
+  },
+  {
+    "id": 75,
+    "fen": "8/2p1kp2/rr3p1p/p3b3/B5R1/1P4P1/P4P1P/4R1K1 b - - 11 31",
+    "side_to_move": "black",
+    "eval_cp": 20,
+    "depth_reached": 25,
+    "best_move": "Re6",
+    "line": [
+      "Re6",
+      "Rg8",
+      "f5",
+      "Rc1",
+      "f4"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "xYczC7Dk",
+      "ply": 61,
+      "move_number": 31,
+      "white_elo": 1918,
+      "black_elo": 1905,
+      "speed": "Blitz",
+      "time_control": "180+0",
+      "month": "2026-09",
+      "opening": "King's Pawn Game: MacLeod Attack",
+      "result": "1-0"
+    }
+  },
+  {
+    "id": 76,
+    "fen": "1k1r4/pp2n3/2n1q3/1P2p1P1/3pPp1P/P2P1Q2/3B1P2/2R2RK1 b - - 0 25",
+    "side_to_move": "black",
+    "eval_cp": 554,
+    "depth_reached": 16,
+    "best_move": "Rh8",
+    "line": [
+      "Rh8",
+      "Kg2",
+      "Ng6",
+      "Rh1",
+      "Nxh4+"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "4mvS3zA3",
+      "ply": 49,
+      "move_number": 25,
+      "white_elo": 1879,
+      "black_elo": 1882,
+      "speed": "Blitz",
+      "time_control": "180+0",
+      "month": "2026-09",
+      "opening": "English Opening: Caro-Kann Defensive System",
+      "result": "0-1"
+    }
+  },
+  {
+    "id": 77,
+    "fen": "8/8/4k1p1/3pP2p/pppPp1P1/4P2P/PP1K4/8 w - - 0 38",
+    "side_to_move": "white",
+    "eval_cp": 1044,
+    "depth_reached": 41,
+    "best_move": "gxh5",
+    "line": [
+      "gxh5",
+      "gxh5",
+      "a3",
+      "bxa3",
+      "bxa3"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "m42X9ZYi",
+      "ply": 74,
+      "move_number": 38,
+      "white_elo": 1821,
+      "black_elo": 1838,
+      "speed": "Blitz",
+      "time_control": "180+0",
+      "month": "2026-09",
+      "opening": "Queen's Pawn Game",
+      "result": "1/2-1/2"
+    }
+  },
+  {
+    "id": 78,
+    "fen": "8/8/pK2p3/1p1bB3/1P3pk1/P7/2P5/8 b - - 1 36",
+    "side_to_move": "black",
+    "eval_cp": -801,
+    "depth_reached": 34,
+    "best_move": "Bc4",
+    "line": [
+      "Bc4",
+      "Bd4",
+      "f3",
+      "Bf2",
+      "Kh3"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "gXLTzMXF",
+      "ply": 71,
+      "move_number": 36,
+      "white_elo": 1810,
+      "black_elo": 1806,
+      "speed": "Blitz",
+      "time_control": "180+0",
+      "month": "2026-09",
+      "opening": "French Defense: Schlechter Variation",
+      "result": "0-1"
+    }
+  },
+  {
+    "id": 79,
+    "fen": "2b5/5k2/3Rpp2/6n1/4P1Pp/2N4P/PPP3P1/2K2B1R b - - 0 31",
+    "side_to_move": "black",
+    "eval_cp": 1250,
+    "depth_reached": 24,
+    "best_move": "Ke7",
+    "line": [
+      "Ke7",
+      "Rb6",
+      "Kd8",
+      "a4",
+      "Nf7"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "1tQH9BCq",
+      "ply": 61,
+      "move_number": 31,
+      "white_elo": 1759,
+      "black_elo": 1771,
+      "speed": "Blitz",
+      "time_control": "180+0",
+      "month": "2026-09",
+      "opening": "Pterodactyl Defense: Sicilian, Rhamphorhynchus",
+      "result": "1-0"
+    }
+  },
+  {
+    "id": 80,
+    "fen": "r6r/pp2kppp/3pp3/2p5/N1Pnq3/7P/P4PP1/1R1Q2K1 b - - 1 19",
+    "side_to_move": "black",
+    "eval_cp": -908,
+    "depth_reached": 23,
+    "best_move": "Ne2+",
+    "line": [
+      "Ne2+",
+      "Kh2",
+      "Rab8",
+      "Rb2",
+      "Qf4+"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "XkIDA4Jx",
+      "ply": 37,
+      "move_number": 19,
+      "white_elo": 1702,
+      "black_elo": 1692,
+      "speed": "Blitz",
+      "time_control": "180+0",
+      "month": "2026-09",
+      "opening": "Sicilian Defense: Staunton-Cochrane Variation",
+      "result": "0-1"
+    }
+  },
+  {
+    "id": 81,
+    "fen": "2kr1bnr/ppp2ppp/2n1q3/4p3/2P1N3/3P1B2/PP1B1PPP/R2Q1RK1 w - - 1 12",
+    "side_to_move": "white",
+    "eval_cp": 409,
+    "depth_reached": 20,
+    "best_move": "Ng5",
+    "line": [
+      "Ng5",
+      "Qe8",
+      "Bxc6",
+      "bxc6",
+      "Qa4"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "4jXVriNV",
+      "ply": 22,
+      "move_number": 12,
+      "white_elo": 1610,
+      "black_elo": 1639,
+      "speed": "Blitz",
+      "time_control": "180+0",
+      "month": "2026-09",
+      "opening": "Scandinavian Defense: Main Line",
+      "result": "0-1"
+    }
+  },
+  {
+    "id": 82,
+    "fen": "r1bq1rk1/1pp1bp2/p3p3/3pn3/3Pn1p1/2P1P3/PP2BPPB/RN1Q1RK1 w - - 0 15",
+    "side_to_move": "white",
+    "eval_cp": 29,
+    "depth_reached": 25,
+    "best_move": "dxe5",
+    "line": [
+      "dxe5",
+      "Bc5",
+      "Bxg4",
+      "Qh4",
+      "Bh3"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "l9fmEQTS",
+      "ply": 28,
+      "move_number": 15,
+      "white_elo": 1605,
+      "black_elo": 1605,
+      "speed": "Blitz",
+      "time_control": "180+0",
+      "month": "2026-09",
+      "opening": "Queen's Pawn Game: Levitsky Attack",
+      "result": "1-0"
+    }
+  },
+  {
+    "id": 83,
+    "fen": "3rk1nr/ppp2ppp/2b5/2b5/3Np3/4B3/PPP2PPP/RN2K2R w KQk - 2 10",
+    "side_to_move": "white",
+    "eval_cp": 530,
+    "depth_reached": 17,
+    "best_move": "Nxc6",
+    "line": [
+      "Nxc6",
+      "Bxe3",
+      "Nxd8",
+      "Bc1",
+      "Nxf7"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "d1w0IIhs",
+      "ply": 18,
+      "move_number": 10,
+      "white_elo": 1592,
+      "black_elo": 1583,
+      "speed": "Blitz",
+      "time_control": "180+0",
+      "month": "2026-09",
+      "opening": "King's Pawn Game: Beyer Gambit",
+      "result": "1-0"
+    }
+  },
+  {
+    "id": 84,
+    "fen": "rnbqkbnr/5ppp/p1p1p3/1p1pP3/5P2/3P1N2/PPP3PP/RNBQKB1R w KQkq - 0 6",
+    "side_to_move": "white",
+    "eval_cp": 42,
+    "depth_reached": 28,
+    "best_move": "d4",
+    "line": [
+      "d4",
+      "c5",
+      "Be3",
+      "c4",
+      "Be2"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "6M3Wvzsp",
+      "ply": 10,
+      "move_number": 6,
+      "white_elo": 1977,
+      "black_elo": 1889,
+      "speed": "Bullet",
+      "time_control": "60+0",
+      "month": "2026-09",
+      "opening": "Caro-Kann Defense",
+      "result": "1-0"
+    }
+  },
+  {
+    "id": 85,
+    "fen": "rnbqkbnr/pp3ppp/2p1p3/8/2BP4/2N2N2/PPP2PPP/R1BQK2R b KQkq - 0 6",
+    "side_to_move": "black",
+    "eval_cp": 103,
+    "depth_reached": 25,
+    "best_move": "Nf6",
+    "line": [
+      "Nf6",
+      "O-O",
+      "Be7",
+      "Qe2",
+      "O-O"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "z913cD9h",
+      "ply": 11,
+      "move_number": 6,
+      "white_elo": 2003,
+      "black_elo": 2001,
+      "speed": "Bullet",
+      "time_control": "60+0",
+      "month": "2026-09",
+      "opening": "Scandinavian Defense: Valencian Variation",
+      "result": "0-1"
+    }
+  },
+  {
+    "id": 86,
+    "fen": "rnb1kb1r/p3pp1p/1qpp1np1/8/1p1PPP2/P1NB1N2/1PP3PP/R1BQK2R w KQkq - 0 8",
+    "side_to_move": "white",
+    "eval_cp": 453,
+    "depth_reached": 17,
+    "best_move": "axb4",
+    "line": [
+      "axb4",
+      "Bg7",
+      "e5",
+      "Nd5",
+      "Nxd5"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "7Q6Wp4Y6",
+      "ply": 14,
+      "move_number": 8,
+      "white_elo": 2771,
+      "black_elo": 2752,
+      "speed": "Bullet",
+      "time_control": "60+0",
+      "month": "2026-09",
+      "opening": "Pirc Defense: Austrian Attack",
+      "result": "1-0"
+    }
+  },
+  {
+    "id": 87,
+    "fen": "1r2r1k1/pq2bp1p/1pR3p1/1Pn1P1N1/2Q2P2/P3P3/6PP/5RK1 b - - 6 26",
+    "side_to_move": "black",
+    "eval_cp": -679,
+    "depth_reached": 24,
+    "best_move": "Bxg5",
+    "line": [
+      "Bxg5",
+      "fxg5",
+      "Rxe5",
+      "Qf4",
+      "Rbe8"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "kJ8Zr7a8",
+      "ply": 51,
+      "move_number": 26,
+      "white_elo": 2052,
+      "black_elo": 2114,
+      "speed": "Bullet",
+      "time_control": "60+0",
+      "month": "2026-09",
+      "opening": "Zukertort Opening: Slav Invitation",
+      "result": "0-1"
+    }
+  },
+  {
+    "id": 88,
+    "fen": "5rk1/1r3ppp/p3p3/3p4/P2Nn3/b6P/2R2PP1/3Q1RK1 w - - 1 25",
+    "side_to_move": "white",
+    "eval_cp": 736,
+    "depth_reached": 15,
+    "best_move": "Qd3",
+    "line": [
+      "Qd3",
+      "Bc5",
+      "Rfc1",
+      "Rc7",
+      "Qxa6"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "zESRhjET",
+      "ply": 48,
+      "move_number": 25,
+      "white_elo": 1817,
+      "black_elo": 1834,
+      "speed": "Blitz",
+      "time_control": "180+2",
+      "month": "2026-09",
+      "opening": "Sicilian Defense: Taimanov Variation",
+      "result": "1-0"
+    }
+  },
+  {
+    "id": 89,
+    "fen": "4rrk1/pp1n1p1p/2p3pP/2qb4/5Q2/5P2/PPP3P1/2KR2NR b - - 0 20",
+    "side_to_move": "black",
+    "eval_cp": -647,
+    "depth_reached": 18,
+    "best_move": "f6",
+    "line": [
+      "f6",
+      "Qd2",
+      "Ne5",
+      "Ne2",
+      "Nc4"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "lDj9UlIN",
+      "ply": 39,
+      "move_number": 20,
+      "white_elo": 1584,
+      "black_elo": 1572,
+      "speed": "Blitz",
+      "time_control": "300+3",
+      "month": "2026-09",
+      "opening": "Lion Defense: Lion's Jaw",
+      "result": "1-0"
+    }
+  },
+  {
+    "id": 90,
+    "fen": "r7/1p2r1pk/p1p1bp1p/8/PPNPp3/4P3/5PPP/1RR3K1 b - - 1 22",
+    "side_to_move": "black",
+    "eval_cp": 38,
+    "depth_reached": 20,
+    "best_move": "Bxc4",
+    "line": [
+      "Bxc4",
+      "Rxc4",
+      "g5",
+      "g3",
+      "Kg6"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "pmxyr5R9",
+      "ply": 43,
+      "move_number": 22,
+      "white_elo": 2437,
+      "black_elo": 2321,
+      "speed": "Blitz",
+      "time_control": "300+3",
+      "month": "2026-09",
+      "opening": "Queen's Gambit Declined: Three Knights Variation",
+      "result": "1-0"
+    }
+  },
+  {
+    "id": 91,
+    "fen": "4r3/1p6/2p5/1p1p1pkp/1R6/P1P1PKPP/1P6/8 w - - 5 37",
+    "side_to_move": "white",
+    "eval_cp": 0,
+    "depth_reached": 28,
+    "best_move": "b3",
+    "line": [
+      "b3",
+      "Re6",
+      "Rd4",
+      "Re4",
+      "a4"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "de7q8NtY",
+      "ply": 72,
+      "move_number": 37,
+      "white_elo": 2025,
+      "black_elo": 2045,
+      "speed": "Blitz",
+      "time_control": "180+0",
+      "month": "2026-09",
+      "opening": "Torre Attack: Fianchetto Defense",
+      "result": "1/2-1/2"
+    }
+  },
+  {
+    "id": 92,
+    "fen": "2kr3r/pbpq1p2/1pn1p3/3n2p1/P2P3p/BP2P2P/2QNBPP1/2R2RK1 b - - 1 17",
+    "side_to_move": "black",
+    "eval_cp": -19,
+    "depth_reached": 18,
+    "best_move": "Ncb4",
+    "line": [
+      "Ncb4",
+      "Qc4",
+      "a5",
+      "e4",
+      "Nf4"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "i1rraPzn",
+      "ply": 33,
+      "move_number": 17,
+      "white_elo": 2240,
+      "black_elo": 2243,
+      "speed": "Bullet",
+      "time_control": "60+0",
+      "month": "2026-09",
+      "opening": "Queen's Pawn Game: Colle System",
+      "result": "0-1"
+    }
+  },
+  {
+    "id": 93,
+    "fen": "rn2k2r/p1p1b1pp/1p1q4/3b1Q2/8/2P1PN2/P2PBPPP/R1B1K2R w KQkq - 3 12",
+    "side_to_move": "white",
+    "eval_cp": 581,
+    "depth_reached": 16,
+    "best_move": "e4",
+    "line": [
+      "e4",
+      "Bb7",
+      "O-O",
+      "Rf8",
+      "Qh5+"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "e42Wnx2Z",
+      "ply": 22,
+      "move_number": 12,
+      "white_elo": 2014,
+      "black_elo": 2013,
+      "speed": "Blitz",
+      "time_control": "180+2",
+      "month": "2026-09",
+      "opening": "English Opening",
+      "result": "1-0"
+    }
+  },
+  {
+    "id": 94,
+    "fen": "r4rk1/pp3pp1/3p2p1/3P4/2P2P2/2B5/P3b1PP/RR4K1 b - - 2 22",
+    "side_to_move": "black",
+    "eval_cp": -43,
+    "depth_reached": 21,
+    "best_move": "b6",
+    "line": [
+      "b6",
+      "Bb4",
+      "Bxc4",
+      "Rd1",
+      "Rac8"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "Uv0JS5LD",
+      "ply": 43,
+      "move_number": 22,
+      "white_elo": 1842,
+      "black_elo": 1830,
+      "speed": "Rapid",
+      "time_control": "600+0",
+      "month": "2026-09",
+      "opening": "Ruy Lopez: Bird Variation",
+      "result": "0-1"
+    }
+  },
+  {
+    "id": 95,
+    "fen": "r4rk1/2R3pp/2p2p2/2Pp4/1P2p3/2P1P2P/4NPP1/5RK1 b - - 0 21",
+    "side_to_move": "black",
+    "eval_cp": 791,
+    "depth_reached": 22,
+    "best_move": "Rfc8",
+    "line": [
+      "Rfc8",
+      "Rxc8+",
+      "Rxc8",
+      "Ra1",
+      "g5"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "65qVMb7W",
+      "ply": 41,
+      "move_number": 21,
+      "white_elo": 1851,
+      "black_elo": 1969,
+      "speed": "Rapid",
+      "time_control": "600+0",
+      "month": "2026-09",
+      "opening": "Queen's Pawn Game: Accelerated London System",
+      "result": "1-0"
+    }
+  },
+  {
+    "id": 96,
+    "fen": "8/1q1Rn1k1/5p2/p3p1p1/1pP1P1P1/5PK1/P1N2Q2/8 b - - 0 35",
+    "side_to_move": "black",
+    "eval_cp": -12,
+    "depth_reached": 21,
+    "best_move": "Qxd7",
+    "line": [
+      "Qxd7",
+      "Ne3"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "cSBIGEFa",
+      "ply": 69,
+      "move_number": 35,
+      "white_elo": 2189,
+      "black_elo": 2082,
+      "speed": "Rapid",
+      "time_control": "600+0",
+      "month": "2026-09",
+      "opening": "Sicilian Defense: Kalashnikov Variation",
+      "result": "1-0"
+    }
+  },
+  {
+    "id": 97,
+    "fen": "r1b1k2r/p2p1pp1/2p1pq1p/8/1b2P3/2N2Q2/PPP2PPP/R3KB1R w KQkq - 0 10",
+    "side_to_move": "white",
+    "eval_cp": -46,
+    "depth_reached": 20,
+    "best_move": "Qxf6",
+    "line": [
+      "Qxf6",
+      "gxf6",
+      "Bd3",
+      "h5",
+      "a3"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "3giv0prA",
+      "ply": 18,
+      "move_number": 10,
+      "white_elo": 1804,
+      "black_elo": 1742,
+      "speed": "Rapid",
+      "time_control": "600+0",
+      "month": "2026-09",
+      "opening": "Sicilian Defense: Taimanov Variation",
+      "result": "0-1"
+    }
+  },
+  {
+    "id": 98,
+    "fen": "1r4k1/ppp3pn/3q1r1p/8/2P5/3P2N1/PP1BRPPP/6K1 b - - 2 23",
+    "side_to_move": "black",
+    "eval_cp": -929,
+    "depth_reached": 15,
+    "best_move": "Qxd3",
+    "line": [
+      "Qxd3",
+      "Bc3",
+      "Rf7",
+      "h4",
+      "Rbf8"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "virb3q4h",
+      "ply": 45,
+      "move_number": 23,
+      "white_elo": 1889,
+      "black_elo": 1863,
+      "speed": "Bullet",
+      "time_control": "60+0",
+      "month": "2026-09",
+      "opening": "Italian Game: Classical Variation, Giuoco Pianissimo",
+      "result": "0-1"
+    }
+  },
+  {
+    "id": 99,
+    "fen": "k1b2b1r/1p6/1q3p2/pNn1p1p1/P2pP3/6PP/3Q2B1/2R2RK1 w - - 0 27",
+    "side_to_move": "white",
+    "eval_cp": 771,
+    "depth_reached": 27,
+    "best_move": "Rxf6",
+    "line": [
+      "Rxf6",
+      "Qxf6",
+      "Qxa5+",
+      "Qa6",
+      "Nc7+"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "9K7grsQD",
+      "ply": 52,
+      "move_number": 27,
+      "white_elo": 2299,
+      "black_elo": 2306,
+      "speed": "Bullet",
+      "time_control": "60+0",
+      "month": "2026-09",
+      "opening": "Van't Kruijs Opening",
+      "result": "0-1"
+    }
+  },
+  {
+    "id": 100,
+    "fen": "r3kb1r/ppp1pppp/2nq1n2/3p2B1/3P4/3PPN2/PP3PPP/RN1QK2R w KQkq - 1 7",
+    "side_to_move": "white",
+    "eval_cp": 58,
+    "depth_reached": 18,
+    "best_move": "Nc3",
+    "line": [
+      "Nc3",
+      "e6",
+      "O-O",
+      "Be7",
+      "Rc1"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "qbjWH2Pj",
+      "ply": 12,
+      "move_number": 7,
+      "white_elo": 1924,
+      "black_elo": 1985,
+      "speed": "Blitz",
+      "time_control": "180+0",
+      "month": "2026-09",
+      "opening": "Queen's Pawn Game: Chigorin Variation",
+      "result": "0-1"
+    }
+  },
+  {
+    "id": 101,
+    "fen": "4r2k/1ppb4/p4rqp/3Pnpp1/P3p3/2P1B3/BP3PPP/R2QR1K1 b - - 4 24",
+    "side_to_move": "black",
+    "eval_cp": -41,
+    "depth_reached": 18,
+    "best_move": "g4",
+    "line": [
+      "g4",
+      "Bf4",
+      "Nf3+",
+      "Kf1",
+      "Nxh2+"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "sueHtrV7",
+      "ply": 47,
+      "move_number": 24,
+      "white_elo": 1904,
+      "black_elo": 1878,
+      "speed": "Blitz",
+      "time_control": "180+0",
+      "month": "2026-09",
+      "opening": "Italian Game: Two Knights Defense, Modern Bishop's Opening",
+      "result": "1-0"
+    }
+  },
+  {
+    "id": 102,
+    "fen": "5rk1/1r1q1ppp/3pp3/1P2b3/3Nb3/4N2P/3Q1PPB/2R3K1 w - - 1 26",
+    "side_to_move": "white",
+    "eval_cp": -533,
+    "depth_reached": 17,
+    "best_move": "Qb4",
+    "line": [
+      "Qb4",
+      "Bxh2+",
+      "Kxh2",
+      "Rc8",
+      "Rc4"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "f8uxifcu",
+      "ply": 50,
+      "move_number": 26,
+      "white_elo": 2262,
+      "black_elo": 2229,
+      "speed": "Blitz",
+      "time_control": "180+0",
+      "month": "2026-09",
+      "opening": "Van Geet Opening",
+      "result": "0-1"
+    }
+  },
+  {
+    "id": 103,
+    "fen": "rn1q2k1/pp4p1/2p5/3p2PQ/3P1r1P/5P2/PPP5/2KR1R2 b - - 0 20",
+    "side_to_move": "black",
+    "eval_cp": -540,
+    "depth_reached": 16,
+    "best_move": "Nd7",
+    "line": [
+      "Nd7",
+      "Rg1",
+      "Nf8",
+      "Rg4",
+      "g6"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "4oZYZD6X",
+      "ply": 39,
+      "move_number": 20,
+      "white_elo": 1922,
+      "black_elo": 1916,
+      "speed": "Blitz",
+      "time_control": "180+0",
+      "month": "2026-09",
+      "opening": "Rapport-Jobava System",
+      "result": "1-0"
+    }
+  },
+  {
+    "id": 104,
+    "fen": "r2q1rk1/1ppbbppp/3p1n2/2n1p3/P1P5/2N2NP1/1B1PPPBP/R2Q1RK1 w - - 3 12",
+    "side_to_move": "white",
+    "eval_cp": -4,
+    "depth_reached": 18,
+    "best_move": "Qc2",
+    "line": [
+      "Qc2",
+      "c6",
+      "Ba3",
+      "e4",
+      "Ne1"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "GV4b373M",
+      "ply": 22,
+      "move_number": 12,
+      "white_elo": 1729,
+      "black_elo": 1734,
+      "speed": "Blitz",
+      "time_control": "180+0",
+      "month": "2026-09",
+      "opening": "Polish Opening: Czech Defense",
+      "result": "0-1"
+    }
+  },
+  {
+    "id": 105,
+    "fen": "r2q1r1k/ppn1b1pp/3p1n2/2pPp1B1/2P5/P1NQ3N/1P3PPP/R4RK1 w - - 7 13",
+    "side_to_move": "white",
+    "eval_cp": 189,
+    "depth_reached": 18,
+    "best_move": "f4",
+    "line": [
+      "f4",
+      "b5",
+      "b3",
+      "exf4",
+      "Rae1"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "CijcPtQ4",
+      "ply": 24,
+      "move_number": 13,
+      "white_elo": 1831,
+      "black_elo": 1877,
+      "speed": "Rapid",
+      "time_control": "600+0",
+      "month": "2026-09",
+      "opening": "Benoni Defense: Semi-Benoni",
+      "result": "1-0"
+    }
+  },
+  {
+    "id": 106,
+    "fen": "2r5/p2p2Qp/b2P3p/3kPp1B/5P2/4r1P1/1K1N3P/8 b - - 6 38",
+    "side_to_move": "black",
+    "eval_cp": 594,
+    "depth_reached": 15,
+    "best_move": "Rb8+",
+    "line": [
+      "Rb8+",
+      "Kc2",
+      "Rc8+",
+      "Kd1",
+      "Bb5"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "XqOSlKpw",
+      "ply": 75,
+      "move_number": 38,
+      "white_elo": 1777,
+      "black_elo": 1765,
+      "speed": "Rapid",
+      "time_control": "600+0",
+      "month": "2026-09",
+      "opening": "Scotch Game",
+      "result": "1-0"
+    }
+  },
+  {
+    "id": 107,
+    "fen": "r1b1r1k1/pppq1p1p/2n2bp1/8/2B5/2P2N2/PPQB1PPP/3RR1K1 w - - 4 14",
+    "side_to_move": "white",
+    "eval_cp": 474,
+    "depth_reached": 17,
+    "best_move": "Bh6",
+    "line": [
+      "Bh6",
+      "Rxe1+",
+      "Rxe1",
+      "b5",
+      "Bxb5"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "sbKcxiXM",
+      "ply": 26,
+      "move_number": 14,
+      "white_elo": 1729,
+      "black_elo": 1755,
+      "speed": "Rapid",
+      "time_control": "600+0",
+      "month": "2026-09",
+      "opening": "Alekhine Defense: Scandinavian Variation",
+      "result": "1-0"
+    }
+  },
+  {
+    "id": 108,
+    "fen": "2rq1rk1/4npp1/p3pn1p/1p1pb3/1P1P1P2/P3P2P/1B1NQ1P1/1R3RK1 w - - 0 20",
+    "side_to_move": "white",
+    "eval_cp": -3,
+    "depth_reached": 22,
+    "best_move": "dxe5",
+    "line": [
+      "dxe5",
+      "Ne4",
+      "Nxe4",
+      "dxe4",
+      "Rbd1"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "BD5OC4qL",
+      "ply": 38,
+      "move_number": 20,
+      "white_elo": 1805,
+      "black_elo": 1782,
+      "speed": "Rapid",
+      "time_control": "600+0",
+      "month": "2026-09",
+      "opening": "Bird Opening",
+      "result": "0-1"
+    }
+  },
+  {
+    "id": 109,
+    "fen": "r2qk2r/ppp1bppp/2np1n2/1B2p3/4P3/2PP3P/PP3PP1/RNBQK1NR b KQkq - 2 8",
+    "side_to_move": "black",
+    "eval_cp": 728,
+    "depth_reached": 19,
+    "best_move": "d5",
+    "line": [
+      "d5",
+      "Qe2",
+      "Qd6",
+      "Nd2",
+      "O-O-O"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "ehwaPTKO",
+      "ply": 15,
+      "move_number": 8,
+      "white_elo": 1692,
+      "black_elo": 1621,
+      "speed": "Rapid",
+      "time_control": "600+0",
+      "month": "2026-09",
+      "opening": "Bishop's Opening",
+      "result": "1-0"
+    }
+  },
+  {
+    "id": 110,
+    "fen": "r1b2rk1/1p2qppn/p4b1p/R1B1N3/2N1PP2/1P3Q1P/1PP3P1/5RK1 b - - 0 19",
+    "side_to_move": "black",
+    "eval_cp": 662,
+    "depth_reached": 17,
+    "best_move": "Qc7",
+    "line": [
+      "Qc7",
+      "Bd6",
+      "Qd8",
+      "Bxf8",
+      "Nxf8"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "hYfYuaVu",
+      "ply": 37,
+      "move_number": 19,
+      "white_elo": 1572,
+      "black_elo": 1584,
+      "speed": "Rapid",
+      "time_control": "600+0",
+      "month": "2026-09",
+      "opening": "Italian Game: Two Knights Defense, Modern Bishop's Opening",
+      "result": "0-1"
+    }
+  },
+  {
+    "id": 111,
+    "fen": "r3r3/pp2b3/2p3kp/2P3p1/4p1P1/1q1b3P/5PQ1/2R3K1 w - - 0 29",
+    "side_to_move": "white",
+    "eval_cp": -1210,
+    "depth_reached": 14,
+    "best_move": "Qg3",
+    "line": [
+      "Qg3",
+      "Qb2",
+      "Qe3",
+      "Rad8",
+      "Qe1"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "WIcFcI6y",
+      "ply": 56,
+      "move_number": 29,
+      "white_elo": 1531,
+      "black_elo": 1535,
+      "speed": "Rapid",
+      "time_control": "600+0",
+      "month": "2026-09",
+      "opening": "Queen's Pawn Game",
+      "result": "0-1"
+    }
+  },
+  {
+    "id": 112,
+    "fen": "r1b3k1/pp3p1p/2n5/P6p/8/2Pr4/1P4PP/R4R1K w - - 0 21",
+    "side_to_move": "white",
+    "eval_cp": -811,
+    "depth_reached": 15,
+    "best_move": "Kg1",
+    "line": [
+      "Kg1",
+      "Be6",
+      "a6",
+      "b5",
+      "Rad1"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "XfdXDuuc",
+      "ply": 40,
+      "move_number": 21,
+      "white_elo": 2063,
+      "black_elo": 2147,
+      "speed": "Blitz",
+      "time_control": "180+0",
+      "month": "2026-09",
+      "opening": "Sicilian Defense: French Variation, Normal",
+      "result": "0-1"
+    }
+  },
+  {
+    "id": 113,
+    "fen": "rnbqr1k1/pp3ppp/3p1n2/2bp4/2P1p3/2N1P2P/PPQBNPP1/R3KB1R w KQ - 0 10",
+    "side_to_move": "white",
+    "eval_cp": 16,
+    "depth_reached": 20,
+    "best_move": "Nxd5",
+    "line": [
+      "Nxd5",
+      "Nxd5",
+      "cxd5",
+      "Nd7",
+      "Ng3"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "QRclVIHy",
+      "ply": 18,
+      "move_number": 10,
+      "white_elo": 1963,
+      "black_elo": 1941,
+      "speed": "Blitz",
+      "time_control": "180+0",
+      "month": "2026-09",
+      "opening": "Englund Gambit Declined",
+      "result": "1-0"
+    }
+  },
+  {
+    "id": 114,
+    "fen": "4r3/4q1kp/p5p1/1p1R1p2/4p3/4Q2P/PPP3P1/7K b - - 7 26",
+    "side_to_move": "black",
+    "eval_cp": -284,
+    "depth_reached": 18,
+    "best_move": "Kg8",
+    "line": [
+      "Kg8",
+      "Kg1",
+      "f4",
+      "Qxf4",
+      "e3"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "vavEu7U8",
+      "ply": 51,
+      "move_number": 26,
+      "white_elo": 1896,
+      "black_elo": 1940,
+      "speed": "Blitz",
+      "time_control": "300+3",
+      "month": "2026-09",
+      "opening": "Sicilian Defense: Najdorf Variation",
+      "result": "0-1"
+    }
+  },
+  {
+    "id": 115,
+    "fen": "r6k/1b1p1pqp/p4Np1/1pp2n2/4N1P1/3P3Q/PP5P/5nK1 w - - 0 23",
+    "side_to_move": "white",
+    "eval_cp": -828,
+    "depth_reached": 14,
+    "best_move": "Qxf1",
+    "line": [
+      "Qxf1",
+      "Bxe4",
+      "g5",
+      "Bb7",
+      "Qc1"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "qCFH4yCx",
+      "ply": 44,
+      "move_number": 23,
+      "white_elo": 1591,
+      "black_elo": 1633,
+      "speed": "Blitz",
+      "time_control": "300+3",
+      "month": "2026-09",
+      "opening": "Sicilian Defense: Bowdler Attack",
+      "result": "0-1"
+    }
+  },
+  {
+    "id": 116,
+    "fen": "rn1q2kr/pp4p1/2pbpnp1/6Bp/2BP3P/3Q2N1/PPP2PP1/R3K2R b KQ - 4 13",
+    "side_to_move": "black",
+    "eval_cp": 486,
+    "depth_reached": 16,
+    "best_move": "Bxg3",
+    "line": [
+      "Bxg3",
+      "fxg3",
+      "Kh7",
+      "O-O-O",
+      "Qd6"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "0azcKCWV",
+      "ply": 25,
+      "move_number": 13,
+      "white_elo": 1660,
+      "black_elo": 1646,
+      "speed": "Blitz",
+      "time_control": "300+3",
+      "month": "2026-09",
+      "opening": "Caro-Kann Defense: Two Knights Attack",
+      "result": "0-1"
+    }
+  },
+  {
+    "id": 117,
+    "fen": "5rk1/5p2/p3p3/1p1pPp2/1n1P1P2/1P5P/1P3R1K/1Br5 b - - 1 29",
+    "side_to_move": "black",
+    "eval_cp": -1172,
+    "depth_reached": 26,
+    "best_move": "Rxb1",
+    "line": [
+      "Rxb1",
+      "Rg2+",
+      "Kh7",
+      "Rg5",
+      "Rxb2+"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "fHL70xrl",
+      "ply": 57,
+      "move_number": 29,
+      "white_elo": 1663,
+      "black_elo": 1687,
+      "speed": "Blitz",
+      "time_control": "300+3",
+      "month": "2026-09",
+      "opening": "Caro-Kann Defense",
+      "result": "0-1"
+    }
+  },
+  {
+    "id": 118,
+    "fen": "r2qkb1r/pp1b1ppp/2n1pn2/1Bpp4/3P1B2/2P1PN2/PP1N1PPP/R2QK2R b KQkq - 4 7",
+    "side_to_move": "black",
+    "eval_cp": 6,
+    "depth_reached": 26,
+    "best_move": "Be7",
+    "line": [
+      "Be7",
+      "O-O",
+      "O-O",
+      "dxc5",
+      "Bxc5"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "O3nDrUlm",
+      "ply": 13,
+      "move_number": 7,
+      "white_elo": 1693,
+      "black_elo": 1765,
+      "speed": "Rapid",
+      "time_control": "600+0",
+      "month": "2026-09",
+      "opening": "Queen's Pawn Game: London System, with e6",
+      "result": "0-1"
+    }
+  },
+  {
+    "id": 119,
+    "fen": "2kr1b1r/pppq1ppp/8/n3p3/4n3/2NP4/PPP2PPP/R1BQ1RK1 w - - 0 12",
+    "side_to_move": "white",
+    "eval_cp": -10,
+    "depth_reached": 24,
+    "best_move": "dxe4",
+    "line": [
+      "dxe4",
+      "Qe6",
+      "Qe2",
+      "Nc6",
+      "Nd5"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "VcUlP7gL",
+      "ply": 22,
+      "move_number": 12,
+      "white_elo": 1778,
+      "black_elo": 1700,
+      "speed": "Rapid",
+      "time_control": "600+0",
+      "month": "2026-09",
+      "opening": "Italian Game: Two Knights Defense, Polerio Defense, Bishop Check Line",
+      "result": "0-1"
+    }
+  },
+  {
+    "id": 120,
+    "fen": "r2q1rk1/1b3pbp/6p1/pNn4n/3p1P2/P1NPQ3/BPP3PP/R1B2RK1 w - - 0 19",
+    "side_to_move": "white",
+    "eval_cp": -501,
+    "depth_reached": 18,
+    "best_move": "Qh3",
+    "line": [
+      "Qh3",
+      "dxc3",
+      "Nxc3",
+      "Bd4+",
+      "Be3"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "oM8KvRQA",
+      "ply": 36,
+      "move_number": 19,
+      "white_elo": 1596,
+      "black_elo": 1635,
+      "speed": "Rapid",
+      "time_control": "600+0",
+      "month": "2026-09",
+      "opening": "Pirc Defense",
+      "result": "1-0"
+    }
+  },
+  {
+    "id": 121,
+    "fen": "r2q1r2/pb1np1kp/1p1n1pp1/2pPp3/2P5/2NB1N2/PP1Q1PPP/3R1RK1 w - - 2 15",
+    "side_to_move": "white",
+    "eval_cp": -34,
+    "depth_reached": 24,
+    "best_move": "h4",
+    "line": [
+      "h4",
+      "b5",
+      "cxb5",
+      "a6",
+      "a4"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "06OVFz13",
+      "ply": 28,
+      "move_number": 15,
+      "white_elo": 1773,
+      "black_elo": 1652,
+      "speed": "Blitz",
+      "time_control": "180+0",
+      "month": "2026-09",
+      "opening": "King's Indian Defense: Smyslov Variation",
+      "result": "1-0"
+    }
+  },
+  {
+    "id": 122,
+    "fen": "r4k1r/pp1q1p2/1n1p1p1p/3P4/1P1Q4/5N2/5PPP/2R1R1K1 w - - 5 20",
+    "side_to_move": "white",
+    "eval_cp": 598,
+    "depth_reached": 19,
+    "best_move": "Qxf6",
+    "line": [
+      "Qxf6",
+      "Rh7",
+      "Nd4",
+      "Kg8",
+      "Nf5"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "wkPuIJfo",
+      "ply": 38,
+      "move_number": 20,
+      "white_elo": 1876,
+      "black_elo": 1822,
+      "speed": "Bullet",
+      "time_control": "120+1",
+      "month": "2026-09",
+      "opening": "Ruy Lopez: Classical Variation, Central Variation",
+      "result": "1-0"
+    }
+  },
+  {
+    "id": 123,
+    "fen": "rnbqk2r/ppp1bppp/3p1n2/8/3NP3/2N5/PPP1BPPP/R1BQK2R b KQkq - 2 6",
+    "side_to_move": "black",
+    "eval_cp": 45,
+    "depth_reached": 18,
+    "best_move": "Nc6",
+    "line": [
+      "Nc6",
+      "Bf4",
+      "O-O",
+      "Qd2",
+      "Nxd4"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "BFHUDTf0",
+      "ply": 11,
+      "move_number": 6,
+      "white_elo": 2045,
+      "black_elo": 2054,
+      "speed": "Bullet",
+      "time_control": "120+1",
+      "month": "2026-09",
+      "opening": "Petrov's Defense: Three Knights Game",
+      "result": "1-0"
+    }
+  },
+  {
+    "id": 124,
+    "fen": "r2qkbnr/pp1b1ppp/2n1p3/3pP3/3P4/5N2/PP3PPP/RNBQKB1R w KQkq - 3 7",
+    "side_to_move": "white",
+    "eval_cp": 92,
+    "depth_reached": 19,
+    "best_move": "Nc3",
+    "line": [
+      "Nc3",
+      "Qb6",
+      "a3",
+      "Nge7",
+      "Na4"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "LQXQAVyW",
+      "ply": 12,
+      "move_number": 7,
+      "white_elo": 1742,
+      "black_elo": 1716,
+      "speed": "Bullet",
+      "time_control": "120+1",
+      "month": "2026-09",
+      "opening": "Sicilian Defense: Alapin Variation",
+      "result": "0-1"
+    }
+  },
+  {
+    "id": 125,
+    "fen": "rn1qkb1r/pp2pppp/2p2n2/3p1b2/2PP4/2N1PP2/PP4PP/R1BQKBNR w KQkq - 1 6",
+    "side_to_move": "white",
+    "eval_cp": 83,
+    "depth_reached": 20,
+    "best_move": "g4",
+    "line": [
+      "g4",
+      "Bc8",
+      "h4",
+      "Nbd7",
+      "g5"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "lBYpk0jW",
+      "ply": 10,
+      "move_number": 6,
+      "white_elo": 1904,
+      "black_elo": 1885,
+      "speed": "Blitz",
+      "time_control": "180+0",
+      "month": "2026-09",
+      "opening": "Queen's Pawn Game",
+      "result": "0-1"
+    }
+  },
+  {
+    "id": 126,
+    "fen": "5n2/5pk1/6pp/1p6/p1bNP3/P1P3PP/1P3PB1/6K1 b - - 2 34",
+    "side_to_move": "black",
+    "eval_cp": 494,
+    "depth_reached": 17,
+    "best_move": "Nd7",
+    "line": [
+      "Nd7",
+      "Bf1",
+      "g5",
+      "Nxb5",
+      "Ne5"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "ckisWEHD",
+      "ply": 67,
+      "move_number": 34,
+      "white_elo": 2192,
+      "black_elo": 2148,
+      "speed": "Blitz",
+      "time_control": "180+0",
+      "month": "2026-09",
+      "opening": "Mieses Opening",
+      "result": "1-0"
+    }
+  },
+  {
+    "id": 127,
+    "fen": "r4rk1/ppN2pp1/3p2bp/2nPp3/4P1PP/5PQ1/q7/1RR2N1K b - - 0 24",
+    "side_to_move": "black",
+    "eval_cp": -709,
+    "depth_reached": 27,
+    "best_move": "Nxe4",
+    "line": [
+      "Nxe4",
+      "fxe4",
+      "Bxe4+",
+      "Kg1",
+      "Bxb1"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "7pMIgjeN",
+      "ply": 47,
+      "move_number": 24,
+      "white_elo": 2088,
+      "black_elo": 2095,
+      "speed": "Blitz",
+      "time_control": "180+0",
+      "month": "2026-09",
+      "opening": "Italian Game: Two Knights Defense",
+      "result": "0-1"
+    }
+  },
+  {
+    "id": 128,
+    "fen": "r1b1k2r/pp2npp1/2p2q2/3p3p/1b5P/1P2P1B1/P1PPBPP1/RN1Q1RK1 w kq - 1 11",
+    "side_to_move": "white",
+    "eval_cp": 29,
+    "depth_reached": 19,
+    "best_move": "d4",
+    "line": [
+      "d4",
+      "Nf5",
+      "Be5",
+      "Qxh4",
+      "c4"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "q6dXIWs7",
+      "ply": 20,
+      "move_number": 11,
+      "white_elo": 1901,
+      "black_elo": 1969,
+      "speed": "Blitz",
+      "time_control": "180+0",
+      "month": "2026-09",
+      "opening": "Nimzo-Larsen Attack: Classical Variation",
+      "result": "0-1"
+    }
+  },
+  {
+    "id": 129,
+    "fen": "r3r1k1/3b1pbp/6p1/p2Pp3/4P1n1/P3B1P1/3NN1B1/2R2RK1 b - - 1 25",
+    "side_to_move": "black",
+    "eval_cp": -433,
+    "depth_reached": 17,
+    "best_move": "Nxe3",
+    "line": [
+      "Nxe3",
+      "Rf3",
+      "Nxg2",
+      "Kxg2",
+      "Bg4"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "dYshWGRj",
+      "ply": 49,
+      "move_number": 25,
+      "white_elo": 2016,
+      "black_elo": 2007,
+      "speed": "Blitz",
+      "time_control": "180+0",
+      "month": "2026-09",
+      "opening": "Sicilian Defense: Lasker-Dunne Attack",
+      "result": "0-1"
+    }
+  },
+  {
+    "id": 130,
+    "fen": "r3kb1r/pb1nqppp/1pn5/2ppP3/3P1N2/2PB4/PP4PP/RNBQ1RK1 w kq - 2 12",
+    "side_to_move": "white",
+    "eval_cp": 831,
+    "depth_reached": 15,
+    "best_move": "Nxd5",
+    "line": [
+      "Nxd5",
+      "Qh4",
+      "g3",
+      "Qh3",
+      "Bf5"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "bslsSbKn",
+      "ply": 22,
+      "move_number": 12,
+      "white_elo": 1831,
+      "black_elo": 1848,
+      "speed": "Blitz",
+      "time_control": "180+0",
+      "month": "2026-09",
+      "opening": "Owen Defense",
+      "result": "0-1"
+    }
+  },
+  {
+    "id": 131,
+    "fen": "r3k2r/pbpq2pp/1pnBp3/5p2/3P4/2P1PN2/PPB1QPPP/R3K2R b KQkq - 0 13",
+    "side_to_move": "black",
+    "eval_cp": 345,
+    "depth_reached": 17,
+    "best_move": "cxd6",
+    "line": [
+      "cxd6",
+      "e4",
+      "fxe4",
+      "Bxe4",
+      "O-O"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "2xSU9D3J",
+      "ply": 25,
+      "move_number": 13,
+      "white_elo": 1627,
+      "black_elo": 1525,
+      "speed": "Blitz",
+      "time_control": "180+0",
+      "month": "2026-09",
+      "opening": "Horwitz Defense",
+      "result": "0-1"
+    }
+  },
+  {
+    "id": 132,
+    "fen": "rnb1kb1r/pp1p1ppp/1q2pn2/8/3N4/P1BB4/1PP2PPP/RN1QK2R b KQkq - 7 9",
+    "side_to_move": "black",
+    "eval_cp": -276,
+    "depth_reached": 16,
+    "best_move": "Bc5",
+    "line": [
+      "Bc5",
+      "Nb3",
+      "Bxf2+",
+      "Kf1",
+      "Nd5"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "FxTvxzf7",
+      "ply": 17,
+      "move_number": 9,
+      "white_elo": 1953,
+      "black_elo": 2014,
+      "speed": "Blitz",
+      "time_control": "300+0",
+      "month": "2026-09",
+      "opening": "Sicilian Defense: French Variation, Normal",
+      "result": "0-1"
+    }
+  },
+  {
+    "id": 133,
+    "fen": "r1bq1rk1/pp1nbppp/2p1pn2/3p4/2PP1B2/2NBPN2/PP3PPP/R2Q1RK1 b - - 3 8",
+    "side_to_move": "black",
+    "eval_cp": 28,
+    "depth_reached": 21,
+    "best_move": "Nh5",
+    "line": [
+      "Nh5",
+      "Qe2",
+      "Nxf4",
+      "exf4",
+      "dxc4"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "nQFVEv6u",
+      "ply": 15,
+      "move_number": 8,
+      "white_elo": 2272,
+      "black_elo": 2316,
+      "speed": "Blitz",
+      "time_control": "180+0",
+      "month": "2026-09",
+      "opening": "Queen's Gambit Declined: Harrwitz Attack, Orthodox Defense",
+      "result": "0-1"
+    }
+  },
+  {
+    "id": 134,
+    "fen": "5r2/r2q1pk1/1pp1p1pn/p2pP3/3P1PP1/2P2N2/PP2Q1R1/R5K1 w - - 1 23",
+    "side_to_move": "white",
+    "eval_cp": 510,
+    "depth_reached": 16,
+    "best_move": "Kf2",
+    "line": [
+      "Kf2",
+      "c5",
+      "Kg3",
+      "Rh8",
+      "Rh2"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "nj8RPoxW",
+      "ply": 44,
+      "move_number": 23,
+      "white_elo": 1758,
+      "black_elo": 1791,
+      "speed": "Blitz",
+      "time_control": "180+0",
+      "month": "2026-09",
+      "opening": "Owen Defense",
+      "result": "1-0"
+    }
+  },
+  {
+    "id": 135,
+    "fen": "8/2q1p1kp/pr1p2p1/2n1p3/2P5/2Q1P1PB/P4P1P/3R2K1 w - - 0 26",
+    "side_to_move": "white",
+    "eval_cp": 0,
+    "depth_reached": 29,
+    "best_move": "f4",
+    "line": [
+      "f4",
+      "Ne4",
+      "Qc2",
+      "Nf6",
+      "fxe5"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "AQJ2u8yq",
+      "ply": 50,
+      "move_number": 26,
+      "white_elo": 1634,
+      "black_elo": 1673,
+      "speed": "Blitz",
+      "time_control": "180+0",
+      "month": "2026-09",
+      "opening": "English Opening: Anglo-Indian Defense",
+      "result": "0-1"
+    }
+  },
+  {
+    "id": 136,
+    "fen": "r2q2k1/pp3pp1/3pr1np/1p2p3/4P1N1/P2P2nP/1PP2PP1/R2Q1RK1 w - - 0 17",
+    "side_to_move": "white",
+    "eval_cp": 58,
+    "depth_reached": 19,
+    "best_move": "fxg3",
+    "line": [
+      "fxg3",
+      "Qb6+",
+      "Kh2",
+      "Rf8",
+      "Qf3"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "yaueJVYY",
+      "ply": 32,
+      "move_number": 17,
+      "white_elo": 1656,
+      "black_elo": 1637,
+      "speed": "Rapid",
+      "time_control": "600+0",
+      "month": "2026-09",
+      "opening": "King's Knight Opening: Normal Variation",
+      "result": "1-0"
+    }
+  },
+  {
+    "id": 137,
+    "fen": "r2qk2r/1ppb1ppp/p1n2n2/3p4/3P4/2NBPNP1/PP3PP1/R2QK2R b KQkq - 1 10",
+    "side_to_move": "black",
+    "eval_cp": 58,
+    "depth_reached": 19,
+    "best_move": "Qe7",
+    "line": [
+      "Qe7",
+      "a3",
+      "Qd6",
+      "Qb3",
+      "Rb8"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "G8Eyhuh1",
+      "ply": 19,
+      "move_number": 10,
+      "white_elo": 1526,
+      "black_elo": 1527,
+      "speed": "Rapid",
+      "time_control": "600+0",
+      "month": "2026-09",
+      "opening": "Queen's Pawn Game: London System, with e6",
+      "result": "1-0"
+    }
+  },
+  {
+    "id": 138,
+    "fen": "rnbqkb1r/pp2pppp/5n2/2p3N1/3P4/8/PPP2PPP/R1BQKBNR w KQkq - 0 6",
+    "side_to_move": "white",
+    "eval_cp": -29,
+    "depth_reached": 18,
+    "best_move": "Bb5+",
+    "line": [
+      "Bb5+",
+      "Bd7",
+      "Bxd7+",
+      "Nbxd7",
+      "Ne2"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "EmG576Ex",
+      "ply": 10,
+      "move_number": 6,
+      "white_elo": 2048,
+      "black_elo": 1972,
+      "speed": "Rapid",
+      "time_control": "600+0",
+      "month": "2026-09",
+      "opening": "Caro-Kann Defense: Main Line",
+      "result": "1/2-1/2"
+    }
+  },
+  {
+    "id": 139,
+    "fen": "1k1r3r/pppq2pp/2n2pn1/3p4/3P4/2PB1RQ1/PP1B2PP/5RK1 w - - 5 16",
+    "side_to_move": "white",
+    "eval_cp": 188,
+    "depth_reached": 18,
+    "best_move": "h4",
+    "line": [
+      "h4",
+      "Rdg8",
+      "Bf5",
+      "Qf7",
+      "h5"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "8dQRbUjP",
+      "ply": 30,
+      "move_number": 16,
+      "white_elo": 1816,
+      "black_elo": 1827,
+      "speed": "Blitz",
+      "time_control": "300+0",
+      "month": "2026-09",
+      "opening": "French Defense: La Bourdonnais Variation",
+      "result": "1-0"
+    }
+  },
+  {
+    "id": 140,
+    "fen": "5rk1/4bppp/p3p2q/1p6/1P1PN3/P5Q1/1B3PPP/5RK1 b - - 7 24",
+    "side_to_move": "black",
+    "eval_cp": 635,
+    "depth_reached": 18,
+    "best_move": "Rc8",
+    "line": [
+      "Rc8",
+      "Nc5",
+      "Bf8",
+      "Ba1",
+      "Qd2"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "swTjTc8B",
+      "ply": 47,
+      "move_number": 24,
+      "white_elo": 2382,
+      "black_elo": 2381,
+      "speed": "Bullet",
+      "time_control": "60+0",
+      "month": "2026-09",
+      "opening": "Slav Defense",
+      "result": "1-0"
+    }
+  },
+  {
+    "id": 141,
+    "fen": "r1b1kb1r/pp1n1ppp/1qp1pn2/4N3/3P1B2/3B4/PPP2PPP/R2QR1K1 b kq - 7 10",
+    "side_to_move": "black",
+    "eval_cp": -528,
+    "depth_reached": 17,
+    "best_move": "Nxe5",
+    "line": [
+      "Nxe5",
+      "dxe5",
+      "Nd5",
+      "Bd2",
+      "Bd7"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "SD77Lwn4",
+      "ply": 19,
+      "move_number": 10,
+      "white_elo": 1929,
+      "black_elo": 1882,
+      "speed": "Bullet",
+      "time_control": "60+0",
+      "month": "2026-09",
+      "opening": "Rapport-Jobava System",
+      "result": "1-0"
+    }
+  },
+  {
+    "id": 142,
+    "fen": "3r4/pk6/1p3p2/3r2p1/1P1p4/3R2P1/P2R4/2K5 w - - 0 37",
+    "side_to_move": "white",
+    "eval_cp": -382,
+    "depth_reached": 18,
+    "best_move": "a4",
+    "line": [
+      "a4",
+      "Kc6",
+      "Rc2+",
+      "Kd7",
+      "g4"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "Y58fUoDB",
+      "ply": 72,
+      "move_number": 37,
+      "white_elo": 1971,
+      "black_elo": 1786,
+      "speed": "Blitz",
+      "time_control": "180+2",
+      "month": "2026-09",
+      "opening": "Petrov's Defense: Cozio Attack",
+      "result": "0-1"
+    }
+  },
+  {
+    "id": 143,
+    "fen": "r7/3b2k1/p3p1N1/1p1pP3/3P2r1/P1NB4/1P6/2K2R2 w - - 0 28",
+    "side_to_move": "white",
+    "eval_cp": 515,
+    "depth_reached": 18,
+    "best_move": "Nf4",
+    "line": [
+      "Nf4",
+      "Rh4",
+      "Kd2",
+      "Rah8",
+      "Be2"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "BQH7cmWD",
+      "ply": 54,
+      "move_number": 28,
+      "white_elo": 1896,
+      "black_elo": 1886,
+      "speed": "Blitz",
+      "time_control": "180+0",
+      "month": "2026-09",
+      "opening": "Modern Defense",
+      "result": "1-0"
+    }
+  },
+  {
+    "id": 144,
+    "fen": "r2qk2r/1p1nbp2/2p1p1bp/3pPnp1/p2P2P1/2PB1N1P/PPQ2P2/R1B1RNK1 b kq - 0 14",
+    "side_to_move": "black",
+    "eval_cp": 204,
+    "depth_reached": 17,
+    "best_move": "Nh4",
+    "line": [
+      "Nh4",
+      "Nxh4",
+      "Bxd3",
+      "Qxd3",
+      "gxh4"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "QtO5Ddko",
+      "ply": 27,
+      "move_number": 14,
+      "white_elo": 2419,
+      "black_elo": 2383,
+      "speed": "Blitz",
+      "time_control": "180+0",
+      "month": "2026-09",
+      "opening": "Caro-Kann Defense: Advance Variation, Short Variation",
+      "result": "0-1"
+    }
+  },
+  {
+    "id": 145,
+    "fen": "r1b1k2r/ppp3p1/3p2np/3Ppp2/4n3/2PBqN2/PP4PP/RN1Q1R1K b kq - 1 14",
+    "side_to_move": "black",
+    "eval_cp": -681,
+    "depth_reached": 15,
+    "best_move": "Nf2+",
+    "line": [
+      "Nf2+",
+      "Rxf2",
+      "Qxf2",
+      "Bb5+",
+      "Bd7"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "u8CuOtOi",
+      "ply": 27,
+      "move_number": 14,
+      "white_elo": 2045,
+      "black_elo": 1959,
+      "speed": "Blitz",
+      "time_control": "180+0",
+      "month": "2026-09",
+      "opening": "Mikenas Defense",
+      "result": "0-1"
+    }
+  },
+  {
+    "id": 146,
+    "fen": "r1bqk2r/pp1pbppp/4pn2/n1p3B1/2B1P3/2NP1N2/PPPQ1PPP/R3K2R b KQkq - 5 7",
+    "side_to_move": "black",
+    "eval_cp": -40,
+    "depth_reached": 18,
+    "best_move": "h6",
+    "line": [
+      "h6",
+      "Bh4",
+      "g5",
+      "Bg3",
+      "a6"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "P8mN8yOb",
+      "ply": 13,
+      "move_number": 7,
+      "white_elo": 1733,
+      "black_elo": 1770,
+      "speed": "Blitz",
+      "time_control": "180+0",
+      "month": "2026-09",
+      "opening": "Sicilian Defense: Closed, Traditional",
+      "result": "0-1"
+    }
+  },
+  {
+    "id": 147,
+    "fen": "3rr1k1/pp3ppp/8/4n3/6Q1/P1N1q2P/1P4P1/R4R1K w - - 1 21",
+    "side_to_move": "white",
+    "eval_cp": -146,
+    "depth_reached": 17,
+    "best_move": "Qb4",
+    "line": [
+      "Qb4",
+      "b6",
+      "Rae1",
+      "Qd4",
+      "Qb3"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "fzcQuXVl",
+      "ply": 40,
+      "move_number": 21,
+      "white_elo": 1688,
+      "black_elo": 1648,
+      "speed": "Blitz",
+      "time_control": "300+0",
+      "month": "2026-09",
+      "opening": "Caro-Kann Defense: Panov Attack, Modern Defense",
+      "result": "0-1"
+    }
+  },
+  {
+    "id": 148,
+    "fen": "5rk1/5pp1/p4Q1p/1p6/2nP4/P1P2R2/2P3PP/6K1 b - - 0 24",
+    "side_to_move": "black",
+    "eval_cp": -618,
+    "depth_reached": 18,
+    "best_move": "gxf6",
+    "line": [
+      "gxf6",
+      "Rxf6",
+      "a5",
+      "Rxh6",
+      "Nxa3"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "eSaZkEND",
+      "ply": 47,
+      "move_number": 24,
+      "white_elo": 1986,
+      "black_elo": 1986,
+      "speed": "Blitz",
+      "time_control": "300+0",
+      "month": "2026-09",
+      "opening": "Caro-Kann Defense",
+      "result": "0-1"
+    }
+  },
+  {
+    "id": 149,
+    "fen": "r4rk1/ppp1qppp/2npbn2/4p3/P1B1P3/2PPBN2/2P2PPP/R2Q1RK1 w - - 4 10",
+    "side_to_move": "white",
+    "eval_cp": 11,
+    "depth_reached": 21,
+    "best_move": "Bxe6",
+    "line": [
+      "Bxe6",
+      "Qxe6",
+      "Re1",
+      "b6",
+      "h3"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "Erbxwxrk",
+      "ply": 18,
+      "move_number": 10,
+      "white_elo": 1538,
+      "black_elo": 1537,
+      "speed": "Bullet",
+      "time_control": "120+1",
+      "month": "2026-09",
+      "opening": "Four Knights Game: Italian Variation",
+      "result": "1-0"
+    }
+  },
+  {
+    "id": 150,
+    "fen": "N1b2bnr/pp1n1kpp/2p5/2q5/8/6Q1/PBPPNPPP/1R2K2R b K - 2 15",
+    "side_to_move": "black",
+    "eval_cp": 401,
+    "depth_reached": 16,
+    "best_move": "Qc4",
+    "line": [
+      "Qc4",
+      "Bd4",
+      "Ngf6",
+      "Bxa7",
+      "Be7"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "ey0DyjXw",
+      "ply": 29,
+      "move_number": 15,
+      "white_elo": 1971,
+      "black_elo": 2045,
+      "speed": "Bullet",
+      "time_control": "120+1",
+      "month": "2026-09",
+      "opening": "Scandinavian Defense: Main Line, Leonhardt Gambit",
+      "result": "1-0"
+    }
+  },
+  {
+    "id": 151,
+    "fen": "2kr3r/1ppqbpp1/p1n1pn1p/8/3PpBPP/P1NQ1P2/1PP1N3/2KR3R w - - 0 14",
+    "side_to_move": "white",
+    "eval_cp": -9,
+    "depth_reached": 21,
+    "best_move": "Nxe4",
+    "line": [
+      "Nxe4",
+      "Nd5",
+      "Bd2",
+      "Nb6",
+      "Be3"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "RT0Xl1Vu",
+      "ply": 26,
+      "move_number": 14,
+      "white_elo": 1689,
+      "black_elo": 1695,
+      "speed": "Bullet",
+      "time_control": "120+1",
+      "month": "2026-09",
+      "opening": "Queen's Pawn Game: Chigorin Variation",
+      "result": "1-0"
+    }
+  },
+  {
+    "id": 152,
+    "fen": "r6n/pp1kb1pp/2b1p3/2ppP3/5B1q/2NP1Q2/PPP3PP/R4RK1 w - - 6 15",
+    "side_to_move": "white",
+    "eval_cp": 244,
+    "depth_reached": 17,
+    "best_move": "Qe2",
+    "line": [
+      "Qe2",
+      "Ng6",
+      "Bg3",
+      "Qg5",
+      "Rf7"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "PooQGQFl",
+      "ply": 28,
+      "move_number": 15,
+      "white_elo": 2114,
+      "black_elo": 2073,
+      "speed": "Bullet",
+      "time_control": "120+1",
+      "month": "2026-09",
+      "opening": "Sicilian Defense: McDonnell Attack",
+      "result": "1-0"
+    }
+  },
+  {
+    "id": 153,
+    "fen": "r1bq1r2/1ppnnpkp/3pp1p1/8/p1PPP3/2N2N2/PP1Q1PPP/2KR1B1R w - - 0 11",
+    "side_to_move": "white",
+    "eval_cp": 129,
+    "depth_reached": 17,
+    "best_move": "g4",
+    "line": [
+      "g4",
+      "Nc6",
+      "h4",
+      "h6",
+      "Rg1"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "fzto2Gh3",
+      "ply": 20,
+      "move_number": 11,
+      "white_elo": 1918,
+      "black_elo": 1926,
+      "speed": "Bullet",
+      "time_control": "120+1",
+      "month": "2026-09",
+      "opening": "Queen's Pawn Game: Modern Defense",
+      "result": "1-0"
+    }
+  },
+  {
+    "id": 154,
+    "fen": "1rq2rk1/1p3pbp/p4np1/2pPp1B1/P3P3/2N2PP1/1P1Q2KP/3R1R2 w - - 1 19",
+    "side_to_move": "white",
+    "eval_cp": 247,
+    "depth_reached": 16,
+    "best_move": "d6",
+    "line": [
+      "d6",
+      "Qe6",
+      "a5",
+      "b6",
+      "Na4"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "hw1ccErU",
+      "ply": 36,
+      "move_number": 19,
+      "white_elo": 1831,
+      "black_elo": 1776,
+      "speed": "Bullet",
+      "time_control": "120+1",
+      "month": "2026-09",
+      "opening": "English Opening: Symmetrical Variation, Full Symmetry Line",
+      "result": "1-0"
+    }
+  },
+  {
+    "id": 155,
+    "fen": "r2q1rk1/ppn2ppp/2n5/3pP3/2pP1Pb1/2P2NN1/PP4BP/R2Q1RK1 w - - 2 16",
+    "side_to_move": "white",
+    "eval_cp": 192,
+    "depth_reached": 20,
+    "best_move": "f5",
+    "line": [
+      "f5",
+      "f6",
+      "e6",
+      "Ne7",
+      "Qc2"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "E5aM6TSH",
+      "ply": 30,
+      "move_number": 16,
+      "white_elo": 1843,
+      "black_elo": 1872,
+      "speed": "Bullet",
+      "time_control": "120+1",
+      "month": "2026-09",
+      "opening": "Sicilian Defense: Closed, Traditional",
+      "result": "1-0"
+    }
+  },
+  {
+    "id": 156,
+    "fen": "r1bqk2r/pp3ppp/1nnbp3/8/2p5/2P2N2/PPBP1PPP/RNBQ1RK1 w kq - 0 10",
+    "side_to_move": "white",
+    "eval_cp": 91,
+    "depth_reached": 20,
+    "best_move": "d4",
+    "line": [
+      "d4",
+      "cxd3",
+      "Qxd3",
+      "Bb8",
+      "Qe2"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "zH7bCeO7",
+      "ply": 18,
+      "move_number": 10,
+      "white_elo": 1900,
+      "black_elo": 1913,
+      "speed": "Blitz",
+      "time_control": "180+0",
+      "month": "2026-09",
+      "opening": "Sicilian Defense: Delayed Alapin Variation, with e6",
+      "result": "1-0"
+    }
+  },
+  {
+    "id": 157,
+    "fen": "r3r1k1/pq2ppbp/3p1np1/4n3/3NP1PP/2N1BP2/PPPQ4/2KR3R w - - 1 15",
+    "side_to_move": "white",
+    "eval_cp": 82,
+    "depth_reached": 18,
+    "best_move": "b3",
+    "line": [
+      "b3",
+      "Rec8",
+      "h5",
+      "Rab8",
+      "hxg6"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "DBybhCUv",
+      "ply": 28,
+      "move_number": 15,
+      "white_elo": 2142,
+      "black_elo": 2203,
+      "speed": "Blitz",
+      "time_control": "180+0",
+      "month": "2026-09",
+      "opening": "Sicilian Defense: Dragon Variation",
+      "result": "0-1"
+    }
+  },
+  {
+    "id": 158,
+    "fen": "r2qkb1r/pb2pp2/2pp1p1p/7Q/2B1P3/2N5/PPP2PPP/R3K2R b KQkq - 3 10",
+    "side_to_move": "black",
+    "eval_cp": 199,
+    "depth_reached": 19,
+    "best_move": "Rh7",
+    "line": [
+      "Rh7",
+      "f4",
+      "Bc8",
+      "O-O-O",
+      "Rg7"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "slxpzadT",
+      "ply": 19,
+      "move_number": 10,
+      "white_elo": 1776,
+      "black_elo": 1765,
+      "speed": "Blitz",
+      "time_control": "180+0",
+      "month": "2026-09",
+      "opening": "Sicilian Defense: Open",
+      "result": "1-0"
+    }
+  },
+  {
+    "id": 159,
+    "fen": "2r2rk1/1b4p1/pp2p2p/2pp4/Pn3PPq/1B1Pb1NP/1PP1N1K1/1R1Q1R2 w - - 3 22",
+    "side_to_move": "white",
+    "eval_cp": -349,
+    "depth_reached": 16,
+    "best_move": "c3",
+    "line": [
+      "c3",
+      "c4",
+      "d4",
+      "cxb3",
+      "cxb4"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "S5t935vm",
+      "ply": 42,
+      "move_number": 22,
+      "white_elo": 2093,
+      "black_elo": 2102,
+      "speed": "Blitz",
+      "time_control": "180+0",
+      "month": "2026-09",
+      "opening": "Sicilian Defense: Closed",
+      "result": "0-1"
+    }
+  },
+  {
+    "id": 160,
+    "fen": "r4rk1/pp1b2pp/2pqp3/3p1p1n/2PP4/1P3PP1/P3PNBP/2R1QRK1 w - - 3 18",
+    "side_to_move": "white",
+    "eval_cp": 131,
+    "depth_reached": 19,
+    "best_move": "e4",
+    "line": [
+      "e4",
+      "h6",
+      "e5",
+      "Qe7",
+      "f4"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "7tirwAHK",
+      "ply": 34,
+      "move_number": 18,
+      "white_elo": 2086,
+      "black_elo": 2071,
+      "speed": "Blitz",
+      "time_control": "180+0",
+      "month": "2026-09",
+      "opening": "Dutch Defense: Classical Variation",
+      "result": "1-0"
+    }
+  },
+  {
+    "id": 161,
+    "fen": "r1b1r1k1/p3ppbp/1pq2np1/8/1P2N3/2PB1PB1/P5PP/R2Q1RK1 b - - 1 18",
+    "side_to_move": "black",
+    "eval_cp": -101,
+    "depth_reached": 19,
+    "best_move": "Nh5",
+    "line": [
+      "Nh5",
+      "Bf2",
+      "Rd8",
+      "Bb5",
+      "Qc7"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "uy6Hwrf3",
+      "ply": 35,
+      "move_number": 18,
+      "white_elo": 1529,
+      "black_elo": 1557,
+      "speed": "Blitz",
+      "time_control": "180+0",
+      "month": "2026-09",
+      "opening": "Indian Defense",
+      "result": "1-0"
+    }
+  },
+  {
+    "id": 162,
+    "fen": "r2qr1k1/pp1n1pb1/3p2p1/3Qp2p/2P5/1P2P1P1/PB2NP1P/R3R1K1 b - - 0 15",
+    "side_to_move": "black",
+    "eval_cp": 61,
+    "depth_reached": 17,
+    "best_move": "Nc5",
+    "line": [
+      "Nc5",
+      "e4",
+      "Qd7",
+      "Rad1",
+      "Rad8"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "rTg4wBSP",
+      "ply": 29,
+      "move_number": 15,
+      "white_elo": 2650,
+      "black_elo": 2643,
+      "speed": "Bullet",
+      "time_control": "60+0",
+      "month": "2026-09",
+      "opening": "English Opening: Anglo-Indian Defense, Queen's Knight Variation",
+      "result": "1-0"
+    }
+  },
+  {
+    "id": 163,
+    "fen": "r4rk1/5ppp/nq2p3/3pPP2/1b4P1/pPNQ4/P3N2P/1K1R3R b - - 0 22",
+    "side_to_move": "black",
+    "eval_cp": -236,
+    "depth_reached": 18,
+    "best_move": "Rfc8",
+    "line": [
+      "Rfc8",
+      "Rc1",
+      "Be7",
+      "Qd2",
+      "Nb4"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "2CyK0lZM",
+      "ply": 43,
+      "move_number": 22,
+      "white_elo": 1633,
+      "black_elo": 1634,
+      "speed": "Blitz",
+      "time_control": "180+0",
+      "month": "2026-09",
+      "opening": "Scandinavian Defense",
+      "result": "0-1"
+    }
+  },
+  {
+    "id": 164,
+    "fen": "2k1rb1r/pppq1p2/3p1n2/3Pp1B1/PP2P1pp/2PQ2P1/5P1P/RN2RNK1 b - - 1 18",
+    "side_to_move": "black",
+    "eval_cp": 619,
+    "depth_reached": 17,
+    "best_move": "Nh7",
+    "line": [
+      "Nh7",
+      "Be3",
+      "Be7",
+      "Qb5",
+      "Qd8"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "cwKqsyfZ",
+      "ply": 35,
+      "move_number": 18,
+      "white_elo": 1509,
+      "black_elo": 1561,
+      "speed": "Blitz",
+      "time_control": "180+2",
+      "month": "2026-09",
+      "opening": "Ponziani Opening",
+      "result": "1-0"
+    }
+  },
+  {
+    "id": 165,
+    "fen": "2rqr1k1/3bbppp/3p1n2/1p1P4/1Pp1P3/P1Q1B3/3NBPPP/R1R3K1 w - - 4 18",
+    "side_to_move": "white",
+    "eval_cp": 261,
+    "depth_reached": 18,
+    "best_move": "Bd4",
+    "line": [
+      "Bd4",
+      "Bf8",
+      "Bf3",
+      "h5",
+      "Rcb1"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "2vNN2UTi",
+      "ply": 34,
+      "move_number": 18,
+      "white_elo": 1608,
+      "black_elo": 1633,
+      "speed": "Bullet",
+      "time_control": "60+0",
+      "month": "2026-09",
+      "opening": "Philidor Defense",
+      "result": "0-1"
+    }
+  },
+  {
+    "id": 166,
+    "fen": "r1bqkbnr/1p3ppp/p1n5/P1ppp3/7P/2P1P3/1P1P1PP1/RNBQKBNR w KQkq - 0 6",
+    "side_to_move": "white",
+    "eval_cp": -190,
+    "depth_reached": 23,
+    "best_move": "d4",
+    "line": [
+      "d4",
+      "exd4",
+      "cxd4",
+      "cxd4",
+      "exd4"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "SFuO2Vk1",
+      "ply": 10,
+      "move_number": 6,
+      "white_elo": 1769,
+      "black_elo": 1766,
+      "speed": "Bullet",
+      "time_control": "60+0",
+      "month": "2026-09",
+      "opening": "Van't Kruijs Opening",
+      "result": "1-0"
+    }
+  },
+  {
+    "id": 167,
+    "fen": "rn1qk2r/pp3ppp/3bpn2/3p3b/3P4/2PB1N1P/PP3PP1/RNBQ1RK1 w kq - 1 9",
+    "side_to_move": "white",
+    "eval_cp": -3,
+    "depth_reached": 27,
+    "best_move": "Be3",
+    "line": [
+      "Be3",
+      "O-O",
+      "Nbd2",
+      "Nc6",
+      "Qc2"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "5wKPBxYi",
+      "ply": 16,
+      "move_number": 9,
+      "white_elo": 1650,
+      "black_elo": 1700,
+      "speed": "Bullet",
+      "time_control": "60+0",
+      "month": "2026-09",
+      "opening": "Caro-Kann Defense: Exchange Variation",
+      "result": "1-0"
+    }
+  },
+  {
+    "id": 168,
+    "fen": "r2qkb1r/pp1nn1p1/2p2p1p/3pPP2/3P4/3Q1N1P/PPP5/RNB1K2R w KQkq - 0 12",
+    "side_to_move": "white",
+    "eval_cp": 215,
+    "depth_reached": 22,
+    "best_move": "e6",
+    "line": [
+      "e6",
+      "Nb6",
+      "Nh4",
+      "Qd6",
+      "Kd1"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "S0F94kA5",
+      "ply": 22,
+      "move_number": 12,
+      "white_elo": 1966,
+      "black_elo": 1945,
+      "speed": "Bullet",
+      "time_control": "60+0",
+      "month": "2026-09",
+      "opening": "Caro-Kann Defense: Advance Variation",
+      "result": "0-1"
+    }
+  },
+  {
+    "id": 169,
+    "fen": "rnbqk2r/ppp1ppbp/3p2p1/8/3Pn2B/4PN2/PPP2PPP/RN1QKB1R w KQkq - 1 6",
+    "side_to_move": "white",
+    "eval_cp": 70,
+    "depth_reached": 26,
+    "best_move": "Bd3",
+    "line": [
+      "Bd3",
+      "Nf6",
+      "O-O",
+      "c5",
+      "h3"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "oLo3EZ7q",
+      "ply": 10,
+      "move_number": 6,
+      "white_elo": 2049,
+      "black_elo": 1999,
+      "speed": "Bullet",
+      "time_control": "60+0",
+      "month": "2026-09",
+      "opening": "Indian Defense: Wade-Tartakower Defense",
+      "result": "1-0"
+    }
+  },
+  {
+    "id": 170,
+    "fen": "rnbqkbnr/1p3ppp/p2p4/2pPp3/2P1PP2/2N5/PP4PP/R1BQKBNR b KQkq - 0 6",
+    "side_to_move": "black",
+    "eval_cp": 17,
+    "depth_reached": 25,
+    "best_move": "exf4",
+    "line": [
+      "exf4",
+      "Bxf4",
+      "Ne7",
+      "Bg3",
+      "Ng6"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "TRKbdu51",
+      "ply": 11,
+      "move_number": 6,
+      "white_elo": 2084,
+      "black_elo": 1650,
+      "speed": "Classical",
+      "time_control": "1200+20",
+      "month": "2026-09",
+      "opening": "Benoni Defense: French Benoni",
+      "result": "1-0"
+    }
+  },
+  {
+    "id": 171,
+    "fen": "2r5/p4p2/k3p3/7Q/1p2N3/1P3P2/P1r4P/1K1RR3 b - - 1 32",
+    "side_to_move": "black",
+    "eval_cp": 2254,
+    "depth_reached": 22,
+    "best_move": "R2c7",
+    "line": [
+      "R2c7",
+      "Rd6+",
+      "Kb7",
+      "Qb5+",
+      "Ka8"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "3K2mpdFl",
+      "ply": 63,
+      "move_number": 32,
+      "white_elo": 1922,
+      "black_elo": 1951,
+      "speed": "Bullet",
+      "time_control": "60+0",
+      "month": "2026-09",
+      "opening": "Caro-Kann Defense: Advance Variation, Botvinnik-Carls Defense",
+      "result": "1-0"
+    }
+  },
+  {
+    "id": 172,
+    "fen": "r1bqk2r/pp2ppbp/2np1np1/8/3NP3/2N1BP2/PPP1B1PP/R2QK2R b KQkq - 1 8",
+    "side_to_move": "black",
+    "eval_cp": 13,
+    "depth_reached": 21,
+    "best_move": "O-O",
+    "line": [
+      "O-O",
+      "Qd2",
+      "d5",
+      "O-O-O",
+      "Nxd4"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "13u8h9O7",
+      "ply": 15,
+      "move_number": 8,
+      "white_elo": 1760,
+      "black_elo": 1789,
+      "speed": "Blitz",
+      "time_control": "180+0",
+      "month": "2026-09",
+      "opening": "Sicilian Defense: Dragon Variation, Yugoslav Attack, Belezky Line",
+      "result": "1-0"
+    }
+  },
+  {
+    "id": 173,
+    "fen": "2kr2nB/p2pp2p/b1p2ppb/8/1P6/2N5/P4PPP/2RR2K1 w - - 1 17",
+    "side_to_move": "white",
+    "eval_cp": -8,
+    "depth_reached": 22,
+    "best_move": "Rc2",
+    "line": [
+      "Rc2",
+      "Bf4",
+      "Bg7",
+      "Bc7",
+      "b5"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "5Dsi5c2r",
+      "ply": 32,
+      "move_number": 17,
+      "white_elo": 1861,
+      "black_elo": 1914,
+      "speed": "Rapid",
+      "time_control": "600+0",
+      "month": "2026-09",
+      "opening": "Sicilian Defense: Accelerated Dragon, Exchange Variation",
+      "result": "1-0"
+    }
+  },
+  {
+    "id": 174,
+    "fen": "rn1qkb1r/pbpp2pp/1p2pn2/8/4P3/2N5/PPP2PPP/R1BQKBNR w KQkq - 2 6",
+    "side_to_move": "white",
+    "eval_cp": 40,
+    "depth_reached": 21,
+    "best_move": "e5",
+    "line": [
+      "e5",
+      "Nd5",
+      "Nxd5",
+      "Bxd5",
+      "h4"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "QTBMuvRe",
+      "ply": 10,
+      "move_number": 6,
+      "white_elo": 1620,
+      "black_elo": 1642,
+      "speed": "Rapid",
+      "time_control": "600+0",
+      "month": "2026-09",
+      "opening": "English Defense",
+      "result": "0-1"
+    }
+  },
+  {
+    "id": 175,
+    "fen": "2r2rk1/1bq2pbp/4p1p1/p2pP2P/1p1B1PP1/5B2/PPPQ4/1K1R3R w - - 0 21",
+    "side_to_move": "white",
+    "eval_cp": 537,
+    "depth_reached": 16,
+    "best_move": "Be2",
+    "line": [
+      "Be2",
+      "Ra8",
+      "Bb5",
+      "Ba6",
+      "Ba4"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "X8Dna7Ad",
+      "ply": 40,
+      "move_number": 21,
+      "white_elo": 2000,
+      "black_elo": 2046,
+      "speed": "Blitz",
+      "time_control": "180+0",
+      "month": "2026-09",
+      "opening": "Sicilian Defense",
+      "result": "0-1"
+    }
+  },
+  {
+    "id": 176,
+    "fen": "4r1k1/3r1p2/p2q2p1/1p2p1Q1/8/1BP4P/PP3PP1/4R1K1 b - - 3 27",
+    "side_to_move": "black",
+    "eval_cp": -348,
+    "depth_reached": 20,
+    "best_move": "Kg7",
+    "line": [
+      "Kg7",
+      "h4",
+      "e4",
+      "g3",
+      "Re5"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "E1xEhj2P",
+      "ply": 53,
+      "move_number": 27,
+      "white_elo": 1902,
+      "black_elo": 1910,
+      "speed": "Blitz",
+      "time_control": "180+0",
+      "month": "2026-09",
+      "opening": "Scandinavian Defense: Valencian Variation, Ilundain Variation",
+      "result": "1-0"
+    }
+  },
+  {
+    "id": 177,
+    "fen": "1n2r3/p4ppp/1Q2pk2/6b1/3P4/4PP1P/5P2/2R3K1 w - - 2 25",
+    "side_to_move": "white",
+    "eval_cp": 855,
+    "depth_reached": 20,
+    "best_move": "Qd6",
+    "line": [
+      "Qd6",
+      "h5",
+      "Kh1",
+      "h4",
+      "Qe5+"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "l93kvSZs",
+      "ply": 48,
+      "move_number": 25,
+      "white_elo": 1766,
+      "black_elo": 1756,
+      "speed": "Blitz",
+      "time_control": "180+2",
+      "month": "2026-09",
+      "opening": "Queen's Pawn Game: Levitsky Attack",
+      "result": "1-0"
+    }
+  },
+  {
+    "id": 178,
+    "fen": "r2q2k1/p1p2ppp/n4b2/3P4/8/5N2/PPPPrPPP/R1B2RK1 w - - 0 13",
+    "side_to_move": "white",
+    "eval_cp": -863,
+    "depth_reached": 17,
+    "best_move": "d4",
+    "line": [
+      "d4",
+      "Rxc2",
+      "Bf4",
+      "Rxb2",
+      "Be5"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "TEjud59P",
+      "ply": 24,
+      "move_number": 13,
+      "white_elo": 1716,
+      "black_elo": 1706,
+      "speed": "Blitz",
+      "time_control": "180+2",
+      "month": "2026-09",
+      "opening": "Elephant Gambit: Paulsen Countergambit",
+      "result": "0-1"
+    }
+  },
+  {
+    "id": 179,
+    "fen": "rnb2rk1/pp2qppp/8/3p4/1b2QP2/2N5/PPP1B1PP/R1B2KNR w - - 0 11",
+    "side_to_move": "white",
+    "eval_cp": 673,
+    "depth_reached": 17,
+    "best_move": "Qxe7",
+    "line": [
+      "Qxe7",
+      "Bxe7",
+      "Nxd5",
+      "Bd8",
+      "Be3"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "Kx1QduNB",
+      "ply": 20,
+      "move_number": 11,
+      "white_elo": 2193,
+      "black_elo": 2134,
+      "speed": "Blitz",
+      "time_control": "180+2",
+      "month": "2026-09",
+      "opening": "King's Gambit Declined: Falkbeer Countergambit, Staunton Line",
+      "result": "1-0"
+    }
+  },
+  {
+    "id": 180,
+    "fen": "6k1/5p2/6p1/3n3p/4R3/1P2P1P1/5PKP/8 b - - 0 37",
+    "side_to_move": "black",
+    "eval_cp": 771,
+    "depth_reached": 21,
+    "best_move": "Kf8",
+    "line": [
+      "Kf8",
+      "b4",
+      "Nb6",
+      "b5",
+      "g5"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "KA8ZmKBv",
+      "ply": 73,
+      "move_number": 37,
+      "white_elo": 1600,
+      "black_elo": 1597,
+      "speed": "Blitz",
+      "time_control": "180+2",
+      "month": "2026-09",
+      "opening": "King's Indian Defense: Fianchetto Variation, Carlsbad Variation",
+      "result": "1-0"
+    }
+  },
+  {
+    "id": 181,
+    "fen": "rnbqk1nr/1pp2pp1/p3p2p/6P1/1b3P1P/2NB1N2/PPPB4/R2QK2R b KQkq - 5 10",
+    "side_to_move": "black",
+    "eval_cp": 194,
+    "depth_reached": 18,
+    "best_move": "Nc6",
+    "line": [
+      "Nc6",
+      "Qe2",
+      "Bd7",
+      "a3",
+      "Bd6"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "DpZFVITj",
+      "ply": 19,
+      "move_number": 10,
+      "white_elo": 1549,
+      "black_elo": 1559,
+      "speed": "Bullet",
+      "time_control": "60+0",
+      "month": "2026-09",
+      "opening": "French Defense: King's Indian Attack",
+      "result": "0-1"
+    }
+  },
+  {
+    "id": 182,
+    "fen": "4r1k1/2b2ppp/2b2q2/p1B5/2Q5/2P2pPP/PPB2P2/1R4K1 b - - 0 24",
+    "side_to_move": "black",
+    "eval_cp": -117,
+    "depth_reached": 19,
+    "best_move": "Bxg3",
+    "line": [
+      "Bxg3",
+      "Qg4",
+      "Qe5",
+      "Be3",
+      "g6"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "R1ZBCzHo",
+      "ply": 47,
+      "move_number": 24,
+      "white_elo": 1889,
+      "black_elo": 1911,
+      "speed": "Bullet",
+      "time_control": "60+0",
+      "month": "2026-09",
+      "opening": "Sicilian Defense: Taimanov Variation",
+      "result": "0-1"
+    }
+  },
+  {
+    "id": 183,
+    "fen": "r1b2r1k/ppp3pB/2n5/8/1P6/PQ6/5NPP/1R3RK1 b - - 0 22",
+    "side_to_move": "black",
+    "eval_cp": 988,
+    "depth_reached": 15,
+    "best_move": "Kxh7",
+    "line": [
+      "Kxh7",
+      "Nh3",
+      "Rf5",
+      "Rbe1",
+      "b6"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "yxvq3DJ4",
+      "ply": 43,
+      "move_number": 22,
+      "white_elo": 1843,
+      "black_elo": 1781,
+      "speed": "Bullet",
+      "time_control": "60+0",
+      "month": "2026-09",
+      "opening": "Rat Defense: English Rat",
+      "result": "1-0"
+    }
+  },
+  {
+    "id": 184,
+    "fen": "4r1k1/1pq2pbp/p2p1np1/3P1b2/2P5/1PNp1Q2/PB1N1PPP/R5K1 b - - 1 19",
+    "side_to_move": "black",
+    "eval_cp": -282,
+    "depth_reached": 17,
+    "best_move": "Qa5",
+    "line": [
+      "Qa5",
+      "h3",
+      "Nxd5",
+      "Nxd5",
+      "Bxb2"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "4OR9Diiv",
+      "ply": 37,
+      "move_number": 19,
+      "white_elo": 1612,
+      "black_elo": 2121,
+      "speed": "Blitz",
+      "time_control": "180+0",
+      "month": "2026-09",
+      "opening": "Modern Defense",
+      "result": "0-1"
+    }
+  },
+  {
+    "id": 185,
+    "fen": "3r1r2/pbp2pk1/1pn1p1p1/3q2NB/1P5P/P3P3/2QP1PP1/R3K2R b KQ - 0 15",
+    "side_to_move": "black",
+    "eval_cp": -361,
+    "depth_reached": 15,
+    "best_move": "gxh5",
+    "line": [
+      "gxh5",
+      "Rh3",
+      "Kf6",
+      "Rf3+",
+      "Ke7"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "fHYCDWqx",
+      "ply": 29,
+      "move_number": 15,
+      "white_elo": 1837,
+      "black_elo": 1809,
+      "speed": "Blitz",
+      "time_control": "300+0",
+      "month": "2026-09",
+      "opening": "English Opening",
+      "result": "1-0"
+    }
+  },
+  {
+    "id": 186,
+    "fen": "3r2k1/3bn1pp/4pr2/p1q5/P7/2P2N2/3Q1PPP/R2R2K1 b - - 1 20",
+    "side_to_move": "black",
+    "eval_cp": -567,
+    "depth_reached": 16,
+    "best_move": "Nc6",
+    "line": [
+      "Nc6",
+      "Qd6",
+      "Rf5",
+      "c4",
+      "Qxd6"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "YQ55ZMO8",
+      "ply": 39,
+      "move_number": 20,
+      "white_elo": 1618,
+      "black_elo": 1617,
+      "speed": "Blitz",
+      "time_control": "300+0",
+      "month": "2026-09",
+      "opening": "Alekhine Defense: Normal Variation",
+      "result": "1-0"
+    }
+  },
+  {
+    "id": 187,
+    "fen": "r1b1k2r/pppp1ppp/4qn2/b7/8/2PBPN2/PP3PPP/R1BQK2R w KQkq - 3 10",
+    "side_to_move": "white",
+    "eval_cp": 101,
+    "depth_reached": 19,
+    "best_move": "e4",
+    "line": [
+      "e4",
+      "O-O",
+      "O-O",
+      "d6",
+      "a4"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "1iWcfwFR",
+      "ply": 18,
+      "move_number": 10,
+      "white_elo": 1657,
+      "black_elo": 1676,
+      "speed": "Blitz",
+      "time_control": "300+0",
+      "month": "2026-09",
+      "opening": "Englund Gambit: Main Line",
+      "result": "1-0"
+    }
+  },
+  {
+    "id": 188,
+    "fen": "r1b1kbnr/1ppp1ppp/p1n5/8/2BNP2q/8/PPP2PPP/RNBQK2R w KQkq - 1 6",
+    "side_to_move": "white",
+    "eval_cp": 133,
+    "depth_reached": 20,
+    "best_move": "Nc3",
+    "line": [
+      "Nc3",
+      "Bb4",
+      "O-O",
+      "Bxc3",
+      "bxc3"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "ODKoD3Di",
+      "ply": 10,
+      "move_number": 6,
+      "white_elo": 1641,
+      "black_elo": 1592,
+      "speed": "Classical",
+      "time_control": "1800+0",
+      "month": "2026-09",
+      "opening": "Italian Game",
+      "result": "0-1"
+    }
+  },
+  {
+    "id": 189,
+    "fen": "8/5p1k/4r1pp/p2p4/4R2P/rP4P1/2Q5/6K1 b - - 0 40",
+    "side_to_move": "black",
+    "eval_cp": -437,
+    "depth_reached": 19,
+    "best_move": "Ra1+",
+    "line": [
+      "Ra1+",
+      "Kf2",
+      "dxe4",
+      "h5",
+      "gxh5"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "MFR8BC0D",
+      "ply": 79,
+      "move_number": 40,
+      "white_elo": 2069,
+      "black_elo": 2063,
+      "speed": "Blitz",
+      "time_control": "180+0",
+      "month": "2026-09",
+      "opening": "Queen's Pawn Game: Accelerated London System, Steinitz Countergambit",
+      "result": "1/2-1/2"
+    }
+  },
+  {
+    "id": 190,
+    "fen": "r1b2rk1/p3Rp1p/3p2p1/2p2P2/8/8/PPP3PP/2K2B1R w - - 0 20",
+    "side_to_move": "white",
+    "eval_cp": 321,
+    "depth_reached": 17,
+    "best_move": "fxg6",
+    "line": [
+      "fxg6",
+      "hxg6",
+      "Bc4",
+      "Rb8",
+      "Rd1"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "jvdkrA8i",
+      "ply": 38,
+      "move_number": 20,
+      "white_elo": 1734,
+      "black_elo": 1705,
+      "speed": "Rapid",
+      "time_control": "600+0",
+      "month": "2026-09",
+      "opening": "Modern Defense: Three Pawns Attack",
+      "result": "1-0"
+    }
+  },
+  {
+    "id": 191,
+    "fen": "2k1r3/p1p2np1/5p2/1N1p3p/rn6/1K5P/6PN/6R1 b - - 0 36",
+    "side_to_move": "black",
+    "eval_cp": -952,
+    "depth_reached": 20,
+    "best_move": "Ra6",
+    "line": [
+      "Ra6",
+      "Nf3",
+      "Rb6",
+      "Kxb4",
+      "Nd6"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "BmwbWbq4",
+      "ply": 71,
+      "move_number": 36,
+      "white_elo": 1774,
+      "black_elo": 1739,
+      "speed": "Rapid",
+      "time_control": "600+0",
+      "month": "2026-09",
+      "opening": "Englund Gambit Declined: Reversed French",
+      "result": "1-0"
+    }
+  },
+  {
+    "id": 192,
+    "fen": "6k1/4B1b1/3P3p/pb2pp2/r1p5/2P1N2P/3N2P1/6K1 b - - 1 39",
+    "side_to_move": "black",
+    "eval_cp": -669,
+    "depth_reached": 22,
+    "best_move": "Ra1+",
+    "line": [
+      "Ra1+",
+      "Kh2",
+      "e4",
+      "Kg3",
+      "Bxc3"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "LFnYUQij",
+      "ply": 77,
+      "move_number": 39,
+      "white_elo": 2062,
+      "black_elo": 2109,
+      "speed": "Blitz",
+      "time_control": "300+0",
+      "month": "2026-09",
+      "opening": "Queen's Pawn Game",
+      "result": "0-1"
+    }
+  },
+  {
+    "id": 193,
+    "fen": "2r5/5p2/3p1k1b/7P/8/3P1K2/4RP2/8 w - - 5 39",
+    "side_to_move": "white",
+    "eval_cp": -627,
+    "depth_reached": 28,
+    "best_move": "Re4",
+    "line": [
+      "Re4",
+      "Rc5",
+      "Rd4",
+      "Ke7",
+      "Rh4"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "2BJs5WJf",
+      "ply": 76,
+      "move_number": 39,
+      "white_elo": 1510,
+      "black_elo": 1534,
+      "speed": "Blitz",
+      "time_control": "300+0",
+      "month": "2026-09",
+      "opening": "Vienna Game: Max Lange Defense",
+      "result": "0-1"
+    }
+  },
+  {
+    "id": 194,
+    "fen": "r2qk2r/ppp1nbpp/2n2p2/2p1p3/4P3/2NP3P/PPP1BPP1/R2QK1NR w KQkq - 3 11",
+    "side_to_move": "white",
+    "eval_cp": -102,
+    "depth_reached": 18,
+    "best_move": "h4",
+    "line": [
+      "h4",
+      "Nd4",
+      "h5",
+      "Qd6",
+      "Bg4"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "CujsTafe",
+      "ply": 20,
+      "move_number": 11,
+      "white_elo": 2138,
+      "black_elo": 2096,
+      "speed": "Bullet",
+      "time_control": "60+0",
+      "month": "2026-09",
+      "opening": "Three Knights Opening",
+      "result": "1-0"
+    }
+  },
+  {
+    "id": 195,
+    "fen": "8/1q4kp/6p1/8/r3pQ2/3pR2P/2r3P1/4R2K b - - 5 36",
+    "side_to_move": "black",
+    "eval_cp": -704,
+    "depth_reached": 26,
+    "best_move": "Qc7",
+    "line": [
+      "Qc7",
+      "Qxc7+",
+      "Rxc7",
+      "Rd1",
+      "Kf6"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "l60JwjBh",
+      "ply": 71,
+      "move_number": 36,
+      "white_elo": 2001,
+      "black_elo": 1993,
+      "speed": "Blitz",
+      "time_control": "300+0",
+      "month": "2026-09",
+      "opening": "Sicilian Defense: Modern Variations",
+      "result": "0-1"
+    }
+  },
+  {
+    "id": 196,
+    "fen": "r1b2rk1/pp3np1/3p3b/2p2PqQ/4P1P1/2NP4/PPP5/1K1R4 w - - 1 20",
+    "side_to_move": "white",
+    "eval_cp": -881,
+    "depth_reached": 17,
+    "best_move": "Nd5",
+    "line": [
+      "Nd5",
+      "Re8",
+      "Nc7",
+      "Bd7",
+      "Nxe8"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "BIIEn3nF",
+      "ply": 38,
+      "move_number": 20,
+      "white_elo": 1769,
+      "black_elo": 1765,
+      "speed": "Blitz",
+      "time_control": "300+0",
+      "month": "2026-09",
+      "opening": "Sicilian Defense: Bowdler Attack",
+      "result": "0-1"
+    }
+  },
+  {
+    "id": 197,
+    "fen": "5rk1/p2b2pp/1q2pr2/3p4/8/bP1N1N2/P1R2PP1/3Q1R1K b - - 9 23",
+    "side_to_move": "black",
+    "eval_cp": -536,
+    "depth_reached": 17,
+    "best_move": "Rxf3",
+    "line": [
+      "Rxf3",
+      "gxf3",
+      "e5",
+      "f4",
+      "Qh6+"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "M9kYI4X8",
+      "ply": 45,
+      "move_number": 23,
+      "white_elo": 1642,
+      "black_elo": 1585,
+      "speed": "Blitz",
+      "time_control": "300+0",
+      "month": "2026-09",
+      "opening": "French Defense: Advance Variation, Nimzowitsch System",
+      "result": "1-0"
+    }
+  },
+  {
+    "id": 198,
+    "fen": "8/pp2r1kp/2p1P3/5P2/6PP/6K1/PPPr4/8 w - - 1 34",
+    "side_to_move": "white",
+    "eval_cp": -803,
+    "depth_reached": 26,
+    "best_move": "g5",
+    "line": [
+      "g5",
+      "Re8",
+      "Kf4",
+      "Kf8",
+      "Ke5"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "TgIARSRv",
+      "ply": 66,
+      "move_number": 34,
+      "white_elo": 2054,
+      "black_elo": 2085,
+      "speed": "Blitz",
+      "time_control": "300+0",
+      "month": "2026-09",
+      "opening": "Scandinavian Defense: Main Line",
+      "result": "0-1"
+    }
+  },
+  {
+    "id": 199,
+    "fen": "3r3r/4pkbp/p1B5/1p2Pbp1/4n3/4B3/PPP1KPPP/3R3R b - - 3 20",
+    "side_to_move": "black",
+    "eval_cp": -561,
+    "depth_reached": 20,
+    "best_move": "Bxe5",
+    "line": [
+      "Bxe5",
+      "g4",
+      "Bg6",
+      "c3",
+      "Bf4"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "qvoigkzR",
+      "ply": 39,
+      "move_number": 20,
+      "white_elo": 1630,
+      "black_elo": 1642,
+      "speed": "Blitz",
+      "time_control": "180+2",
+      "month": "2026-09",
+      "opening": "Nimzowitsch Defense: Colorado Countergambit Accepted",
+      "result": "1-0"
+    }
+  },
+  {
+    "id": 200,
+    "fen": "r4rk1/1p3ppp/p3p2q/3pb3/3N2Q1/2P3P1/PP3P1P/R4RK1 b - - 1 16",
+    "side_to_move": "black",
+    "eval_cp": -229,
+    "depth_reached": 18,
+    "best_move": "Rac8",
+    "line": [
+      "Rac8",
+      "Rfe1",
+      "Bf6",
+      "Rad1",
+      "Rc4"
+    ],
+    "source": {
+      "site": "lichess",
+      "game_id": "FZerIEW0",
+      "ply": 31,
+      "move_number": 16,
+      "white_elo": 1772,
+      "black_elo": 1699,
+      "speed": "Blitz",
+      "time_control": "180+2",
+      "month": "2026-09",
+      "opening": "Caro-Kann Defense",
+      "result": "0-1"
+    }
   }
 ]

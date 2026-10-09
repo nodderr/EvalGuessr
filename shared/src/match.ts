@@ -15,7 +15,7 @@
 import { MATCH, TIME_CONTROLS, type TimeControl } from "./config";
 import { cpToPawns, normalizeGuess } from "./evalFormat";
 import { scoreGuess } from "./scoring";
-import { toPublicPosition, type PositionRecord, type PublicPosition } from "./types";
+import { toPublicPosition, type PositionRecord, type PositionSource, type PublicPosition } from "./types";
 
 /** practice: 5 timed positions, solo. endless: solo, no clock, no limit. online: 1v1. */
 export type MatchMode = "practice" | "endless" | "online";
@@ -40,6 +40,10 @@ export type RoundResult = {
   /** Stockfish eval in pawns, White's perspective. */
   evalPawns: number;
   bestMove: string;
+  /** Stockfish's main line in SAN, best move first (at least the best move). */
+  line: string[];
+  /** The real game the position came from, if known. Only ever sent after the reveal. */
+  source: PositionSource | null;
   byPlayer: Record<string, PlayerRoundResult>;
 };
 
@@ -219,6 +223,8 @@ export function revealRound(state: MatchState): MatchState {
     position: toPublicPosition(record),
     evalPawns,
     bestMove: record.best_move,
+    line: record.line?.length ? record.line : [record.best_move],
+    source: record.source ?? null,
     byPlayer,
   };
   return { ...state, phase: "revealed", roundDeadline: null, results: [...state.results, result] };
