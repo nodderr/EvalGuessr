@@ -1,0 +1,26 @@
+{
+  "name": "@eval-guess/server",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Socket.IO game server: rooms, authoritative clock, hidden evals. In-memory, no database.",
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/main.ts",
+    "build": "esbuild src/main.ts --bundle --platform=node --format=esm --target=node22 --external:socket.io --outfile=dist/main.js",
+    "start": "node dist/main.js",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.4",
+    "esbuild": "^0.28.2",
+    "socket.io-client": "^4.8.4",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2",
+    "vitest": "^5.0.3"
+  },
+  "dependencies": {
+    "@eval-guess/shared": "*",
+    "socket.io": "^4.8.4"
+  }
+}

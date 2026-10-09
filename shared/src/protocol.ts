@@ -15,14 +15,19 @@ export type ErrorCode =
   | MatchErrorCode
   | "MATCH_NOT_FOUND"
   | "INVALID_REQUEST"
-  | "NOT_IN_MATCH";
+  | "NOT_IN_MATCH"
+  | "SERVER_BUSY";
 
 export type Ack<T> =
   | { ok: true; data: T }
   | { ok: false; error: ErrorCode; message?: string };
 
-/** Returned on create/join. Keep playerId (e.g. in sessionStorage) to rejoin after a reconnect. */
-export type Seat = { matchId: string; playerId: string };
+/**
+ * Returned on create/join. Keep it (e.g. in sessionStorage) to rejoin after a
+ * reconnect or page reload. `token` is a secret: player ids are visible to
+ * other players, so the token is what proves a rejoin is really you.
+ */
+export type Seat = { matchId: string; playerId: string; token: string };
 
 export interface ClientToServerEvents {
   /** Create a match. Practice matches start immediately; online matches wait for an opponent. */
@@ -38,12 +43,14 @@ export interface ClientToServerEvents {
   "guess:submit": (req: { guess: number }, ack: (res: Ack<null>) => void) => void;
   /** "Next position" after a reveal. */
   "round:ready": (ack: (res: Ack<null>) => void) => void;
+  /** Ask for a rematch after the match finishes. Starts when every connected player has asked. */
+  "match:rematch": (ack: (res: Ack<null>) => void) => void;
   /** Leave the current match. */
   "match:leave": () => void;
 }
 
 export interface ServerToClientEvents {
   "match:state": (view: MatchView) => void;
-  /** The opponent left or did not come back in time; the match is over. */
+  /** The opponent left, or did not come back in time; the match is over. */
   "match:abandoned": (info: { reason: "opponent_left" | "opponent_timeout" }) => void;
 }
