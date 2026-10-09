@@ -11,9 +11,13 @@ const OPTIONS: { id: TimeControl; label: string; icon: Icon }[] = [
 export function TimeControlSelect({
   onBack,
   onPick,
+  busy = false,
+  error = null,
 }: {
   onBack: () => void;
   onPick: (tc: TimeControl) => void;
+  busy?: boolean;
+  error?: string | null;
 }) {
   return (
     <Screen>
@@ -36,7 +40,8 @@ export function TimeControlSelect({
               key={id}
               type="button"
               onClick={() => onPick(id)}
-              className="flex min-h-16 items-center gap-4 rounded-xl border border-line bg-surface-raised px-5 text-left transition hover:border-accent active:scale-[0.98]"
+              disabled={busy}
+              className="flex min-h-16 items-center gap-4 rounded-xl border border-line bg-surface-raised px-5 text-left transition hover:border-accent active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-45"
             >
               <IconCmp size={26} weight="duotone" className="text-accent" aria-hidden />
               <span className="flex-1 text-lg font-semibold">{label}</span>
@@ -44,6 +49,12 @@ export function TimeControlSelect({
             </button>
           ))}
         </div>
+        {busy && <p className="text-ink-muted">Starting your match…</p>}
+        {error && (
+          <p role="alert" className="text-sm text-bad">
+            {error}
+          </p>
+        )}
       </div>
     </Screen>
   );

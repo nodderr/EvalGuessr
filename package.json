@@ -8,10 +8,14 @@
     "app"
   ],
   "scripts": {
+    "dev": "concurrently -k -n server,app -c blue,green \"npm run dev -w server\" \"npm run dev -w app\"",
     "test": "npm run test --workspaces --if-present",
     "typecheck": "npm run typecheck --workspaces --if-present"
   },
   "overrides": {
     "esbuild": "^0.28.2"
+  },
+  "devDependencies": {
+    "concurrently": "^10.0.6"
   }
 }

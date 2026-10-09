@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { X } from "@phosphor-icons/react";
-import type { MatchView } from "@eval-guess/shared";
+import { MATCH, type MatchView } from "@eval-guess/shared";
 import { ToMove } from "../components/Board";
 import { Button } from "../components/Button";
 import { Countdown } from "../components/Countdown";
@@ -25,6 +25,16 @@ export function MatchScreen({ view, client, onQuit }: Props) {
   const result = revealed ? view.results[view.results.length - 1] : undefined;
   const isLastRound = view.roundIndex + 1 >= view.totalRounds;
   const waitingOn = view.players.filter((p) => p.id !== view.you && !p.readyForNext && p.connected);
+  const opponents = view.players.filter((p) => p.id !== view.you);
+  const online = view.mode === "online";
+
+  // Online matches move on by themselves after a reveal; show when.
+  const revealedAt = useRef<number | null>(null);
+  if (revealed && revealedAt.current === null) revealedAt.current = Date.now();
+  const advanceIn = useCountdown(
+    online && revealed && revealedAt.current !== null ? revealedAt.current + MATCH.revealAutoAdvanceMs : null,
+    revealedAt.current ?? 0,
+  );
 
   const [guess, setGuess] = useState(0);
   const [error, setError] = useState<string | null>(null);
@@ -104,15 +114,19 @@ export function MatchScreen({ view, client, onQuit }: Props) {
       </div>
 
       <div className="grid gap-5">
+        {opponents.length > 0 && <OpponentStatus view={view} />}
         {revealed && result ? (
           <>
             <RoundReveal result={result} players={view.players} you={view.you} />
-            <Button onClick={() => void client.ready()} disabled={me.readyForNext}>
+            <Button onClick={() => void client.ready().catch(() => {})} disabled={me.readyForNext}>
               {isLastRound ? "See results" : "Next position"}
             </Button>
-            {me.readyForNext && waitingOn.length > 0 && (
-              <p className="text-center text-sm text-ink-muted">Waiting for {waitingOn.map((p) => p.name).join(", ")}</p>
-            )}
+            {(me.readyForNext && waitingOn.length > 0) || advanceIn !== null ? (
+              <p className="text-center text-sm text-ink-muted" aria-live="polite">
+                {me.readyForNext && waitingOn.length > 0 ? `Waiting for ${waitingOn.map((p) => p.name).join(", ")}. ` : ""}
+                {advanceIn !== null && `Moving on in ${Math.ceil(advanceIn)}s`}
+              </p>
+            ) : null}
           </>
         ) : (
           <>
@@ -120,9 +134,9 @@ export function MatchScreen({ view, client, onQuit }: Props) {
             <Button onClick={() => void lockIn(guess)} disabled={locked}>
               {locked ? "Locked in" : "Lock in"}
             </Button>
-            {locked && view.players.length > 1 && (
+            {locked && opponents.some((p) => !p.hasGuessed) && (
               <p className="text-center text-sm text-ink-muted" aria-live="polite">
-                Waiting for your opponent
+                Locked in. Waiting for {opponents.filter((p) => !p.hasGuessed).map((p) => p.name).join(", ")}
               </p>
             )}
           </>
@@ -134,5 +148,38 @@ export function MatchScreen({ view, client, onQuit }: Props) {
         )}
       </div>
     </Screen>
+  );
+}
+
+/** One line per opponent: name, score, and what they're doing right now. */
+function OpponentStatus({ view }: { view: MatchView }) {
+  return (
+    <ul className="grid gap-1.5">
+      {view.players
+        .filter((p) => p.id !== view.you)
+        .map((p) => {
+          const [label, tone] = !p.connected
+            ? ["Reconnecting…", "text-bad"]
+            : view.phase === "guessing"
+              ? p.hasGuessed
+                ? ["Locked in", "text-good"]
+                : ["Thinking…", "text-ink-muted"]
+              : p.readyForNext
+                ? ["Ready", "text-good"]
+                : ["Reviewing", "text-ink-muted"];
+          return (
+            <li key={p.id} className="flex items-center justify-between rounded-xl border border-line px-4 py-2.5">
+              <span className="flex items-center gap-2 font-medium">
+                <span aria-hidden className="h-1 w-4 rounded-full bg-warn" />
+                {p.name}
+                <span className="font-mono text-ink-muted tabular-nums">{p.score}</span>
+              </span>
+              <span className={`text-sm font-semibold ${tone}`} aria-live="polite">
+                {label}
+              </span>
+            </li>
+          );
+        })}
+    </ul>
   );
 }
