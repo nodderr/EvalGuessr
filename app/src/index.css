@@ -1,0 +1,80 @@
+@import "tailwindcss";
+
+/*
+ * Theme tokens. Light and dark follow the OS setting.
+ * One accent (board green). Result colours are semantic only.
+ */
+:root {
+  --surface: #f4f4f2;
+  --surface-raised: #ffffff;
+  --ink: #1d1f1c;
+  --ink-muted: #5b5f58;
+  --line: #dcdcd6;
+  --accent: #4f7a3a;
+  --accent-ink: #ffffff;
+  --good: #3f7d34;
+  --warn: #9a6a12;
+  --bad: #b23a2e;
+  --board-light: #ebecd0;
+  --board-dark: #779556;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --surface: #1b1c1a;
+    --surface-raised: #262825;
+    --ink: #ecede8;
+    --ink-muted: #a3a69e;
+    --line: #3a3d37;
+    --accent: #81b64c;
+    --accent-ink: #172012;
+    --good: #8fc760;
+    --warn: #e2b04a;
+    --bad: #ec7a6c;
+  }
+}
+
+@theme inline {
+  --font-sans: "Geist Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "Geist Mono Variable", ui-monospace, monospace;
+  --color-surface: var(--surface);
+  --color-surface-raised: var(--surface-raised);
+  --color-ink: var(--ink);
+  --color-ink-muted: var(--ink-muted);
+  --color-line: var(--line);
+  --color-accent: var(--accent);
+  --color-accent-ink: var(--accent-ink);
+  --color-good: var(--good);
+  --color-warn: var(--warn);
+  --color-bad: var(--bad);
+}
+
+html {
+  background: var(--surface);
+  color: var(--ink);
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  margin: 0;
+  min-height: 100dvh;
+  font-family: var(--font-sans);
+}
+
+/* Tailwind v4 resets buttons to the default arrow cursor; show the hand on anything clickable. */
+@layer base {
+  button:not(:disabled),
+  [role="button"]:not([aria-disabled="true"]),
+  a[href] {
+    cursor: pointer;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
