@@ -2,7 +2,9 @@
 Offline position pipeline: FEN list -> Stockfish analysis -> positions.json.
 
 Runs only on a developer machine with a local Stockfish binary. The output is a
-static JSON file that ships with the frontend (app/public/data/positions.json).
+JSON file read by the game server (server/data/positions.json). It is NOT
+shipped to the browser: evals are answers, so the server only reveals each one
+after every player has locked in a guess.
 
 Usage:
     python scripts/generate_positions.py --stockfish "C:/path/to/stockfish.exe"
@@ -28,7 +30,7 @@ import chess.engine
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 DEFAULT_INPUT = REPO_ROOT / "scripts" / "positions_input.txt"
-DEFAULT_OUTPUT = REPO_ROOT / "app" / "public" / "data" / "positions.json"
+DEFAULT_OUTPUT = REPO_ROOT / "server" / "data" / "positions.json"
 
 
 def parse_args() -> argparse.Namespace:
