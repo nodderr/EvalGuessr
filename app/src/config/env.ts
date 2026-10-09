@@ -2,4 +2,11 @@
  * The only place the app reads environment variables.
  * Vite inlines VITE_* variables at build time; set them in Vercel's project settings.
  */
-export const API_BASE_URL: string | null = import.meta.env.VITE_API_BASE_URL || null;
+
+/**
+ * Game server URL. In development it defaults to the local server
+ * (`npm run dev` at the repo root starts both). Production builds must set
+ * VITE_API_BASE_URL, e.g. https://evalguessr.onrender.com.
+ */
+export const API_BASE_URL: string | null =
+  import.meta.env.VITE_API_BASE_URL || (import.meta.env.DEV ? "http://localhost:3001" : null);

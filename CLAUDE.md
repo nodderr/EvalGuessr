@@ -25,8 +25,9 @@ Key invariants:
 npm install                 # from the repo root, installs all workspaces
 npm test                    # all workspace tests (Vitest)
 npm run typecheck
-npm run dev -w app          # Vite dev server on :5173 (practice runs in-browser via a dev-only positions endpoint)
-npm run dev -w server       # game server on :3001 (tsx watch)
+npm run dev                 # game server on :3001 + app on :5173 together (the app needs the server, even for practice)
+npm run dev -w app          # app only; set VITE_API_BASE_URL to use a different server
+npm run dev -w server       # server only (tsx watch)
 npm run build -w server     # esbuild bundle -> server/dist/main.js; `npm start -w server` runs it
 npm test -w shared -- test/match.test.ts       # a single test file
 npm test -w shared -- -t "guesses are final"   # a single test by name

@@ -1,12 +1,11 @@
 import { useEffect, useMemo, useState } from "react";
 import type { MatchView } from "@eval-guess/shared";
-import type { MatchClient } from "./MatchClient";
+import type { ConnectionStatus, MatchClient } from "./MatchClient";
 
 /** Subscribe a component to a MatchClient's latest view. */
 export function useMatchView(client: MatchClient | null): MatchView | null {
   const [view, setView] = useState<MatchView | null>(null);
   useEffect(() => {
-    setView(null);
     if (!client) return;
     const unsubscribe = client.subscribe(setView);
     return () => {
@@ -14,6 +13,18 @@ export function useMatchView(client: MatchClient | null): MatchView | null {
     };
   }, [client]);
   return view;
+}
+
+export function useConnectionStatus(client: MatchClient | null): ConnectionStatus {
+  const [status, setStatus] = useState<ConnectionStatus>("connecting");
+  useEffect(() => {
+    if (!client) return;
+    const unsubscribe = client.onStatus(setStatus);
+    return () => {
+      unsubscribe();
+    };
+  }, [client]);
+  return status;
 }
 
 /**
