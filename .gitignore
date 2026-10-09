@@ -17,8 +17,10 @@ venv/
 stockfish*/
 *.exe
 
-# Editors / OS
+# Editors / OS / Tools
 .vscode/
 .idea/
 .DS_Store
 Thumbs.db
+.claude/
+skills-lock.json

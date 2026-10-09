@@ -1,7 +1,7 @@
-import { ArrowSquareOut } from "@phosphor-icons/react";
+import { ArrowSquareOut, Fire, HourglassMedium, Lightning, Timer, type Icon } from "@phosphor-icons/react";
 import type { PositionSource } from "@eval-guess/shared";
 
-const RESULT: Record<string, string> = { "1-0": "White won", "0-1": "Black won", "1/2-1/2": "Draw" };
+const SPEED_ICON: Record<string, Icon> = { Bullet: Lightning, Blitz: Fire, Rapid: HourglassMedium, Classical: Timer };
 const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
 /** Lichess clock to the usual notation: "180+2" -> "3+2", "45+0" -> "45s+0". */
@@ -24,36 +24,61 @@ function gameUrl(s: PositionSource, sideToMove: "white" | "black"): string {
   return `https://lichess.org/${s.game_id}${sideToMove === "black" ? "/black" : ""}#${s.ply}`;
 }
 
-/** Where the position came from. Shown only after the reveal (the result could hint at the eval). */
-export function SourceBox({ source, sideToMove }: { source: PositionSource; sideToMove: "white" | "black" }) {
+/** One side of the game, Lichess-style: colour dot, side, rating; the winner in bold. */
+function SideRow({ side, elo, won }: { side: "white" | "black"; elo: number; won: boolean }) {
   return (
-    <div className="grid gap-1 rounded-xl border border-line px-4 py-3 text-sm">
-      <span className="text-ink-muted">From a real Lichess game</span>
-      <span>
-        White {source.white_elo} vs Black {source.black_elo}
-        <span className="text-ink-muted">
-          {" "}
-          · {source.speed} {clock(source.time_control)} · {month(source.month)}
-        </span>
-      </span>
-      {source.opening && (
-        <span>
-          {source.opening}
-          <span className="text-ink-muted"> · move {source.move_number}</span>
-        </span>
-      )}
-      <span className="flex items-center justify-between gap-3">
-        <span>{RESULT[source.result] ?? source.result}</span>
+    <li className="flex items-center gap-2">
+      <span
+        aria-hidden
+        className={`size-2.5 rounded-full border border-ink/40 ${side === "white" ? "bg-[#f7f7f2]" : "bg-[#262522]"}`}
+      />
+      <span className={won ? "font-semibold" : ""}>{side === "white" ? "White" : "Black"}</span>
+      <span className="font-mono text-ink-muted tabular-nums">{elo}</span>
+    </li>
+  );
+}
+
+/**
+ * Where the position came from, laid out like Lichess's game-info box.
+ * Shown only after the reveal: ratings and the result could hint at the eval.
+ */
+export function SourceBox({ source, sideToMove }: { source: PositionSource; sideToMove: "white" | "black" }) {
+  const SpeedIcon = SPEED_ICON[source.speed] ?? Timer;
+  const result = source.result === "1-0" ? "white" : source.result === "0-1" ? "black" : null;
+  const resultText = result ? `${source.result} · ${result === "white" ? "White" : "Black"} won` : `${source.result.replace("1/2", "½")} · Draw`;
+
+  return (
+    <section aria-label="Source game" className="grid gap-2.5 border-t border-line pt-3 text-sm">
+      <div className="flex items-center gap-2.5">
+        <SpeedIcon size={22} weight="duotone" className="shrink-0 text-ink-muted" aria-hidden />
+        <div className="grid leading-tight">
+          <span>
+            {clock(source.time_control)} · Rated · {source.speed}
+          </span>
+          <span className="text-xs text-ink-muted">{month(source.month)}</span>
+        </div>
         <a
           href={gameUrl(source, sideToMove)}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center gap-1 font-medium text-accent underline-offset-4 hover:underline"
+          className="ml-auto flex items-center gap-1 text-ink-muted underline-offset-4 hover:text-accent hover:underline"
         >
-          View game
-          <ArrowSquareOut size={16} weight="bold" aria-hidden />
+          lichess.org
+          <ArrowSquareOut size={14} weight="bold" aria-hidden />
         </a>
-      </span>
-    </div>
+      </div>
+
+      <ul className="grid gap-1 pl-[34px]">
+        <SideRow side="white" elo={source.white_elo} won={result === "white"} />
+        <SideRow side="black" elo={source.black_elo} won={result === "black"} />
+      </ul>
+
+      <div className="grid gap-0.5 pl-[34px] text-ink-muted">
+        {source.opening && <span>{source.opening}</span>}
+        <span>
+          Move {source.move_number} · {resultText}
+        </span>
+      </div>
+    </section>
   );
 }

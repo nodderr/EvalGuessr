@@ -39,6 +39,8 @@ export type RoundResult = {
   position: PublicPosition;
   /** Stockfish eval in pawns, White's perspective. */
   evalPawns: number;
+  /** Search depth Stockfish reached for the eval. */
+  depth: number;
   bestMove: string;
   /** Stockfish's main line in SAN, best move first (at least the best move). */
   line: string[];
@@ -222,6 +224,7 @@ export function revealRound(state: MatchState): MatchState {
   const result: RoundResult = {
     position: toPublicPosition(record),
     evalPawns,
+    depth: record.depth_reached,
     bestMove: record.best_move,
     line: record.line?.length ? record.line : [record.best_move],
     source: record.source ?? null,

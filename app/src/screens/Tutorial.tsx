@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { ArrowLeft } from "@phosphor-icons/react";
 import { SCORING, TIME_CONTROLS, formatEval, normalizeGuess, scoreGuess } from "@eval-guess/shared";
-import { ToMove } from "../components/Board";
 import { Button } from "../components/Button";
 import { EvalBoard } from "../components/EvalBoard";
 import { useGuessKeys } from "../components/useGuessKeys";
@@ -28,7 +27,6 @@ export function Tutorial({ onBack, onStart }: { onBack: () => void; onStart: () 
   return (
     <Screen split>
       <div className={BOARD_COLUMN}>
-        <ToMove side="white" className="lg:hidden" />
         <EvalBoard
           fen={SAMPLE.fen}
           orientation="white"
