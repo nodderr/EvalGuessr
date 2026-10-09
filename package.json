@@ -10,5 +10,8 @@
   "scripts": {
     "test": "npm run test --workspaces --if-present",
     "typecheck": "npm run typecheck --workspaces --if-present"
+  },
+  "overrides": {
+    "esbuild": "^0.28.2"
   }
 }

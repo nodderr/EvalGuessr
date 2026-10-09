@@ -39,4 +39,8 @@ export const MATCH = {
    * so a guess auto-submitted by the client at 0:00 still arrives over a slow network.
    */
   deadlineGraceMs: 1500,
+  /** Online only: after a reveal, move to the next position this long after it, even if someone hasn't clicked Next. */
+  revealAutoAdvanceMs: 10_000,
+  /** How long a disconnected player's seat is held before the match is called off. */
+  reconnectGraceMs: 30_000,
 } as const;

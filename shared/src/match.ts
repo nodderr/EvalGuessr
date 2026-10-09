@@ -58,6 +58,8 @@ export type MatchState = {
   /** Players who clicked "Next" after a reveal. */
   readyForNext: string[];
   results: RoundResult[];
+  /** Players who asked for a rematch after the match finished. */
+  rematchVotes: string[];
 };
 
 export type MatchErrorCode =
@@ -68,7 +70,8 @@ export type MatchErrorCode =
   | "NOT_REVEALED"
   | "UNKNOWN_PLAYER"
   | "ALREADY_GUESSED"
-  | "TOO_LATE";
+  | "TOO_LATE"
+  | "NOT_FINISHED";
 
 export class MatchError extends Error {
   constructor(public readonly code: MatchErrorCode, message?: string) {
@@ -100,6 +103,7 @@ export function createMatch(opts: {
     guesses: {},
     readyForNext: [],
     results: [],
+    rematchVotes: [],
   };
 }
 
@@ -237,6 +241,27 @@ export function advance(state: MatchState, now: number): MatchState {
   return beginRound(state, nextIndex, now);
 }
 
+/** A player asked for a rematch. The server starts a new match once every connected player has. */
+export function requestRematch(state: MatchState, playerId: string): MatchState {
+  if (state.phase !== "finished") throw new MatchError("NOT_FINISHED");
+  requirePlayer(state, playerId);
+  if (state.rematchVotes.includes(playerId)) return state;
+  return { ...state, rematchVotes: [...state.rematchVotes, playerId] };
+}
+
+export function everyoneWantsRematch(state: MatchState): boolean {
+  return state.players.filter((p) => p.connected).every((p) => state.rematchVotes.includes(p.id));
+}
+
+/**
+ * A fresh match for the same players (same code, new positions), started immediately.
+ * Used for rematches; ids and names carry over so seats and rejoin tokens stay valid.
+ */
+export function rematch(state: MatchState, positions: PositionRecord[], now: number): MatchState {
+  const fresh = createMatch({ id: state.id, mode: state.mode, timeControl: state.timeControl, positions });
+  return startMatch({ ...fresh, players: state.players }, now);
+}
+
 export function totals(state: MatchState): Record<string, number> {
   const out: Record<string, number> = Object.fromEntries(state.players.map((p) => [p.id, 0]));
   for (const round of state.results) {
@@ -259,7 +284,7 @@ export type MatchView = {
   /** The viewing player's id. */
   you: string;
   maxPlayers: number;
-  players: (Player & { score: number; hasGuessed: boolean; readyForNext: boolean })[];
+  players: (Player & { score: number; hasGuessed: boolean; readyForNext: boolean; wantsRematch: boolean })[];
   roundIndex: number;
   totalRounds: number;
   /** Current position without its eval. Null in the lobby and once finished. */
@@ -290,6 +315,7 @@ export function viewFor(state: MatchState, playerId: string, now: number): Match
       score: scores[p.id] ?? 0,
       hasGuessed: p.id in state.guesses,
       readyForNext: state.readyForNext.includes(p.id),
+      wantsRematch: state.rematchVotes.includes(p.id),
     })),
     roundIndex: state.roundIndex,
     totalRounds: state.positions.length,

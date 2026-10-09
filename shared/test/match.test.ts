@@ -6,6 +6,10 @@ import {
   createMatch,
   markReady,
   pickPositions,
+  rematch,
+  requestRematch,
+  everyoneWantsRematch,
+  setConnected,
   revealRound,
   shouldReveal,
   startMatch,
@@ -142,5 +146,44 @@ describe("viewFor (what a client is allowed to see)", () => {
     expect(reveal.evalPawns).toBe(1);
     expect(reveal.byPlayer.alice!.guess).toBe(2.3);
     expect(reveal.byPlayer.bob!.guess).toBe(-1);
+  });
+});
+
+describe("rematch", () => {
+  function finished(): MatchState {
+    let m = onlineMatch();
+    for (let round = 0; round < 5; round++) {
+      m = revealRound(submitGuess(submitGuess(m, "alice", 0, T0), "bob", 0, T0));
+      m = markReady(markReady(m, "alice", T0), "bob", T0);
+    }
+    return m;
+  }
+
+  it("is only allowed once the match is finished", () => {
+    expect(errorCode(() => requestRematch(onlineMatch(), "alice"))).toBe("NOT_FINISHED");
+  });
+
+  it("needs every connected player", () => {
+    let m = requestRematch(finished(), "alice");
+    expect(everyoneWantsRematch(m)).toBe(false);
+    expect(viewFor(m, "bob", T0).players.find((p) => p.id === "alice")!.wantsRematch).toBe(true);
+    m = requestRematch(m, "bob");
+    expect(everyoneWantsRematch(m)).toBe(true);
+  });
+
+  it("ignores disconnected players", () => {
+    const m = requestRematch(setConnected(finished(), "bob", false), "alice");
+    expect(everyoneWantsRematch(m)).toBe(true);
+  });
+
+  it("starts a fresh match with the same players and code", () => {
+    const m = rematch(finished(), POOL.slice(1, 6), T0 + 99);
+    expect(m.id).toBe("ABCD");
+    expect(m.phase).toBe("guessing");
+    expect(m.roundIndex).toBe(0);
+    expect(m.results).toHaveLength(0);
+    expect(m.rematchVotes).toHaveLength(0);
+    expect(m.players.map((p) => p.id)).toEqual(["alice", "bob"]);
+    expect(totals(m)).toEqual({ alice: 0, bob: 0 });
   });
 });
