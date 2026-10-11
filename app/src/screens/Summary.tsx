@@ -1,6 +1,6 @@
-import { formatEval, SCORING, type MatchView } from "@eval-guess/shared";
+import { SCORING, type MatchView } from "@eval-guess/shared";
 import { Button } from "../components/Button";
-import { TONE_CLASS, resultMark } from "../components/resultMark";
+import { RoundCard } from "../components/RoundCard";
 import { Screen } from "./Layout";
 
 type Props = {
@@ -10,6 +10,11 @@ type Props = {
   onHome: () => void;
 };
 
+/**
+ * End of a match: the result and actions at the top (so Rematch never needs a
+ * scroll), then every position as a board with its eval, the guesses and a
+ * Lichess link.
+ */
 export function Summary({ view, onPlayAgain, onHome }: Props) {
   const endless = view.mode === "endless";
   const played = view.results.length;
@@ -35,83 +40,60 @@ export function Summary({ view, onPlayAgain, onHome }: Props) {
 
   return (
     <Screen>
-      <div className="mx-auto grid max-w-xl gap-8 pt-2 md:pt-10">
-        <div className="grid gap-2">
-          <h1 className="text-2xl font-semibold tracking-tight">{headline}</h1>
-          <p className="font-mono text-5xl font-semibold tabular-nums">
-            {me.score}
-            <span className="text-2xl text-ink-muted"> / {maxTotal}</span>
-          </p>
-          {multiplayer && (
-            <p className="text-ink-muted">
-              {ranked
-                .filter((p) => p.id !== view.you)
-                .map((p) => `${p.name}: ${p.score}`)
-                .join(", ")}
+      <div className="grid gap-8 pt-2 md:pt-8">
+        <header className="grid gap-6 md:grid-cols-[minmax(0,1fr)_auto] md:items-end">
+          <div className="grid gap-2">
+            <h1 className="text-2xl font-semibold tracking-tight">{headline}</h1>
+            <p className="font-mono text-5xl font-semibold tabular-nums">
+              {me.score}
+              <span className="text-2xl text-ink-muted"> / {maxTotal}</span>
             </p>
-          )}
-          {endless && played > 0 && (
-            <p className="text-ink-muted">Average {Math.round(me.score / played)} per position</p>
-          )}
-        </div>
-
-        <ol className="grid gap-2">
-          {view.results.map((round, i) => {
-            const mine = round.byPlayer[view.you]!;
-            const mark = resultMark(mine);
-            return (
-              <li key={round.position.id} className="grid grid-cols-[auto_1fr_auto] items-center gap-x-4 rounded-xl bg-surface-raised px-4 py-3">
-                <span className="font-mono text-ink-muted">{i + 1}</span>
-                <div className="grid">
-                  <span>
-                    Stockfish <span className="font-mono font-semibold">{formatEval(round.evalPawns)}</span>
-                    <span className="text-ink-muted">
-                      {", you "}
-                      {mine.guess === null ? "ran out of time" : <span className="font-mono">{formatEval(mine.guess)}</span>}
-                      {others.map((p) => {
-                        const theirs = round.byPlayer[p.id];
-                        if (!theirs) return null;
-                        return (
-                          <span key={p.id}>
-                            {`, ${p.name} `}
-                            {theirs.guess === null ? "timed out" : <span className="font-mono">{formatEval(theirs.guess)}</span>}
-                          </span>
-                        );
-                      })}
-                    </span>
-                  </span>
-                  <span className={`text-sm font-semibold ${TONE_CLASS[mark.tone]}`}>
-                    {mark.label}
-                    {mine.gap !== null && <span className="font-normal text-ink-muted">, off by {mine.gap.toFixed(1)}</span>}
-                  </span>
-                </div>
-                <span className="font-mono text-lg font-semibold tabular-nums">{mine.points}</span>
-              </li>
-            );
-          })}
-        </ol>
-
-        <div className="grid gap-3">
-          <div className="grid gap-3 sm:grid-cols-2">
-            <Button onClick={onPlayAgain} disabled={multiplayer && (me.wantsRematch || opponentGone)}>
-              {!multiplayer ? "Play again" : me.wantsRematch ? "Requested" : "Rematch"}
-            </Button>
-            <Button variant="secondary" onClick={onHome}>
-              Home
-            </Button>
+            {multiplayer && (
+              <p className="text-ink-muted">
+                {ranked
+                  .filter((p) => p.id !== view.you)
+                  .map((p) => `${p.name}: ${p.score}`)
+                  .join(", ")}
+              </p>
+            )}
+            {endless && played > 0 && (
+              <p className="text-ink-muted">Average {Math.round(me.score / played)} per position</p>
+            )}
           </div>
-          {multiplayer && (
-            <p className="text-center text-sm text-ink-muted" aria-live="polite">
-              {opponentGone
-                ? "Opponent disconnected."
-                : me.wantsRematch
-                  ? `Waiting for ${others.filter((p) => !p.wantsRematch).map((p) => p.name).join(", ")}.`
-                  : askedBy.length > 0
-                    ? `${askedBy.map((p) => p.name).join(", ")} wants a rematch.`
-                    : null}
-            </p>
-          )}
-        </div>
+
+          <div className="grid gap-3 md:w-80">
+            <div className="grid grid-cols-2 gap-3">
+              <Button onClick={onPlayAgain} disabled={multiplayer && (me.wantsRematch || opponentGone)}>
+                {!multiplayer ? "Play again" : me.wantsRematch ? "Requested" : "Rematch"}
+              </Button>
+              <Button variant="secondary" onClick={onHome}>
+                Home
+              </Button>
+            </div>
+            {multiplayer && (
+              <p className="min-h-5 text-center text-sm text-ink-muted" aria-live="polite">
+                {opponentGone
+                  ? "Opponent disconnected."
+                  : me.wantsRematch
+                    ? `Waiting for ${others.filter((p) => !p.wantsRematch).map((p) => p.name).join(", ")}.`
+                    : askedBy.length > 0
+                      ? `${askedBy.map((p) => p.name).join(", ")} wants a rematch.`
+                      : null}
+              </p>
+            )}
+          </div>
+        </header>
+
+        {played === 0 ? (
+          <p className="text-ink-muted">No positions played.</p>
+        ) : (
+          <ol aria-label="Positions" className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {view.results.map((round, i) => (
+              // Endless can repeat a position, so the index is the key.
+              <RoundCard key={i} round={round} index={i} players={view.players} you={view.you} />
+            ))}
+          </ol>
+        )}
       </div>
     </Screen>
   );

@@ -59,6 +59,19 @@ export function MatchScreen({ view, client, onQuit }: Props) {
   const secondsLeft = useCountdown(view.roundDeadline, view.serverNow);
   const locked = me.hasGuessed || view.yourGuess !== null;
 
+  // Online: an opponent's lock-in halves our remaining time, which arrives as an earlier
+  // deadline. Count the cuts so the clock can flash and mark itself.
+  const [timeCuts, setTimeCuts] = useState(0);
+  const lastDeadline = useRef(view.roundDeadline);
+  useEffect(() => {
+    const prev = lastDeadline.current;
+    lastDeadline.current = view.roundDeadline;
+    // Our own lock-in also moves the shared deadline, but then we are already locked.
+    if (prev !== null && view.roundDeadline !== null && view.roundDeadline < prev && !locked) {
+      setTimeCuts((n) => n + 1);
+    }
+  }, [view.roundDeadline, locked]);
+
   const lockIn = async (value: number) => {
     setError(null);
     try {
@@ -112,7 +125,7 @@ export function MatchScreen({ view, client, onQuit }: Props) {
       </div>
 
       <aside className={PANEL.root} aria-label="Match">
-        <PanelHeader view={view} secondsLeft={revealed ? null : secondsLeft} onQuit={onQuit} />
+        <PanelHeader view={view} secondsLeft={revealed ? null : secondsLeft} timeCuts={timeCuts} onQuit={onQuit} />
         <PlayerRows view={view} />
 
         <div className={PANEL.body}>

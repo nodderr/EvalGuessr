@@ -180,7 +180,10 @@ function beginRound(state: MatchState, roundIndex: number, now: number): MatchSt
   };
 }
 
-/** Lock in a guess. Guesses are final: a player cannot change a locked guess. */
+/**
+ * Lock in a guess. Guesses are final: a player cannot change a locked guess.
+ * Online, it also cuts the time left for everyone still guessing (see deadlineAfterLockIn).
+ */
 export function submitGuess(
   state: MatchState,
   playerId: string,
@@ -193,7 +196,21 @@ export function submitGuess(
   if (state.roundDeadline !== null && now > state.roundDeadline + MATCH.deadlineGraceMs) {
     throw new MatchError("TOO_LATE");
   }
-  return { ...state, guesses: { ...state.guesses, [playerId]: normalizeGuess(guessPawns) } };
+  const guesses = { ...state.guesses, [playerId]: normalizeGuess(guessPawns) };
+  return { ...state, guesses, roundDeadline: deadlineAfterLockIn(state, guesses, now) };
+}
+
+/**
+ * Online: a lock-in leaves everyone still guessing MATCH.lockInTimeFactor of their
+ * remaining time. The round has one shared deadline, and it only matters to players
+ * who haven't guessed, so moving it earlier cuts exactly their time. It never moves
+ * later, e.g. for a lock-in during the grace period after the deadline.
+ */
+function deadlineAfterLockIn(state: MatchState, guesses: Record<string, number>, now: number): number | null {
+  const deadline = state.roundDeadline;
+  if (state.mode !== "online" || deadline === null) return deadline;
+  if (state.players.every((p) => p.id in guesses)) return deadline; // the round is revealed right away
+  return Math.min(deadline, Math.round(now + (deadline - now) * MATCH.lockInTimeFactor));
 }
 
 /** True once every player has guessed, or the deadline (plus grace) has passed. */

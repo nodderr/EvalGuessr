@@ -39,6 +39,11 @@ export const MATCH = {
    * so a guess auto-submitted by the client at 0:00 still arrives over a slow network.
    */
   deadlineGraceMs: 1500,
+  /**
+   * Online only: when a player locks in, everyone still guessing keeps this share
+   * of their remaining time (0.5 halves it), so locking in early puts pressure on the opponent.
+   */
+  lockInTimeFactor: 0.5,
   /** Online only: after a reveal, move to the next position this long after it, even if someone hasn't clicked Next. */
   revealAutoAdvanceMs: 10_000,
   /**

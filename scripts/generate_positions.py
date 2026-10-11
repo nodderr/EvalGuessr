@@ -16,7 +16,9 @@ still gets --time seconds; fewer threads per position means slightly lower
 depth, in exchange for a much faster run.
 
 Evals are recorded in centipawns from White's perspective (positive = White
-better). Positions where Stockfish reports a forced mate are skipped.
+better). Positions where Stockfish reports a forced mate are skipped, and so
+are unstable ones: if the eval still moved more than --max-swing pawns over the
+last third of the search, a deeper search would likely change the answer.
 Press Ctrl+C at any time to stop and save the positions kept so far.
 """
 
@@ -24,6 +26,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import math
 import os
 import queue
 import sys
@@ -63,6 +66,9 @@ def parse_args() -> argparse.Namespace:
                         help="With --balance: |eval| up to this many pawns counts as near equal (default: 1.0).")
     parser.add_argument("--max-eval", type=float, default=None,
                         help="Skip positions more lopsided than this many pawns, e.g. 6 (default: no limit).")
+    parser.add_argument("--max-swing", type=float, default=0.7,
+                        help="Skip positions whose eval moved more than this many pawns between two-thirds "
+                             "of the final depth and the end of the search (default: 0.7; 0 turns the check off).")
     parser.add_argument("--verbose", action="store_true", help="Also print every skipped position.")
     args = parser.parse_args()
     args.workers = max(1, args.workers)
@@ -124,18 +130,42 @@ def pv_to_san(board: chess.Board, pv: list[chess.Move], plies: int) -> list[str]
     return line
 
 
+def late_swing(scores: dict[int, chess.engine.PovScore], final_depth: int, final_cp: int) -> float | None:
+    """
+    How far the eval moved (centipawns) between two-thirds of the final depth and
+    the end of the search. A mate score at that earlier depth counts as an
+    infinite swing; None if no earlier depth was reported.
+    """
+    earlier = [d for d in scores if d <= final_depth * 2 // 3]
+    if not earlier:
+        return None
+    ref = scores[max(earlier)].white()
+    return math.inf if ref.is_mate() else abs(final_cp - ref.score())
+
+
 def analyse(engine: chess.engine.SimpleEngine, board: chess.Board, seconds: float, line_plies: int) -> dict | None:
-    """Analyse one position. Returns None if Stockfish sees a forced mate."""
-    info = engine.analyse(board, chess.engine.Limit(time=seconds))
+    """
+    Analyse one position. Returns None if Stockfish sees a forced mate.
+    The result's "swing_cp" (see late_swing) is for filtering only, not saved.
+    """
+    scores: dict[int, chess.engine.PovScore] = {}  # depth -> exact score at that depth
+    with engine.analysis(board, chess.engine.Limit(time=seconds)) as search:
+        for info in search:
+            # Fail-high/low bounds are not real evals, so they don't count as a depth's score.
+            if "score" in info and "depth" in info and not info.get("lowerbound") and not info.get("upperbound"):
+                scores[info["depth"]] = info["score"]
+        info = search.info  # the final, merged info (what engine.analyse returns)
     score = info["score"].white()  # always from White's perspective
     if score.is_mate():
         return None
     line = pv_to_san(board, info.get("pv", []), line_plies)
+    depth = info.get("depth")
     return {
         "eval_cp": score.score(),
-        "depth_reached": info.get("depth"),
+        "depth_reached": depth,
         "best_move": line[0] if line else None,  # SAN, e.g. "Nf3"
         "line": line,  # Stockfish's main line from this position, SAN, best move first
+        "swing_cp": late_swing(scores, depth, score.score()) if depth else None,
     }
 
 
@@ -192,7 +222,7 @@ class Progress:
         self.analysed = 0
         self.kept = 0
         self.groups = {"equal": 0, "white": 0, "black": 0}
-        self.skipped = {"invalid": 0, "duplicate": 0, "mate": 0, "lopsided": 0, "group full": 0}
+        self.skipped = {"invalid": 0, "duplicate": 0, "mate": 0, "lopsided": 0, "unstable": 0, "group full": 0}
         self.started = time.time()
         self.tty = sys.stdout.isatty()
         self._width = 0
@@ -258,6 +288,7 @@ def main() -> int:
     quota = -(-target // 3) if args.balance else None
     equal_cp = round(args.equal_window * 100)
     max_cp = round(args.max_eval * 100) if args.max_eval is not None else None
+    max_swing_cp = round(args.max_swing * 100) if args.max_swing > 0 else None
 
     progress = Progress(len(inputs), target, quota)
 
@@ -281,7 +312,9 @@ def main() -> int:
     print(f"Input: {len(inputs)} positions in {args.input.name} ({len(jobs)} after removing invalid/duplicates).")
     print(f"Target: {target} positions"
           + (f", balanced {quota} per group (near equal = within +/-{args.equal_window:g})" if quota else "")
-          + (f", skipping evals beyond +/-{args.max_eval:g}" if max_cp is not None else "") + ".")
+          + (f", skipping evals beyond +/-{args.max_eval:g}" if max_cp is not None else "")
+          + (f", skipping evals that moved more than {args.max_swing:g} late in the search"
+             if max_swing_cp is not None else "") + ".")
     print(f"Output: {args.output}   (Ctrl+C stops and saves what's kept so far)\n")
 
     positions: list[dict] = []
@@ -303,6 +336,13 @@ def main() -> int:
             progress.skipped["lopsided"] += 1
             if args.verbose:
                 progress.log(f"  skip  #{n}: {cp / 100:+.2f}, beyond +/-{args.max_eval:g}")
+            return
+        swing = result.pop("swing_cp")
+        if max_swing_cp is not None and swing is not None and swing > max_swing_cp:
+            progress.skipped["unstable"] += 1
+            if args.verbose:
+                moved = "was a mate score" if math.isinf(swing) else f"moved {swing / 100:.2f}"
+                progress.log(f"  skip  #{n}: {cp / 100:+.2f}, eval {moved} late in the search")
             return
         group = "equal" if abs(cp) <= equal_cp else ("white" if cp > 0 else "black")
         if quota is not None and progress.groups[group] >= quota:

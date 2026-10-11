@@ -56,6 +56,7 @@ export function Tutorial({ onBack, onStart }: { onBack: () => void; onStart: () 
                 Bullet {TIME_CONTROLS.bullet}s, blitz {TIME_CONTROLS.blitz}s, rapid {TIME_CONTROLS.rapid}s per position.
                 When time runs out, your current guess counts. Endless has no clock.
               </li>
+              <li>In 1v1, locking in halves your opponent's remaining time.</li>
               <li>
                 Within {SCORING.perfectWindow.toFixed(1)} pawn: 100 points. {SCORING.zeroAt.toFixed(1)} or more off: 0.
               </li>

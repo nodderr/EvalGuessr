@@ -68,6 +68,41 @@ body {
   font-family: var(--font-sans);
 }
 
+/*
+ * Captured black pieces (MaterialBar) are solid black, which vanishes on the dark
+ * background: trace them with a thin light outline that follows the piece's shape.
+ */
+@media (prefers-color-scheme: dark) {
+  .piece-outline {
+    filter: drop-shadow(1px 0 0 rgb(236 237 232 / 0.7)) drop-shadow(-1px 0 0 rgb(236 237 232 / 0.7))
+      drop-shadow(0 1px 0 rgb(236 237 232 / 0.7)) drop-shadow(0 -1px 0 rgb(236 237 232 / 0.7));
+  }
+}
+
+/* 1v1: an opponent's lock-in halved your clock (panel.tsx). */
+@keyframes clock-cut {
+  0%,
+  35% {
+    background-color: var(--bad);
+    color: #fff;
+    transform: scale(1.1);
+  }
+}
+.clock-cut {
+  animation: clock-cut 1.2s ease-out;
+}
+
+/* 1v1: the opponent's avatar when they lock in. */
+@keyframes lock-pop {
+  40% {
+    transform: scale(1.18);
+    box-shadow: 0 0 0 4px color-mix(in srgb, var(--opponent) 35%, transparent);
+  }
+}
+.lock-pop {
+  animation: lock-pop 0.6s ease-out;
+}
+
 /* Tailwind v4 resets buttons to the default arrow cursor; show the hand on anything clickable. */
 @layer base {
   button:not(:disabled),

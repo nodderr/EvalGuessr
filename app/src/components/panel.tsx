@@ -15,20 +15,33 @@ function modeLabel(view: MatchView): string {
   return `1v1 · ${tc}`;
 }
 
-/** chess.com-style clock box: m:ss, red in the last 5 seconds. */
-export function Clock({ seconds }: { seconds: number }) {
+/**
+ * chess.com-style clock box: m:ss, red in the last 5 seconds. `cuts` counts how often
+ * an opponent's lock-in halved this clock this round: each one flashes it, and "½" stays.
+ */
+export function Clock({ seconds, cuts = 0 }: { seconds: number; cuts?: number }) {
   const s = Math.ceil(seconds);
   const urgent = s <= 5;
   return (
     <div
+      // A new key per cut restarts the flash animation.
+      key={cuts}
       role="timer"
-      aria-label={`${s} seconds left`}
-      className={`flex items-center gap-1.5 rounded-md px-2.5 py-1 font-mono text-xl font-semibold tabular-nums ${
+      aria-label={`${s} seconds left${cuts > 0 ? ", halved" : ""}`}
+      className={`relative flex items-center gap-1.5 rounded-md px-2.5 py-1 font-mono text-xl font-semibold tabular-nums ${
         urgent ? "bg-bad text-white" : "bg-surface text-ink lg:bg-surface"
-      }`}
+      } ${cuts > 0 ? "clock-cut" : ""}`}
     >
       <Timer size={18} weight="bold" aria-hidden />
       {Math.floor(s / 60)}:{String(s % 60).padStart(2, "0")}
+      {cuts > 0 && (
+        <span
+          aria-hidden
+          className="absolute -top-2 -right-2 grid size-5 place-items-center rounded-full bg-bad font-sans text-xs font-bold text-white ring-2 ring-surface-raised"
+        >
+          ½
+        </span>
+      )}
     </div>
   );
 }
@@ -37,10 +50,13 @@ export function Clock({ seconds }: { seconds: number }) {
 export function PanelHeader({
   view,
   secondsLeft,
+  timeCuts = 0,
   onQuit,
 }: {
   view: MatchView;
   secondsLeft: number | null;
+  /** Times an opponent's lock-in halved our clock this round. */
+  timeCuts?: number;
   onQuit: () => void;
 }) {
   const me = view.players.find((p) => p.id === view.you)!;
@@ -66,7 +82,7 @@ export function PanelHeader({
             {view.mode === "online" && <span className="font-mono"> · {view.id}</span>}
           </span>
         </div>
-        <div className="ml-auto">{secondsLeft !== null && <Clock seconds={secondsLeft} />}</div>
+        <div className="ml-auto">{secondsLeft !== null && <Clock seconds={secondsLeft} cuts={timeCuts} />}</div>
       </div>
 
       {view.totalRounds !== null ? (
@@ -105,13 +121,16 @@ export function PlayerRows({ view }: { view: MatchView }) {
             : p.readyForNext
               ? ["Ready", "text-good"]
               : ["Reviewing", "text-ink-muted"];
+        // An opponent's lock-in cuts your clock, so their avatar pops when it happens.
+        const popped = !isYou && view.phase === "guessing" && p.hasGuessed;
         return (
           <li key={p.id} className="flex items-center gap-3 py-1">
             <span
+              key={popped ? "locked" : "guessing"}
               aria-hidden
               className={`grid size-8 shrink-0 place-items-center rounded-md text-sm font-bold text-white ${
                 isYou ? "bg-you" : "bg-opponent"
-              }`}
+              } ${popped ? "lock-pop" : ""}`}
             >
               {p.name.trim()[0]?.toUpperCase() ?? "?"}
             </span>

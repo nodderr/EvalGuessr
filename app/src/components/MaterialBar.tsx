@@ -37,7 +37,12 @@ export function MaterialBar({ side, material, toMove }: Props) {
           return (
             <span key={gi} className="flex shrink-0">
               {Array.from({ length: n }, (_, i) => (
-                <span key={i} className={i > 0 ? "-ml-2.5" : ""} aria-hidden>
+                <span
+                  key={i}
+                  // Black pieces get a light outline in dark mode (index.css).
+                  className={`${i > 0 ? "-ml-2.5" : ""} ${capturedColor === "b" ? "piece-outline" : ""}`}
+                  aria-hidden
+                >
                   {Piece?.({ svgStyle: { width: 18, height: 18, display: "block" } })}
                 </span>
               ))}

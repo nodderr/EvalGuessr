@@ -42,7 +42,10 @@ export interface ClientToServerEvents {
   "match:join": (req: { matchId: string; name: string }, ack: (res: Ack<Seat>) => void) => void;
   /** Re-attach to a seat after a dropped connection or page reload. */
   "match:rejoin": (req: Seat, ack: (res: Ack<Seat>) => void) => void;
-  /** Lock in a guess (pawns, White's perspective). Final: cannot be changed. */
+  /**
+   * Lock in a guess (pawns, White's perspective). Final: cannot be changed.
+   * Online, it halves the time left for players still guessing (a new roundDeadline in the next view).
+   */
   "guess:submit": (req: { guess: number }, ack: (res: Ack<null>) => void) => void;
   /** "Next position" after a reveal. */
   "round:ready": (ack: (res: Ack<null>) => void) => void;

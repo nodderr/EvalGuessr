@@ -116,14 +116,24 @@ describe("the clock", () => {
   it("closes the round at the deadline and scores a missing guess as 0", () => {
     const { a, b } = startOnline("bullet");
     const exact = evalOf(lastView("conn-a").position!.id);
-    rooms.submitGuess(a, exact);
-    vi.advanceTimersByTime(TIME_CONTROLS.bullet * 1000);
+    rooms.submitGuess(a, exact); // halves Ben's time
+    vi.advanceTimersByTime((TIME_CONTROLS.bullet * 1000) / 2);
     expect(lastView("conn-a").phase).toBe("guessing"); // still within the grace period
     vi.advanceTimersByTime(MATCH.deadlineGraceMs + 10);
     const view = lastView("conn-a");
     expect(view.phase).toBe("revealed");
     expect(view.results[0]!.byPlayer[a.playerId]!.points).toBe(100);
     expect(view.results[0]!.byPlayer[b.playerId]!.guess).toBeNull();
+  });
+
+  it("halves the opponent's clock on a lock-in and closes the round at the new deadline", () => {
+    const { a } = startOnline("blitz");
+    const original = lastView("conn-b").roundDeadline!;
+    vi.advanceTimersByTime(10_000);
+    rooms.submitGuess(a, 0);
+    expect(lastView("conn-b").roundDeadline).toBe(original - 10_000); // 20s left -> 10s
+    vi.advanceTimersByTime(10_000 + MATCH.deadlineGraceMs + 10);
+    expect(lastView("conn-b").phase).toBe("revealed"); // well before the original deadline
   });
 
   it("auto-advances online matches 10s after a reveal", () => {

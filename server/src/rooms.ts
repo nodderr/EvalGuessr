@@ -208,9 +208,13 @@ export class RoomManager {
 
   /** The single place state changes: store it, re-arm the clock, tell everyone. */
   private update(room: Room, state: MatchState): void {
-    const phaseChanged = state.phase !== room.state.phase || state.roundIndex !== room.state.roundIndex;
+    // A lock-in can move the deadline earlier without changing the phase.
+    const clockChanged =
+      state.phase !== room.state.phase ||
+      state.roundIndex !== room.state.roundIndex ||
+      state.roundDeadline !== room.state.roundDeadline;
     room.state = state;
-    if (phaseChanged || room.phaseTimer === null) this.armPhaseTimer(room);
+    if (clockChanged || room.phaseTimer === null) this.armPhaseTimer(room);
     this.broadcast(room);
   }
 

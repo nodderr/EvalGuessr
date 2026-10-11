@@ -1,5 +1,6 @@
 import { ArrowSquareOut, Fire, HourglassMedium, Lightning, Timer, type Icon } from "@phosphor-icons/react";
 import type { PositionSource } from "@eval-guess/shared";
+import { gameUrl } from "./lichess";
 
 const SPEED_ICON: Record<string, Icon> = { Bullet: Lightning, Blitz: Fire, Rapid: HourglassMedium, Classical: Timer };
 const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
@@ -17,11 +18,6 @@ function month(m: string): string {
   const [y, mo] = m.split("-");
   const name = MONTHS[Number(mo) - 1];
   return name && y ? `${name} ${y}` : m;
-}
-
-/** Link to the exact move on Lichess, from the side to move's point of view. */
-function gameUrl(s: PositionSource, sideToMove: "white" | "black"): string {
-  return `https://lichess.org/${s.game_id}${sideToMove === "black" ? "/black" : ""}#${s.ply}`;
 }
 
 /** One side of the game, Lichess-style: colour dot, side, rating; the winner in bold. */

@@ -105,8 +105,9 @@ describe("match lifecycle", () => {
 
   it("times out a round and gives 0 to a player who never guessed", () => {
     let m = submitGuess(onlineMatch(), "alice", 1, T0 + 1000);
-    const afterDeadline = T0 + 30_000 + MATCH.deadlineGraceMs + 1;
-    expect(shouldReveal(m, T0 + 30_000)).toBe(false); // still inside grace
+    const deadline = m.roundDeadline!; // already cut by alice's lock-in
+    const afterDeadline = deadline + MATCH.deadlineGraceMs + 1;
+    expect(shouldReveal(m, deadline)).toBe(false); // still inside grace
     expect(shouldReveal(m, afterDeadline)).toBe(true);
     expect(errorCode(() => submitGuess(m, "bob", 1, afterDeadline))).toBe("TOO_LATE");
 
@@ -128,6 +129,32 @@ describe("match lifecycle", () => {
     }
     expect(m.phase).toBe("finished");
     expect(m.results).toHaveLength(5);
+  });
+});
+
+describe("lock-in time cut", () => {
+  it("halves the time left for a player still guessing", () => {
+    const m = submitGuess(onlineMatch(), "alice", 0, T0 + 10_000); // 20s of blitz's 30s left
+    expect(m.roundDeadline).toBe(T0 + 20_000); // bob keeps 10s
+    expect(viewFor(m, "bob", T0 + 10_000).roundDeadline).toBe(T0 + 20_000);
+  });
+
+  it("never extends the deadline for a lock-in during the grace period", () => {
+    const m = submitGuess(onlineMatch(), "alice", 0, T0 + 30_000 + 500);
+    expect(m.roundDeadline).toBe(T0 + 30_000);
+  });
+
+  it("leaves the clock alone when the last player locks in", () => {
+    let m = submitGuess(onlineMatch(), "alice", 0, T0 + 10_000);
+    m = submitGuess(m, "bob", 0, T0 + 12_000);
+    expect(m.roundDeadline).toBe(T0 + 20_000);
+    expect(shouldReveal(m, T0 + 12_000)).toBe(true);
+  });
+
+  it("does not apply to practice", () => {
+    let m = createMatch({ id: "P", mode: "practice", timeControl: "blitz", positions: POOL.slice(0, 5) });
+    m = startMatch(addPlayer(m, { id: "solo", name: "Solo" }), T0);
+    expect(submitGuess(m, "solo", 0, T0 + 10_000).roundDeadline).toBe(T0 + 30_000);
   });
 });
 

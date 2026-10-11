@@ -40,6 +40,8 @@ def parse_args() -> argparse.Namespace:
     p.add_argument("--threads", type=int, default=None,
                    help=f"Stockfish threads per worker (default: {CPUS - 1} spread over the workers).")
     p.add_argument("--max-eval", type=float, default=None, help="Skip evals beyond ±this many pawns, e.g. 6.")
+    p.add_argument("--max-swing", type=float, default=None,
+                   help="Skip evals that moved more than this many pawns late in the search (default: 0.7; 0 = off).")
     p.add_argument("--no-balance", action="store_true", help="Don't balance near-equal / White / Black.")
     p.add_argument("--skip-fetch", action="store_true", help="Reuse the existing lichess_candidates.jsonl.")
     return p.parse_args()
@@ -72,6 +74,8 @@ def main() -> None:
         analyse += ["--threads", str(args.threads)]
     if args.max_eval is not None:
         analyse += ["--max-eval", str(args.max_eval)]
+    if args.max_swing is not None:
+        analyse += ["--max-swing", str(args.max_swing)]
     if not args.no_balance:
         analyse.append("--balance")
     run("Step 2/2: analyse with Stockfish", analyse)
